@@ -41,6 +41,11 @@ PATTERNS: list[tuple[str, str]] = [
     # 6. final catch-all for the bare user name (ls -l owner column, pytest temp dirs such as
     #    pytest-of-<name>, claude project-folder names, paths that start at "Users")
     ("zouhair", "USER"),
+    # 7. machine hostname (pytest writes it into junit.xml) and an unrelated project folder that
+    #    one model listed with `find /`
+    ("DESKTOP-FS733RS", "HOST"),
+    ("C--Users-USER-Documents-psp/5f873398-6a61-42ff-9e14-5f02ddffa837", "OTHER-PROJECT/SESSION"),
+    ("C--Users-USER-Documents-psp", "OTHER-PROJECT"),
 ]
 
 SCAN = ["agents", "results", "harness", "REPORT.md", "README.md"]

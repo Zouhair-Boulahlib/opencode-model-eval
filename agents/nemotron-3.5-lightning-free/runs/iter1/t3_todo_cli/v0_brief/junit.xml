@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="16" skipped="0" tests="16" time="5.845" timestamp="2026-11-05T20:43:23.903178+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_todo" name="test_list_empty" time="0.196"><failure message="AssertionError: assert 'No tasks found.' == 'No tasks'&#10;  &#10;  - No tasks&#10;  + No tasks found.">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-46/test_list_empty0')
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="16" skipped="0" tests="16" time="5.845" timestamp="2026-11-05T20:43:23.903178+00:00" hostname="HOST"><testcase classname="test_hidden_todo" name="test_list_empty" time="0.196"><failure message="AssertionError: assert 'No tasks found.' == 'No tasks'&#10;  &#10;  - No tasks&#10;  + No tasks found.">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-46/test_list_empty0')
 
     def test_list_empty(tmp_path):
         r = run(tmp_path, "list")
