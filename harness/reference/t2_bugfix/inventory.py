@@ -1,0 +1,56 @@
+"""Simple in-memory inventory manager."""
+from dataclasses import dataclass, field
+
+
+@dataclass
+class Item:
+    sku: str
+    name: str
+    qty: int
+    price: float
+    tags: list = field(default_factory=list)
+
+
+class Inventory:
+    def __init__(self, low_stock_threshold: int = 5):
+        self.items: dict[str, Item] = {}
+        self.low_stock_threshold = low_stock_threshold
+
+    def add(self, sku, name, qty, price, tags=None):
+        if qty <= 0:
+            raise ValueError("qty must be positive")
+        if sku in self.items:
+            self.items[sku].qty += qty
+        else:
+            self.items[sku] = Item(sku, name, qty, price, list(tags) if tags else [])
+        return self.items[sku]
+
+    def remove(self, sku, qty):
+        if sku not in self.items:
+            raise KeyError(sku)
+        item = self.items[sku]
+        if qty > item.qty:
+            raise ValueError("insufficient stock")
+        item.qty -= qty
+        return item
+
+    def get(self, sku):
+        return self.items.get(sku)
+
+    def low_stock(self):
+        return sorted(s for s, i in self.items.items() if i.qty <= self.low_stock_threshold)
+
+    def total_value(self):
+        return round(sum(i.qty * i.price for i in self.items.values()), 2)
+
+    def search(self, term):
+        t = term.lower()
+        return sorted(
+            (i for i in self.items.values() if t in i.name.lower() or any(t in tag.lower() for tag in i.tags)),
+            key=lambda i: i.sku,
+        )
+
+    def page(self, number, size):
+        ordered = sorted(self.items.values(), key=lambda i: i.sku)
+        start = (number - 1) * size
+        return ordered[start:start + size]

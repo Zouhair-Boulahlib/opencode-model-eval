@@ -1,0 +1,13 @@
+{
+  "id": "t3_todo_cli",
+  "title": "Build a todo CLI with JSON persistence",
+  "skill": "agentic build / exact I-O contract",
+  "protected": [],
+  "hidden_tests": [
+    "test_hidden_todo.py"
+  ],
+  "expect_files": [
+    "todo.py"
+  ],
+  "n_tests": 16
+}

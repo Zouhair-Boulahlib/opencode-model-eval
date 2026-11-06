@@ -1,0 +1,162 @@
+"""Prompt component library and prompt-variant definitions.
+
+A *variant* is an ordered list of component names. Components `brief`, `spec` and
+`examples` are task-specific and read from harness/tasks/<task>/. All other
+components are fixed text defined in COMPONENTS. Per-agent variants can be added
+in agents/<slug>/prompts/variants.json, e.g.
+    {"m1_spec_verify_edge": {"components": ["spec", "edge", "verify"],
+                             "custom": {"edge": "override text for this model"}}}
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+HARNESS = Path(__file__).resolve().parent
+TASKS_DIR = HARNESS / "tasks"
+AGENTS_DIR = HARNESS.parent / "agents"
+
+COMPONENTS: dict[str, str] = {
+    "role": (
+        "You are a senior Python engineer. You ship small, correct, tested code and you never "
+        "leave a task half-done."
+    ),
+    "plan": (
+        "Before writing any code, write a numbered plan of at most 5 short steps. Then execute the "
+        "plan step by step."
+    ),
+    "verify": (
+        "After implementing, verify your work: write a quick test file named test_own.py covering the "
+        "rules above (or use the tests already provided), run `python -m pytest -q`, and fix anything "
+        "that fails. Do not finish until the tests pass. Include the final pytest summary line in your "
+        "last message."
+    ),
+    "contract": (
+        "Rules: work only inside the current directory. Use only the Python standard library. Do not "
+        "ask me questions; make reasonable assumptions and state them at the end. Do not modify any "
+        "provided test files. When you are done, reply with a short summary: files created or changed, "
+        "how you verified them, and any assumptions."
+    ),
+    "edge": (
+        "Walk through every rule and edge case in the specification one by one and make sure your code "
+        "handles each explicitly before you finish."
+    ),
+    "readfirst": "Start by listing and reading every file in the current directory before changing anything.",
+    "nofluff": "Do not explain the code or add commentary; act, then give a 3-line summary at the end.",
+    "oneshot": (
+        "Write the complete file in a single write operation (no partial edits), then run the tests once "
+        "to confirm."
+    ),
+    "files_exact": (
+        "Create or modify ONLY the file(s) named in the task, with exactly those names, in the current "
+        "directory. Do not create packages, folders or extra modules."
+    ),
+    "env": (
+        "Environment: you are already inside the project directory on Windows (Git Bash shell, Python 3.13 "
+        "available as `python`). The directory may be empty; if a file does not exist, create it. Use relative "
+        "paths only, never `cd` to absolute paths, and do not look at or search any directory outside the "
+        "current one."
+    ),
+    "toolhint": (
+        "Tool usage: the write tool takes exactly two arguments, `filePath` and `content`; the read tool takes "
+        "`filePath`. If a tool call is rejected for invalid arguments, fix the argument names instead of "
+        "retrying the same call."
+    ),
+    "types_exact": (
+        "Match the specified types and names exactly: return tuples where tuples are specified (not lists), "
+        "use the exact file names, function names, parameter names and output strings given."
+    ),
+}
+
+VARIANTS: dict[str, list[str]] = {
+    "v0_brief": ["brief"],
+    "v1_spec": ["spec"],
+    "v2_spec_verify": ["spec", "verify"],
+    "v3_spec_plan_verify": ["spec", "plan", "verify"],
+    "v4_spec_contract": ["spec", "contract"],
+    "v5_full": ["role", "spec", "examples", "plan", "verify", "contract"],
+    "v6_brief_verify": ["brief", "verify"],
+    "v7_spec_examples": ["spec", "examples"],
+    "v8_spec_examples_verify_contract": ["spec", "examples", "verify", "contract"],
+    # iteration-2 candidates derived from baseline failure modes
+    "v9_spec_env_verify": ["env", "spec", "verify"],
+    "v10_spec_examples_env": ["env", "spec", "examples", "types_exact"],
+    "v11_spec_env_edge": ["env", "spec", "edge"],
+    # iteration-3: repo-scale task, with and without a graphify architecture map in the prompt
+    "g0_spec_env": ["env", "spec"],
+    "g1_spec_env_graph": ["env", "spec", "graph"],
+}
+
+
+TASK_COMPONENTS = ("brief", "spec", "examples", "graph")
+GRAPH_BUDGET_CHARS = 9000
+
+
+def _task_text(task_id: str, name: str) -> str:
+    folder = TASKS_DIR / task_id
+    files = {"brief": "brief.txt", "spec": "spec.md", "examples": "examples.md",
+             "graph": "graphify-out/GRAPH_REPORT.md"}
+    p = folder / files[name]
+    if not p.exists():
+        return ""
+    text = p.read_text(encoding="utf-8").strip()
+    if name == "graph":
+        if len(text) > GRAPH_BUDGET_CHARS:
+            text = text[:GRAPH_BUDGET_CHARS].rsplit("\n", 1)[0] + "\n[... report truncated ...]"
+        text = ("Architecture map of this project, generated by graphify (a code knowledge graph). Use it to go "
+                "straight to the relevant modules instead of reading everything:\n\n" + text)
+    return text
+
+
+def agent_variants(slug: str) -> dict:
+    p = AGENTS_DIR / slug / "prompts" / "variants.json"
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8") or "{}")
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"bad JSON in {p}: {e}")
+
+
+def resolve_variant(variant: str, slug: str | None = None) -> tuple[list[str], dict[str, str]]:
+    """Return (component list, custom component texts) for a variant name."""
+    if slug:
+        custom = agent_variants(slug).get(variant)
+        if custom:
+            return list(custom["components"]), dict(custom.get("custom", {}))
+    if variant in VARIANTS:
+        return list(VARIANTS[variant]), {}
+    raise KeyError(f"unknown variant {variant!r} (global or for agent {slug})")
+
+
+def list_variants(slug: str | None = None) -> list[str]:
+    names = list(VARIANTS)
+    if slug:
+        names += [v for v in agent_variants(slug) if v not in names]
+    return names
+
+
+def build_prompt(task_id: str, variant: str, slug: str | None = None) -> str:
+    comps, custom = resolve_variant(variant, slug)
+    parts: list[str] = []
+    for c in comps:
+        if c in custom:
+            text = custom[c]
+        elif c in TASK_COMPONENTS:
+            text = _task_text(task_id, c)
+        elif c in COMPONENTS:
+            text = COMPONENTS[c]
+        else:
+            raise KeyError(f"unknown prompt component {c!r}")
+        if text:
+            parts.append(text.strip())
+    return "\n\n".join(parts) + "\n"
+
+
+if __name__ == "__main__":
+    import sys
+
+    tid = sys.argv[1] if len(sys.argv) > 1 else "t1_slugify"
+    var = sys.argv[2] if len(sys.argv) > 2 else "v2_spec_verify"
+    slug = sys.argv[3] if len(sys.argv) > 3 else None
+    print(build_prompt(tid, var, slug))

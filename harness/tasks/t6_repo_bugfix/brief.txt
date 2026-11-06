@@ -1,0 +1,1 @@
+After importing a CSV of JPY transactions the monthly report totals are 100 times too large. Find and fix the root cause. Do not change the tests.

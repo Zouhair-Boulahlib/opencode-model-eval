@@ -1,0 +1,15 @@
+{
+  "id": "t2_bugfix",
+  "title": "Fix 5 bugs in inventory.py so the tests pass",
+  "skill": "debugging existing code / not breaking tests",
+  "protected": [
+    "test_inventory.py"
+  ],
+  "hidden_tests": [
+    "test_hidden_inventory.py"
+  ],
+  "expect_files": [
+    "inventory.py"
+  ],
+  "n_tests": 16
+}

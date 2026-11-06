@@ -1,0 +1,8 @@
+The current directory contains `orders.py`, which has one long legacy function `process_orders(orders, inventory, discounts)`, and `test_orders.py` (all tests currently pass). Refactor `orders.py` so that ALL of the following hold:
+
+1. Behaviour is unchanged. `process_orders` keeps its name, its three parameter names (`orders`, `inventory`, `discounts`) and its exact return value. `test_orders.py` must still pass without any modification.
+2. No function in `orders.py` is longer than 20 lines, counted from its `def` line to its last line inclusive (docstrings count).
+3. Every function in `orders.py` has type hints on every parameter and on its return value.
+4. Everything stays in the single file `orders.py`, using only the Python standard library. You may add helper functions, constants or small dataclasses.
+
+Do not edit `test_orders.py`. Do not create other source files.

@@ -1,0 +1,13 @@
+{
+  "id": "t1_slugify",
+  "title": "Implement slugify() to spec",
+  "skill": "spec compliance / pure function",
+  "protected": [],
+  "hidden_tests": [
+    "test_hidden_slugify.py"
+  ],
+  "expect_files": [
+    "slugify.py"
+  ],
+  "n_tests": 22
+}

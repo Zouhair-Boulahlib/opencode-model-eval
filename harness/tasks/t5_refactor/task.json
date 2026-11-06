@@ -1,0 +1,15 @@
+{
+  "id": "t5_refactor",
+  "title": "Refactor legacy process_orders under hard constraints",
+  "skill": "refactoring / constraint following / preserving behaviour",
+  "protected": [
+    "test_orders.py"
+  ],
+  "hidden_tests": [
+    "test_hidden_orders.py"
+  ],
+  "expect_files": [
+    "orders.py"
+  ],
+  "n_tests": 12
+}

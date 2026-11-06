@@ -1,0 +1,15 @@
+{
+  "id": "t6_repo_bugfix",
+  "title": "Repo-scale root-cause bug fix across modules (ledger)",
+  "skill": "codebase navigation / root-cause debugging across files",
+  "protected": [
+    "tests/test_reports.py"
+  ],
+  "hidden_tests": [
+    "test_hidden_ledger.py"
+  ],
+  "expect_files": [
+    "ledger/importers/csv_importer.py"
+  ],
+  "n_tests": 14
+}

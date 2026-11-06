@@ -1,0 +1,13 @@
+{
+  "id": "t4_scheduler",
+  "title": "Interval scheduler utilities",
+  "skill": "algorithms / edge cases",
+  "protected": [],
+  "hidden_tests": [
+    "test_hidden_scheduler.py"
+  ],
+  "expect_files": [
+    "scheduler.py"
+  ],
+  "n_tests": 22
+}
