@@ -11,6 +11,8 @@ is deliberately excluded.
 The method is a loop: run a prompt variant, score it with hidden tests, read the transcripts for failure modes,
 write a targeted variant for that model, and rerun.
 
+**Write-up:** [the LinkedIn article](https://www.linkedin.com/pulse/what-125-agentic-coding-runs-taught-me-prompting-free-boulahlib-nw61e/) walks through the process, the iterations and the findings for a general audience.
+
 **Practical guide:** [GUIDE.md](GUIDE.md) turns the findings into a prompt template, per-model cards, and the graph-engineering setup (graphify with opencode).
 
 ## Headline findings
