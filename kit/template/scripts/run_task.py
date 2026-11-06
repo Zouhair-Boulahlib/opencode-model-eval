@@ -74,6 +74,16 @@ def main() -> None:
         cmd += ["-m", a.model]
     cmd.append(prompt)
     env = dict(os.environ, PWD=str(ROOT), NO_COLOR="1", OPENCODE_DISABLE_AUTOUPDATE="1")
+    # provider keys for opencode (NVIDIA_API_KEY, OPENAI_API_KEY, ...) come from the project's git-ignored .env
+    env_file = ROOT / ".env"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                k, v = k.strip(), v.strip().strip('"').strip("'")
+                if k and v and k not in env:
+                    env[k] = v
     events = run_dir / "events.jsonl"
     t0 = time.time()
     status = "finished"

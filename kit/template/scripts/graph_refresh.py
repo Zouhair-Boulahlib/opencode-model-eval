@@ -53,7 +53,10 @@ def main() -> None:
     for f in det.get("files", {}).get("code", []):
         p = Path(f)
         code_files += collect_files(p) if p.is_dir() else [p]
-    code_files = [p for p in code_files if OUT not in p.parents and ".opencode" not in p.parts]
+    kit_scripts = ROOT / "scripts"
+    code_files = [p for p in code_files
+                  if OUT not in p.parents and ".opencode" not in p.parts and kit_scripts not in p.parents
+                  and not any(part in (".venv", "venv", "node_modules", "__pycache__") for part in p.parts)]
     skipped_docs = sum(len(det.get("files", {}).get(k, [])) for k in ("document", "paper", "image", "video"))
     if not code_files:
         sys.exit("no code files detected under " + str(ROOT))
