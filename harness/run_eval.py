@@ -243,6 +243,7 @@ def run_opencode(model: str, prompt: str, ws: Path, title: str, timeout: int, ru
     env["PWD"] = str(ws)
     env["OPENCODE_DISABLE_AUTOUPDATE"] = "1"
     env["NO_COLOR"] = "1"
+    env.update(provider_env(model))
     events = run_dir / "events.jsonl"
     t0 = time.time()
     timed_out = forced_exit = False
@@ -274,6 +275,51 @@ def run_opencode(model: str, prompt: str, ws: Path, title: str, timeout: int, ru
         except subprocess.TimeoutExpired:
             pass
     return rc, timed_out, forced_exit, round(time.time() - t0, 1)
+
+
+# ------------------------------------------------------------- provider keys
+# API keys for non-free providers are read from the OS credential store (Windows Credential
+# Manager via the `keyring` library) and injected only into the opencode child process. Store
+# one with:  python -c "import keyring,getpass; keyring.set_password('opencode-eval','NVIDIA_API_KEY',getpass.getpass())"
+PROVIDER_ENV = {"nvidia": "NVIDIA_API_KEY", "openai": "OPENAI_API_KEY", "anthropic": "ANTHROPIC_API_KEY",
+                "google": "GOOGLE_GENERATIVE_AI_API_KEY", "groq": "GROQ_API_KEY", "openrouter": "OPENROUTER_API_KEY",
+                "mistral": "MISTRAL_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "xai": "XAI_API_KEY"}
+KEYRING_SERVICE = "opencode-eval"
+
+
+ENV_FILE = ROOT / ".env.local"  # git-ignored; lines of VAR=value
+
+
+def _env_file_value(var: str) -> str | None:
+    if not ENV_FILE.exists():
+        return None
+    for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            if k.strip() == var:
+                return v.strip().strip('"').strip("'") or None
+    return None
+
+
+def provider_env(model: str) -> dict[str, str]:
+    """Environment additions for the model's provider: the API key, looked up in this order:
+    already-set process environment, the git-ignored `.env.local` file, the OS credential store."""
+    provider = model.split("/", 1)[0]
+    var = PROVIDER_ENV.get(provider)
+    if not var or os.environ.get(var):
+        return {}
+    secret = _env_file_value(var)
+    if not secret:
+        try:
+            import keyring  # type: ignore
+            secret = keyring.get_password(KEYRING_SERVICE, var)
+        except Exception as e:  # noqa: BLE001
+            log(f"WARNING: cannot read {var} from the credential store: {e!r}")
+    if not secret:
+        log(f"WARNING: no {var} in .env.local or the credential store; provider {provider} runs will fail")
+        return {}
+    return {var: secret}
 
 
 def _short(obj, n=300) -> str:

@@ -6,3 +6,7 @@ results/_selftest/
 *.db
 *.db-shm
 *.db-wal
+.env
+.env.local
+.env.*
+secrets/
