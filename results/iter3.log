@@ -1,0 +1,23 @@
+=== ITER3 start Fri Nov  6 15:00:59     2026 ===
+[15:02:17] QUOTA PAUSE (startup probe failed); all workers wait until a probe succeeds
+[15:03:32] QUOTA still exhausted, next probe in 300s
+[15:09:48] QUOTA still exhausted, next probe in 300s
+[15:16:03] QUOTA still exhausted, next probe in 300s
+[15:22:19] QUOTA still exhausted, next probe in 300s
+[15:28:34] QUOTA still exhausted, next probe in 300s
+[15:33:34] QUOTA still exhausted, next probe in 300s
+[15:38:34] QUOTA still exhausted, next probe in 300s
+[15:43:34] QUOTA still exhausted, next probe in 300s
+[15:48:34] QUOTA still exhausted, next probe in 300s
+[15:53:35] QUOTA still exhausted, next probe in 300s
+[15:58:35] QUOTA still exhausted, next probe in 300s
+[16:03:35] QUOTA still exhausted, next probe in 300s
+[16:08:35] QUOTA still exhausted, next probe in 300s
+[16:13:35] QUOTA still exhausted, next probe in 300s
+[16:18:35] QUOTA still exhausted, next probe in 300s
+[16:23:35] QUOTA still exhausted, next probe in 300s
+[16:28:35] QUOTA still exhausted, next probe in 300s
+[16:33:35] QUOTA still exhausted, next probe in 300s
+[16:38:35] QUOTA still exhausted, next probe in 300s
+[16:43:35] QUOTA still exhausted, next probe in 300s
+[16:48:35] QUOTA still exhausted, next probe in 300s

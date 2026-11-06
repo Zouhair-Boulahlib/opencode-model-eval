@@ -1,0 +1,328 @@
+[20:41:11] 150 jobs, 10 workers, timeout 420s, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[20:41:11] START beam-free                      t1_slugify     v0_brief
+[20:41:11] START deepseek-v4.1-flash-free       t1_slugify     v0_brief
+[20:41:11] START big-pickle                     t1_slugify     v0_brief
+[20:41:11] START glm-5.3-flash-free             t1_slugify     v0_brief
+[20:41:11] START flint-40b-free                 t1_slugify     v0_brief
+[20:41:11] START crouton-alpha-free             t1_slugify     v0_brief
+[20:41:11] START mimo-v2.6-flash-free           t1_slugify     v0_brief
+[20:41:11] START nemotron-3.5-super-vl-free     t1_slugify     v0_brief
+[20:41:11] START nemotron-3.5-lightning-free    t1_slugify     v0_brief
+[20:41:11] START pulse-alpha-free               t1_slugify     v0_brief
+[20:41:34] DONE  beam-free                      t1_slugify     v0_brief                     21/22 wall=  19.1s tools=4   out_tok=371    
+[20:41:34] START beam-free                      t2_bugfix      v0_brief
+[20:41:37] DONE  deepseek-v4.1-flash-free       t1_slugify     v0_brief                     21/22 wall=  22.1s tools=3   out_tok=442    
+[20:41:37] START big-pickle                     t2_bugfix      v0_brief
+[20:41:38] DONE  big-pickle                     t1_slugify     v0_brief                     21/22 wall=  23.1s tools=3   out_tok=413    
+[20:41:38] START crouton-alpha-free             t2_bugfix      v0_brief
+[20:41:39] DONE  pulse-alpha-free               t1_slugify     v0_brief                     22/22 wall=  24.0s tools=3   out_tok=343    
+[20:41:39] START deepseek-v4.1-flash-free       t2_bugfix      v0_brief
+[20:41:47] DONE  crouton-alpha-free             t1_slugify     v0_brief                     21/22 wall=  29.1s tools=4   out_tok=618    
+[20:41:47] START flint-40b-free                 t2_bugfix      v0_brief
+[20:41:48] DONE  nemotron-3.5-lightning-free    t1_slugify     v0_brief                     15/22 wall=  30.1s tools=5   out_tok=587    
+[20:41:48] START glm-5.3-flash-free             t2_bugfix      v0_brief
+[20:41:49] DONE  glm-5.3-flash-free             t1_slugify     v0_brief                     21/22 wall=  31.1s tools=5   out_tok=960    
+[20:41:49] START mimo-v2.6-flash-free           t2_bugfix      v0_brief
+[20:41:51] DONE  nemotron-3.5-super-vl-free     t1_slugify     v0_brief                     18/22 wall=  33.1s tools=4   out_tok=549    
+[20:41:51] START nemotron-3.5-lightning-free    t2_bugfix      v0_brief
+[20:41:51] DONE  mimo-v2.6-flash-free           t1_slugify     v0_brief                     21/22 wall=  33.2s tools=4   out_tok=444    
+[20:41:51] START nemotron-3.5-super-vl-free     t2_bugfix      v0_brief
+[20:42:09] DONE  beam-free                      t2_bugfix      v0_brief                     16/16 wall=  32.1s tools=11  out_tok=953    
+[20:42:09] START pulse-alpha-free               t2_bugfix      v0_brief
+[20:42:14] DONE  deepseek-v4.1-flash-free       t2_bugfix      v0_brief                     16/16 wall=  32.1s tools=9   out_tok=1240   
+[20:42:14] START beam-free                      t3_todo_cli    v0_brief
+[20:42:17] DONE  crouton-alpha-free             t2_bugfix      v0_brief                     16/16 wall=  36.1s tools=10  out_tok=924    
+[20:42:17] START big-pickle                     t3_todo_cli    v0_brief
+[20:42:19] DONE  big-pickle                     t2_bugfix      v0_brief                     16/16 wall=  39.1s tools=10  out_tok=1234   
+[20:42:19] START crouton-alpha-free             t3_todo_cli    v0_brief
+[20:42:27] DONE  glm-5.3-flash-free             t2_bugfix      v0_brief                     16/16 wall=  36.2s tools=10  out_tok=1046   
+[20:42:27] START deepseek-v4.1-flash-free       t3_todo_cli    v0_brief
+[20:42:30] DONE  nemotron-3.5-super-vl-free     t2_bugfix      v0_brief                     16/16 wall=  36.2s tools=8   out_tok=1118   
+[20:42:30] START flint-40b-free                 t3_todo_cli    v0_brief
+[20:42:31] DONE  flint-40b-free                 t1_slugify     v0_brief                     21/22 wall=  76.2s tools=8   out_tok=2708   
+[20:42:31] START glm-5.3-flash-free             t3_todo_cli    v0_brief
+[20:42:42] DONE  pulse-alpha-free               t2_bugfix      v0_brief                     16/16 wall=  30.1s tools=5   out_tok=683    
+[20:42:42] START mimo-v2.6-flash-free           t3_todo_cli    v0_brief
+[20:42:48] DONE  mimo-v2.6-flash-free           t2_bugfix      v0_brief                     16/16 wall=  56.1s tools=9   out_tok=1187   
+[20:42:48] START nemotron-3.5-lightning-free    t3_todo_cli    v0_brief
+[20:42:50] DONE  crouton-alpha-free             t3_todo_cli    v0_brief                      0/16 wall=  20.1s tools=4   out_tok=1092   
+[20:42:50] START nemotron-3.5-super-vl-free     t3_todo_cli    v0_brief
+[20:43:04] DONE  deepseek-v4.1-flash-free       t3_todo_cli    v0_brief                      0/16 wall=  26.0s tools=4   out_tok=1271   
+[20:43:04] START pulse-alpha-free               t3_todo_cli    v0_brief
+[20:43:04] DONE  nemotron-3.5-lightning-free    t2_bugfix      v0_brief                     15/16 wall=  70.1s tools=13  out_tok=2100   
+[20:43:04] START beam-free                      t4_scheduler   v0_brief
+[20:43:07] DONE  big-pickle                     t3_todo_cli    v0_brief                      0/16 wall=  39.1s tools=4   out_tok=1605   
+[20:43:07] START big-pickle                     t4_scheduler   v0_brief
+[20:43:09] DONE  glm-5.3-flash-free             t3_todo_cli    v0_brief                      0/16 wall=  27.0s tools=3   out_tok=1166   
+[20:43:09] START crouton-alpha-free             t4_scheduler   v0_brief
+[20:43:24] DONE  nemotron-3.5-super-vl-free     t3_todo_cli    v0_brief                      0/16 wall=  24.0s tools=2   out_tok=921    
+[20:43:24] START deepseek-v4.1-flash-free       t4_scheduler   v0_brief
+[20:43:30] DONE  nemotron-3.5-lightning-free    t3_todo_cli    v0_brief                      0/16 wall=  33.1s tools=16  out_tok=1991   
+[20:43:30] START flint-40b-free                 t4_scheduler   v0_brief
+[20:43:31] DONE  crouton-alpha-free             t4_scheduler   v0_brief                      9/22 wall=  18.0s tools=4   out_tok=1019   
+[20:43:31] START glm-5.3-flash-free             t4_scheduler   v0_brief
+[20:43:35] DONE  big-pickle                     t4_scheduler   v0_brief                     21/22 wall=  24.1s tools=3   out_tok=813    
+[20:43:35] START mimo-v2.6-flash-free           t4_scheduler   v0_brief
+[20:43:39] DONE  beam-free                      t4_scheduler   v0_brief                     20/22 wall=  30.1s tools=3   out_tok=658    
+[20:43:39] START nemotron-3.5-lightning-free    t4_scheduler   v0_brief
+[20:43:51] DONE  pulse-alpha-free               t3_todo_cli    v0_brief                      0/16 wall=  38.1s tools=4   out_tok=1413   
+[20:43:51] START nemotron-3.5-super-vl-free     t4_scheduler   v0_brief
+[20:44:00] DONE  deepseek-v4.1-flash-free       t4_scheduler   v0_brief                     21/22 wall=  32.0s tools=4   out_tok=1182   
+[20:44:00] START pulse-alpha-free               t4_scheduler   v0_brief
+[20:44:00] DONE  glm-5.3-flash-free             t4_scheduler   v0_brief                     18/22 wall=  25.0s tools=3   out_tok=962    
+[20:44:00] START beam-free                      t5_refactor    v0_brief
+[20:44:19] DONE  mimo-v2.6-flash-free           t3_todo_cli    v0_brief                      0/16 wall=  88.1s tools=3   out_tok=1254   
+[20:44:19] START big-pickle                     t5_refactor    v0_brief
+[20:44:21] DONE  mimo-v2.6-flash-free           t4_scheduler   v0_brief                     21/22 wall=  42.1s tools=2   out_tok=1053   
+[20:44:21] START crouton-alpha-free             t5_refactor    v0_brief
+[20:44:36] DONE  flint-40b-free                 t2_bugfix      v0_brief                     16/16 wall= 166.2s tools=17  out_tok=7568   
+[20:44:36] START deepseek-v4.1-flash-free       t5_refactor    v0_brief
+[20:44:48] DONE  flint-40b-free                 t4_scheduler   v0_brief                     20/22 wall=  75.1s tools=4   out_tok=3733   
+[20:44:48] START flint-40b-free                 t5_refactor    v0_brief
+[20:44:53] DONE  nemotron-3.5-super-vl-free     t4_scheduler   v0_brief                     20/22 wall=  59.1s tools=2   out_tok=913    
+[20:44:53] START glm-5.3-flash-free             t5_refactor    v0_brief
+[20:44:57] DONE  pulse-alpha-free               t4_scheduler   v0_brief                     21/22 wall=  54.1s tools=4   out_tok=1395   
+[20:44:57] START mimo-v2.6-flash-free           t5_refactor    v0_brief
+[20:45:11] DONE  nemotron-3.5-lightning-free    t4_scheduler   v0_brief                     11/22 wall=  89.1s tools=20  out_tok=3104   
+[20:45:11] START nemotron-3.5-lightning-free    t5_refactor    v0_brief
+[20:45:27] DONE  beam-free                      t3_todo_cli    v0_brief                      0/16 wall= 182.2s tools=11  out_tok=1654   
+[20:45:27] START nemotron-3.5-super-vl-free     t5_refactor    v0_brief
+[20:49:38] DONE  flint-40b-free                 t3_todo_cli    v0_brief                      0/16 wall= 421.2s tools=38  out_tok=16622  TIMEOUT
+[20:49:38] START pulse-alpha-free               t5_refactor    v0_brief
+[20:51:12] DONE  beam-free                      t5_refactor    v0_brief                      9/12 wall= 420.8s tools=0   out_tok=0      TIMEOUT
+[20:51:12] START beam-free                      t1_slugify     v1_spec
+[20:51:23] DONE  big-pickle                     t5_refactor    v0_brief                      9/12 wall= 420.9s tools=0   out_tok=0      TIMEOUT
+[20:51:23] START big-pickle                     t1_slugify     v1_spec
+[20:51:25] DONE  crouton-alpha-free             t5_refactor    v0_brief                      9/12 wall= 420.7s tools=0   out_tok=0      TIMEOUT
+[20:51:25] START crouton-alpha-free             t1_slugify     v1_spec
+[20:51:40] DONE  deepseek-v4.1-flash-free       t5_refactor    v0_brief                      9/12 wall= 421.0s tools=0   out_tok=0      TIMEOUT
+[20:51:40] START deepseek-v4.1-flash-free       t1_slugify     v1_spec
+[20:51:53] DONE  flint-40b-free                 t5_refactor    v0_brief                      9/12 wall= 421.1s tools=0   out_tok=0      TIMEOUT
+[20:51:53] START flint-40b-free                 t1_slugify     v1_spec
+[20:51:57] DONE  glm-5.3-flash-free             t5_refactor    v0_brief                      9/12 wall= 420.8s tools=0   out_tok=0      TIMEOUT
+[20:51:57] START glm-5.3-flash-free             t1_slugify     v1_spec
+[20:52:01] DONE  mimo-v2.6-flash-free           t5_refactor    v0_brief                      9/12 wall= 420.7s tools=0   out_tok=0      TIMEOUT
+[20:52:01] START mimo-v2.6-flash-free           t1_slugify     v1_spec
+[20:52:15] DONE  nemotron-3.5-lightning-free    t5_refactor    v0_brief                      9/12 wall= 421.1s tools=0   out_tok=0      TIMEOUT
+[20:52:15] START nemotron-3.5-lightning-free    t1_slugify     v1_spec
+[20:52:31] DONE  nemotron-3.5-super-vl-free     t5_refactor    v0_brief                      9/12 wall= 421.0s tools=0   out_tok=0      TIMEOUT
+[20:52:31] START nemotron-3.5-super-vl-free     t1_slugify     v1_spec
+ITER1 EXIT 1
+[20:58:09] QUOTA PAUSE (startup probe failed); all workers wait until a probe succeeds
+[20:59:24] QUOTA still exhausted, next probe in 300s
+[21:05:39] QUOTA still exhausted, next probe in 300s
+[21:11:55] QUOTA still exhausted, next probe in 300s
+=== RESUME Fri Nov  6 10:42:39     2026 ===
+[10:42:48] 150 jobs, 3 workers, timeout 420s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[10:42:48] START beam-free                      t1_slugify     v1_spec
+[10:42:48] START beam-free                      t5_refactor    v0_brief
+[10:42:48] START beam-free                      t2_bugfix      v1_spec
+[10:43:33] DONE  beam-free                      t1_slugify     v1_spec                      22/22 wall=  31.1s tools=4   out_tok=1283   
+[10:43:33] START beam-free                      t3_todo_cli    v1_spec
+[10:43:38] DONE  beam-free                      t2_bugfix      v1_spec                      16/16 wall=  46.1s tools=9   out_tok=887    
+[10:43:38] START beam-free                      t4_scheduler   v1_spec
+[10:43:53] DONE  beam-free                      t4_scheduler   v1_spec                      22/22 wall=  12.0s tools=2   out_tok=840    
+[10:43:53] START beam-free                      t5_refactor    v1_spec
+[10:43:55] DONE  beam-free                      t5_refactor    v0_brief                     11/12 wall=  63.1s tools=11  out_tok=1393   
+[10:43:55] START beam-free                      t1_slugify     v2_spec_verify
+[10:44:47] DONE  beam-free                      t1_slugify     v2_spec_verify               22/22 wall=  48.1s tools=10  out_tok=969    
+[10:44:47] START beam-free                      t2_bugfix      v2_spec_verify
+[10:45:17] DONE  beam-free                      t5_refactor    v1_spec                      12/12 wall=  79.2s tools=11  out_tok=1851   
+[10:45:17] START beam-free                      t3_todo_cli    v2_spec_verify
+[10:45:18] DONE  beam-free                      t3_todo_cli    v1_spec                      16/16 wall=  91.2s tools=13  out_tok=1874   
+[10:45:18] START beam-free                      t4_scheduler   v2_spec_verify
+[10:45:26] DONE  beam-free                      t2_bugfix      v2_spec_verify               16/16 wall=  35.1s tools=9   out_tok=1660   
+[10:45:26] START beam-free                      t5_refactor    v2_spec_verify
+[10:46:04] DONE  beam-free                      t4_scheduler   v2_spec_verify               22/22 wall=  41.1s tools=8   out_tok=1402   
+[10:46:04] START big-pickle                     t5_refactor    v0_brief
+[10:46:28] DONE  big-pickle                     t5_refactor    v0_brief                     11/12 wall=  19.0s tools=5   out_tok=1312   
+[10:46:28] START big-pickle                     t1_slugify     v1_spec
+[10:46:35] DONE  beam-free                      t5_refactor    v2_spec_verify               12/12 wall=  63.1s tools=9   out_tok=1435   
+[10:46:35] START big-pickle                     t2_bugfix      v1_spec
+[10:46:49] DONE  big-pickle                     t1_slugify     v1_spec                      22/22 wall=  17.1s tools=2   out_tok=437    
+[10:46:49] START big-pickle                     t3_todo_cli    v1_spec
+[10:47:02] DONE  big-pickle                     t2_bugfix      v1_spec                      16/16 wall=  24.1s tools=7   out_tok=1277   
+[10:47:02] START big-pickle                     t4_scheduler   v1_spec
+[10:47:26] DONE  big-pickle                     t4_scheduler   v1_spec                      22/22 wall=  21.0s tools=2   out_tok=754    
+[10:47:26] START big-pickle                     t5_refactor    v1_spec
+[10:47:26] DONE  big-pickle                     t3_todo_cli    v1_spec                      16/16 wall=  28.1s tools=3   out_tok=1432   
+[10:47:26] START big-pickle                     t1_slugify     v2_spec_verify
+[10:47:57] DONE  big-pickle                     t5_refactor    v1_spec                      12/12 wall=  27.1s tools=5   out_tok=1523   
+[10:47:58] START big-pickle                     t2_bugfix      v2_spec_verify
+[10:48:06] DONE  big-pickle                     t1_slugify     v2_spec_verify               22/22 wall=  35.1s tools=9   out_tok=1160   
+[10:48:06] START big-pickle                     t3_todo_cli    v2_spec_verify
+[10:48:47] DONE  beam-free                      t3_todo_cli    v2_spec_verify               16/16 wall= 200.4s tools=17  out_tok=3795   
+[10:48:47] START big-pickle                     t4_scheduler   v2_spec_verify
+[10:48:47] DONE  big-pickle                     t3_todo_cli    v2_spec_verify               16/16 wall=  32.1s tools=4   out_tok=2191   
+[10:48:48] START big-pickle                     t5_refactor    v2_spec_verify
+[10:48:56] DONE  big-pickle                     t2_bugfix      v2_spec_verify               16/16 wall=  54.1s tools=10  out_tok=2015   
+[10:48:56] START crouton-alpha-free             t5_refactor    v0_brief
+[10:49:16] DONE  big-pickle                     t4_scheduler   v2_spec_verify               22/22 wall=  25.1s tools=4   out_tok=1358   
+[10:49:16] START crouton-alpha-free             t1_slugify     v1_spec
+[10:49:26] DONE  crouton-alpha-free             t5_refactor    v0_brief                     11/12 wall=  27.1s tools=6   out_tok=1046   
+[10:49:26] START crouton-alpha-free             t2_bugfix      v1_spec
+[10:49:35] DONE  crouton-alpha-free             t1_slugify     v1_spec                      22/22 wall=  15.0s tools=3   out_tok=334    
+[10:49:35] START crouton-alpha-free             t3_todo_cli    v1_spec
+[10:49:50] DONE  crouton-alpha-free             t2_bugfix      v1_spec                      16/16 wall=  20.0s tools=9   out_tok=685    
+[10:49:50] START crouton-alpha-free             t4_scheduler   v1_spec
+[10:49:52] DONE  big-pickle                     t5_refactor    v2_spec_verify               12/12 wall=  61.1s tools=9   out_tok=3262   
+[10:49:52] START crouton-alpha-free             t5_refactor    v1_spec
+[10:50:16] DONE  crouton-alpha-free             t4_scheduler   v1_spec                      22/22 wall=  21.1s tools=3   out_tok=997    
+[10:50:16] START crouton-alpha-free             t1_slugify     v2_spec_verify
+[10:50:29] DONE  crouton-alpha-free             t5_refactor    v1_spec                      12/12 wall=  34.1s tools=5   out_tok=1033   
+[10:50:29] START crouton-alpha-free             t2_bugfix      v2_spec_verify
+[10:50:31] DONE  crouton-alpha-free             t3_todo_cli    v1_spec                      16/16 wall=  44.1s tools=5   out_tok=1536   
+[10:50:31] START crouton-alpha-free             t3_todo_cli    v2_spec_verify
+[10:50:41] DONE  crouton-alpha-free             t1_slugify     v2_spec_verify               22/22 wall=  22.1s tools=4   out_tok=749    
+[10:50:41] START crouton-alpha-free             t4_scheduler   v2_spec_verify
+[10:50:59] DONE  crouton-alpha-free             t2_bugfix      v2_spec_verify               16/16 wall=  26.1s tools=9   out_tok=1688   
+[10:50:59] START crouton-alpha-free             t5_refactor    v2_spec_verify
+[10:51:11] DONE  crouton-alpha-free             t4_scheduler   v2_spec_verify               22/22 wall=  26.1s tools=4   out_tok=1259   
+[10:51:11] START deepseek-v4.1-flash-free       t5_refactor    v0_brief
+[10:51:24] DONE  crouton-alpha-free             t3_todo_cli    v2_spec_verify               16/16 wall=  42.1s tools=10  out_tok=2517   
+[10:51:24] START deepseek-v4.1-flash-free       t1_slugify     v1_spec
+[10:51:36] DONE  crouton-alpha-free             t5_refactor    v2_spec_verify               12/12 wall=  34.1s tools=6   out_tok=1599   
+[10:51:36] START deepseek-v4.1-flash-free       t2_bugfix      v1_spec
+[10:51:41] DONE  deepseek-v4.1-flash-free       t5_refactor    v0_brief                     11/12 wall=  25.1s tools=4   out_tok=1408   
+[10:51:41] START deepseek-v4.1-flash-free       t3_todo_cli    v1_spec
+[10:51:42] DONE  deepseek-v4.1-flash-free       t1_slugify     v1_spec                      22/22 wall=  14.0s tools=2   out_tok=474    
+[10:51:42] START deepseek-v4.1-flash-free       t4_scheduler   v1_spec
+[10:52:05] DONE  deepseek-v4.1-flash-free       t2_bugfix      v1_spec                      16/16 wall=  24.1s tools=8   out_tok=1251   
+[10:52:05] START deepseek-v4.1-flash-free       t5_refactor    v1_spec
+[10:52:12] DONE  deepseek-v4.1-flash-free       t4_scheduler   v1_spec                      22/22 wall=  25.2s tools=3   out_tok=925    
+[10:52:12] START deepseek-v4.1-flash-free       t1_slugify     v2_spec_verify
+[10:52:20] DONE  deepseek-v4.1-flash-free       t3_todo_cli    v1_spec                      16/16 wall=  25.1s tools=2   out_tok=1034   
+[10:52:20] START deepseek-v4.1-flash-free       t2_bugfix      v2_spec_verify
+[10:52:46] DONE  deepseek-v4.1-flash-free       t1_slugify     v2_spec_verify               22/22 wall=  31.1s tools=7   out_tok=1373   
+[10:52:46] START deepseek-v4.1-flash-free       t3_todo_cli    v2_spec_verify
+[10:52:56] DONE  deepseek-v4.1-flash-free       t2_bugfix      v2_spec_verify               16/16 wall=  32.1s tools=12  out_tok=2383   
+[10:52:56] START deepseek-v4.1-flash-free       t4_scheduler   v2_spec_verify
+[10:53:07] DONE  deepseek-v4.1-flash-free       t5_refactor    v1_spec                      12/12 wall=  55.1s tools=5   out_tok=1364   
+[10:53:07] START deepseek-v4.1-flash-free       t5_refactor    v2_spec_verify
+[10:53:26] DONE  deepseek-v4.1-flash-free       t4_scheduler   v2_spec_verify               22/22 wall=  25.1s tools=4   out_tok=1343   
+[10:53:26] START flint-40b-free                 t5_refactor    v0_brief
+[10:53:43] DONE  deepseek-v4.1-flash-free       t3_todo_cli    v2_spec_verify               16/16 wall=  45.2s tools=4   out_tok=2362   
+[10:53:43] START flint-40b-free                 t1_slugify     v1_spec
+[10:53:56] DONE  deepseek-v4.1-flash-free       t5_refactor    v2_spec_verify               12/12 wall=  46.2s tools=9   out_tok=2463   
+[10:53:56] START flint-40b-free                 t2_bugfix      v1_spec
+[10:55:44] RETRY flint-40b-free t1_slugify v1_spec (events=0, rc=-9, wall=120.6s) errors=[]
+[10:55:44] QUOTA PAUSE (flint-40b-free t1_slugify v1_spec produced no events); all workers wait until a probe succeeds
+[10:55:57] RETRY flint-40b-free t2_bugfix v1_spec (events=0, rc=-9, wall=120.7s) errors=[]
+[10:56:59] QUOTA still exhausted, next probe in 300s
+[11:00:22] DONE  flint-40b-free                 t5_refactor    v0_brief                     11/12 wall= 411.5s tools=16  out_tok=20849  
+[11:00:22] START flint-40b-free                 t3_todo_cli    v1_spec
+=== RESUME2 Fri Nov  6 14:15:32     2026 ===
+[14:15:43] adaptive: skipped 30 runs whose predecessor variant already scored 100%
+[14:15:43] 120 jobs, 2 workers, timeout 420s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[14:15:43] START flint-40b-free                 t3_todo_cli    v1_spec
+[14:15:43] START flint-40b-free                 t1_slugify     v1_spec
+=== RESUME3 Fri Nov  6 14:16:32     2026 (adaptive fix) ===
+[14:16:41] 150 jobs, 2 workers, timeout 420s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[14:16:41] SKIP  flint-40b-free                 t2_bugfix      v1_spec (predecessor v0_brief already 100%)
+[14:16:41] START flint-40b-free                 t1_slugify     v1_spec
+[14:16:41] START flint-40b-free                 t3_todo_cli    v1_spec
+[14:18:37] DONE  flint-40b-free                 t1_slugify     v1_spec                      22/22 wall=  95.3s tools=6   out_tok=4470   
+[14:18:37] START flint-40b-free                 t4_scheduler   v1_spec
+[14:20:39] DONE  flint-40b-free                 t3_todo_cli    v1_spec                      16/16 wall= 220.6s tools=16  out_tok=8786   
+[14:20:39] START flint-40b-free                 t5_refactor    v1_spec
+[14:25:49] DONE  flint-40b-free                 t4_scheduler   v1_spec                       0/22 wall= 421.8s tools=12  out_tok=9201   TIMEOUT
+[14:25:49] SKIP  flint-40b-free                 t1_slugify     v2_spec_verify (predecessor v1_spec already 100%)
+[14:25:49] START flint-40b-free                 t2_bugfix      v2_spec_verify
+[14:26:20] DONE  flint-40b-free                 t5_refactor    v1_spec                      12/12 wall= 336.5s tools=16  out_tok=17902  
+[14:26:20] SKIP  flint-40b-free                 t3_todo_cli    v2_spec_verify (predecessor v1_spec already 100%)
+[14:26:20] START flint-40b-free                 t4_scheduler   v2_spec_verify
+[14:28:13] DONE  flint-40b-free                 t2_bugfix      v2_spec_verify               16/16 wall= 138.2s tools=14  out_tok=6944   
+[14:28:13] SKIP  flint-40b-free                 t5_refactor    v2_spec_verify (predecessor v1_spec already 100%)
+[14:28:13] START glm-5.3-flash-free             t5_refactor    v0_brief
+[14:29:05] DONE  glm-5.3-flash-free             t5_refactor    v0_brief                     12/12 wall=  48.3s tools=6   out_tok=1177   
+[14:29:05] START glm-5.3-flash-free             t1_slugify     v1_spec
+[14:29:25] DONE  flint-40b-free                 t4_scheduler   v2_spec_verify               22/22 wall= 180.5s tools=13  out_tok=8692   
+[14:29:25] SKIP  glm-5.3-flash-free             t2_bugfix      v1_spec (predecessor v0_brief already 100%)
+[14:29:25] START glm-5.3-flash-free             t3_todo_cli    v1_spec
+[14:29:30] DONE  glm-5.3-flash-free             t1_slugify     v1_spec                      22/22 wall=  20.1s tools=2   out_tok=398    
+[14:29:30] START glm-5.3-flash-free             t4_scheduler   v1_spec
+[14:30:25] DONE  glm-5.3-flash-free             t4_scheduler   v1_spec                      22/22 wall=  50.3s tools=5   out_tok=1546   
+[14:30:25] SKIP  glm-5.3-flash-free             t5_refactor    v1_spec (predecessor v0_brief already 100%)
+[14:30:25] SKIP  glm-5.3-flash-free             t1_slugify     v2_spec_verify (predecessor v1_spec already 100%)
+[14:30:26] START glm-5.3-flash-free             t2_bugfix      v2_spec_verify
+[14:31:12] DONE  glm-5.3-flash-free             t3_todo_cli    v1_spec                      16/16 wall=  91.4s tools=9   out_tok=2495   
+[14:31:12] SKIP  glm-5.3-flash-free             t3_todo_cli    v2_spec_verify (predecessor v1_spec already 100%)
+[14:31:12] SKIP  glm-5.3-flash-free             t4_scheduler   v2_spec_verify (predecessor v1_spec already 100%)
+[14:31:12] START glm-5.3-flash-free             t5_refactor    v2_spec_verify
+[14:31:45] DONE  glm-5.3-flash-free             t2_bugfix      v2_spec_verify               16/16 wall=  75.2s tools=10  out_tok=2617   
+[14:31:45] START mimo-v2.6-flash-free           t5_refactor    v0_brief
+[14:33:21] DONE  glm-5.3-flash-free             t5_refactor    v2_spec_verify               12/12 wall= 122.2s tools=16  out_tok=2922   
+[14:33:21] START mimo-v2.6-flash-free           t1_slugify     v1_spec
+[14:34:26] DONE  mimo-v2.6-flash-free           t5_refactor    v0_brief                     11/12 wall= 153.9s tools=10  out_tok=2390   
+[14:34:26] SKIP  mimo-v2.6-flash-free           t2_bugfix      v1_spec (predecessor v0_brief already 100%)
+[14:34:26] START mimo-v2.6-flash-free           t3_todo_cli    v1_spec
+[14:34:35] DONE  mimo-v2.6-flash-free           t1_slugify     v1_spec                      22/22 wall=  67.5s tools=3   out_tok=844    
+[14:34:35] START mimo-v2.6-flash-free           t4_scheduler   v1_spec
+[14:36:06] DONE  mimo-v2.6-flash-free           t3_todo_cli    v1_spec                      16/16 wall=  78.2s tools=4   out_tok=1791   
+[14:36:06] START mimo-v2.6-flash-free           t5_refactor    v1_spec
+[14:37:02] DONE  mimo-v2.6-flash-free           t4_scheduler   v1_spec                      22/22 wall= 142.8s tools=8   out_tok=5792   
+[14:37:02] SKIP  mimo-v2.6-flash-free           t1_slugify     v2_spec_verify (predecessor v1_spec already 100%)
+[14:37:02] START mimo-v2.6-flash-free           t2_bugfix      v2_spec_verify
+[14:38:21] DONE  mimo-v2.6-flash-free           t2_bugfix      v2_spec_verify               16/16 wall=  73.1s tools=10  out_tok=2178   
+[14:38:21] SKIP  mimo-v2.6-flash-free           t3_todo_cli    v2_spec_verify (predecessor v1_spec already 100%)
+[14:38:21] SKIP  mimo-v2.6-flash-free           t4_scheduler   v2_spec_verify (predecessor v1_spec already 100%)
+[14:38:21] START mimo-v2.6-flash-free           t5_refactor    v2_spec_verify
+[14:39:41] DONE  mimo-v2.6-flash-free           t5_refactor    v1_spec                      12/12 wall= 209.7s tools=7   out_tok=2255   
+[14:39:41] START nemotron-3.5-lightning-free    t5_refactor    v0_brief
+[14:41:44] DONE  nemotron-3.5-lightning-free    t5_refactor    v0_brief                     11/12 wall= 118.3s tools=10  out_tok=1778   
+[14:41:44] START nemotron-3.5-lightning-free    t1_slugify     v1_spec
+[14:42:58] DONE  mimo-v2.6-flash-free           t5_refactor    v2_spec_verify               12/12 wall= 272.0s tools=8   out_tok=3336   
+[14:42:58] START nemotron-3.5-lightning-free    t2_bugfix      v1_spec
+[14:43:52] DONE  nemotron-3.5-lightning-free    t1_slugify     v1_spec                      22/22 wall= 123.5s tools=14  out_tok=2783   
+[14:43:52] START nemotron-3.5-lightning-free    t3_todo_cli    v1_spec
+[14:46:26] DONE  nemotron-3.5-lightning-free    t2_bugfix      v1_spec                      15/16 wall= 203.5s tools=16  out_tok=2031   
+[14:46:26] START nemotron-3.5-lightning-free    t4_scheduler   v1_spec
+[14:46:44] DONE  nemotron-3.5-lightning-free    t3_todo_cli    v1_spec                      14/16 wall= 159.2s tools=32  out_tok=6448   
+[14:46:44] START nemotron-3.5-lightning-free    t5_refactor    v1_spec
+[14:47:15] DONE  nemotron-3.5-lightning-free    t4_scheduler   v1_spec                      22/22 wall=  44.1s tools=4   out_tok=2314   
+[14:47:15] SKIP  nemotron-3.5-lightning-free    t1_slugify     v2_spec_verify (predecessor v1_spec already 100%)
+[14:47:16] START nemotron-3.5-lightning-free    t2_bugfix      v2_spec_verify
+[14:49:43] DONE  nemotron-3.5-lightning-free    t2_bugfix      v2_spec_verify               16/16 wall= 143.3s tools=24  out_tok=5425   
+[14:49:43] START nemotron-3.5-lightning-free    t3_todo_cli    v2_spec_verify
+[14:51:26] DONE  nemotron-3.5-lightning-free    t5_refactor    v1_spec                      12/12 wall= 277.8s tools=7   out_tok=2390   
+[14:51:26] SKIP  nemotron-3.5-lightning-free    t4_scheduler   v2_spec_verify (predecessor v1_spec already 100%)
+[14:51:26] SKIP  nemotron-3.5-lightning-free    t5_refactor    v2_spec_verify (predecessor v1_spec already 100%)
+[14:51:26] START nemotron-3.5-super-vl-free     t5_refactor    v0_brief
+[14:52:18] DONE  nemotron-3.5-super-vl-free     t5_refactor    v0_brief                     11/12 wall=  46.1s tools=5   out_tok=1320   
+[14:52:18] START nemotron-3.5-super-vl-free     t1_slugify     v1_spec
+[14:53:03] DONE  nemotron-3.5-super-vl-free     t1_slugify     v1_spec                      22/22 wall=  41.1s tools=3   out_tok=738    
+[14:53:03] SKIP  nemotron-3.5-super-vl-free     t2_bugfix      v1_spec (predecessor v0_brief already 100%)
+[14:53:03] START nemotron-3.5-super-vl-free     t3_todo_cli    v1_spec
+[14:53:59] DONE  nemotron-3.5-super-vl-free     t3_todo_cli    v1_spec                      14/16 wall=  39.1s tools=8   out_tok=2059   
+[14:53:59] START nemotron-3.5-super-vl-free     t4_scheduler   v1_spec
+[14:54:23] RETRY nemotron-3.5-super-vl-free t4_scheduler v1_spec (events=1, rc=1, wall=24.0s) errors=[]
+[14:54:39] DONE  nemotron-3.5-lightning-free    t3_todo_cli    v2_spec_verify               13/16 wall= 283.1s tools=20  out_tok=10450  
+[14:54:40] START nemotron-3.5-super-vl-free     t5_refactor    v1_spec
+[14:55:17] DONE  nemotron-3.5-super-vl-free     t4_scheduler   v1_spec                      22/22 wall=  36.1s tools=5   out_tok=2320   
+[14:55:17] SKIP  nemotron-3.5-super-vl-free     t1_slugify     v2_spec_verify (predecessor v1_spec already 100%)
+[14:55:17] START nemotron-3.5-super-vl-free     t2_bugfix      v2_spec_verify
+[14:55:38] DONE  nemotron-3.5-super-vl-free     t5_refactor    v1_spec                      12/12 wall=  53.1s tools=5   out_tok=1278   
+[14:55:38] START nemotron-3.5-super-vl-free     t3_todo_cli    v2_spec_verify
+[14:55:59] DONE  nemotron-3.5-super-vl-free     t2_bugfix      v2_spec_verify               16/16 wall=  37.1s tools=11  out_tok=2085   
+[14:55:59] SKIP  nemotron-3.5-super-vl-free     t4_scheduler   v2_spec_verify (predecessor v1_spec already 100%)
+[14:55:59] SKIP  nemotron-3.5-super-vl-free     t5_refactor    v2_spec_verify (predecessor v1_spec already 100%)
+[14:55:59] START pulse-alpha-free               t5_refactor    v0_brief
+[14:56:35] DONE  nemotron-3.5-super-vl-free     t3_todo_cli    v2_spec_verify               14/16 wall=  44.1s tools=4   out_tok=2453   
+[14:56:35] SKIP  pulse-alpha-free               t1_slugify     v1_spec (predecessor v0_brief already 100%)
+[14:56:35] SKIP  pulse-alpha-free               t2_bugfix      v1_spec (predecessor v0_brief already 100%)
+[14:56:35] START pulse-alpha-free               t3_todo_cli    v1_spec
+[14:57:12] DONE  pulse-alpha-free               t5_refactor    v0_brief                     12/12 wall=  69.2s tools=6   out_tok=2824   
+[14:57:12] START pulse-alpha-free               t4_scheduler   v1_spec
+[14:57:34] DONE  pulse-alpha-free               t3_todo_cli    v1_spec                      16/16 wall=  45.1s tools=4   out_tok=210    
+[14:57:34] SKIP  pulse-alpha-free               t5_refactor    v1_spec (predecessor v0_brief already 100%)
+[14:57:34] START pulse-alpha-free               t1_slugify     v2_spec_verify
+[14:57:39] DONE  pulse-alpha-free               t4_scheduler   v1_spec                      22/22 wall=  23.1s tools=2   out_tok=839    
+[14:57:40] START pulse-alpha-free               t2_bugfix      v2_spec_verify
+[14:58:37] DONE  pulse-alpha-free               t1_slugify     v2_spec_verify               22/22 wall=  57.1s tools=4   out_tok=1076   
+[14:58:37] SKIP  pulse-alpha-free               t3_todo_cli    v2_spec_verify (predecessor v1_spec already 100%)
+[14:58:37] SKIP  pulse-alpha-free               t4_scheduler   v2_spec_verify (predecessor v1_spec already 100%)
+[14:58:37] START pulse-alpha-free               t5_refactor    v2_spec_verify
+[14:58:53] DONE  pulse-alpha-free               t2_bugfix      v2_spec_verify               16/16 wall=  68.2s tools=8   out_tok=2510   
+[15:00:43] DONE  pulse-alpha-free               t5_refactor    v2_spec_verify               12/12 wall= 120.4s tools=11  out_tok=3196   
+[15:00:43] finished 125/150 runs in 44.0 min
+ITER1 RESUME3 EXIT 0
