@@ -11,6 +11,8 @@ is deliberately excluded.
 The method is a loop: run a prompt variant, score it with hidden tests, read the transcripts for failure modes,
 write a targeted variant for that model, and rerun.
 
+**Practical guide:** [GUIDE.md](GUIDE.md) turns the findings into a prompt template, per-model cards, and the graph-engineering setup (graphify with opencode).
+
 ## Headline findings
 
 All numbers come from [`REPORT.md`](REPORT.md) and [`results/FINDINGS.md`](results/FINDINGS.md).
