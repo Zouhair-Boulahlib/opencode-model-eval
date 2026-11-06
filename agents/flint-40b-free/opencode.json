@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/flint-40b-free",
+  "small_model": "opencode/flint-40b-free",
+  "disabled_providers": ["ollama"],
+  "permission": {
+    "external_directory": "deny",
+    "webfetch": "deny",
+    "websearch": "deny",
+    "question": "deny"
+  }
+}

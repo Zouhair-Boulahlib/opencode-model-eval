@@ -1,0 +1,18 @@
+........F...                                                             [100%]
+================================== FAILURES ===================================
+____________________ test_no_function_longer_than_20_lines ____________________
+
+    def test_no_function_longer_than_20_lines():
+        too_long = [(f.name, f.end_lineno - f.lineno + 1) for f in _functions() if f.end_lineno - f.lineno + 1 > 20]
+>       assert too_long == [], f"functions over 20 lines: {too_long}"
+E       AssertionError: functions over 20 lines: [('process_orders', 25)]
+E       assert [('process_orders', 25)] == []
+E         
+E         Left contains one more item: ('process_orders', 25)
+E         Use -v to get more diff
+
+test_hidden_orders.py:92: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_orders.py::test_no_function_longer_than_20_lines - Asserti...
+1 failed, 11 passed in 0.80s
+

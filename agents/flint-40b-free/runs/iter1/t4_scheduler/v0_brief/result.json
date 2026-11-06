@@ -1,0 +1,65 @@
+{
+  "model": "opencode/flint-40b-free",
+  "slug": "flint-40b-free",
+  "task": "t4_scheduler",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/flint-40b-free/runs/iter1/t4_scheduler/v0_brief",
+  "finished": "2026-11-05T20:44:48",
+  "wall_s": 75.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 20,
+  "total": 22,
+  "score": 0.9091,
+  "score_adj": 0.9091,
+  "failed_tests": [
+    "test_merge_invalid_raises",
+    "test_free_busy_entirely_outside_ignored"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "write": 2
+  },
+  "tool_total": 4,
+  "tool_errors": 1,
+  "question_attempts": 0,
+  "steps": 5,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 10903,
+    "output": 3733,
+    "reasoning": 0,
+    "cache_read": 50432,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 17,
+  "session_id": "ses_e528c25b6ffejcd6HH471Tr7OR",
+  "final_text": "Created `scheduler.py` with the three functions:\n\n- **`merge_intervals(intervals)`** (`scheduler.py:8`) — sorts intervals by start and merges overlapping/adjacent ones into sorted disjoint intervals.\n- **`find_free_slots(busy, day_start, day_end, min_minutes)`** (`scheduler.py:17`) — merges busy intervals, then walks a cursor from `day_start`, emitting free slots of at least `min_minutes` before each busy block and a final slot before `day_end`.\n- **`max_concurrent(intervals)`** (`scheduler.py:38`) — sweep-line over start/end events; ends sort before starts at equal times (half-open `[start, end)` semantics), returning the peak overlap count.\n\nVerified with quick sanity checks: merging, empty-input handling, half-open non-overlap, peak concurrency, and free-slot filtering — all passed.",
+  "final_text_len": 796,
+  "final_text_asks_question": false,
+  "prompt_chars": 172
+}

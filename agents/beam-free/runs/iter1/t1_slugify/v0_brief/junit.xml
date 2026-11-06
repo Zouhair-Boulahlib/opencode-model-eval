@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="22" time="0.469" timestamp="2026-11-05T20:41:33.005596+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_slugify" name="test_basic[Hello World-hello-world]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[  Hello,   World!  -hello-world]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[Cr\xe8me Br\xfbl\xe9e-creme-brulee]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[already-slugged-already-slugged]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[C++ &amp; C# rock-c-c-rock]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[a_b_c-a-b-c]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[123 Main St.-123-main-st]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[tab\tand\nnewline-tab-and-newline]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[\xc0\xc9\xce\xd5\xdc-aeiou]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[Stra\xdfe \u65e5\u672c-stra-e]" time="0.003"><failure message="AssertionError: assert 'strae' == 'stra-e'&#10;  &#10;  - stra-e&#10;  ?     -&#10;  + strae">text = 'Straße 日本', expected = 'stra-e'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ &amp; C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+&gt;       assert slugify(text) == expected
+E       AssertionError: assert 'strae' == 'stra-e'
+E         
+E         - stra-e
+E         ?     -
+E         + strae
+
+test_hidden_slugify.py:19: AssertionError</failure></testcase><testcase classname="test_hidden_slugify" name="test_basic[MiXeD CaSe-mixed-case]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[---]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[!!!]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[   ]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[\u65e5\u672c\u8a9e]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_cut" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_strips_trailing_hyphen" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_longer_than_slug" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_zero" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_exact" time="0.001" /><testcase classname="test_hidden_slugify" name="test_returns_str_type" time="0.001" /></testsuite></testsuites>

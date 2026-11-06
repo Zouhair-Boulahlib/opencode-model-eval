@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="16" skipped="0" tests="16" time="8.090" timestamp="2026-11-05T20:45:18.582202+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_todo" name="test_list_empty" time="0.187"><failure message="AssertionError: assert 'No tasks.' == 'No tasks'&#10;  &#10;  - No tasks&#10;  + No tasks.&#10;  ?         +">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_list_empty0')
+
+    def test_list_empty(tmp_path):
+        r = run(tmp_path, "list")
+        assert r.returncode == 0
+&gt;       assert r.stdout.strip() == "No tasks"
+E       AssertionError: assert 'No tasks.' == 'No tasks'
+E         
+E         - No tasks
+E         + No tasks.
+E         ?         +
+
+test_hidden_todo.py:22: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_add_prints_exact_line" time="0.161"><failure message="AssertionError: assert 'Added task 1: buy milk\n' == 'Added 1: buy milk\n'&#10;  &#10;  - Added 1: buy milk&#10;  + Added task 1: buy milk&#10;  ?       +++++">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_add_prints_exact_line0')
+
+    def test_add_prints_exact_line(tmp_path):
+        r = run(tmp_path, "add", "buy", "milk")
+        assert r.returncode == 0
+&gt;       assert r.stdout == "Added 1: buy milk\n"
+E       AssertionError: assert 'Added task 1: buy milk\n' == 'Added 1: buy milk\n'
+E         
+E         - Added 1: buy milk
+E         + Added task 1: buy milk
+E         ?       +++++
+
+test_hidden_todo.py:28: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_add_and_list" time="0.533"><failure message="AssertionError: assert '1. [ ] buy m... ] call mom\n' == '[ ] 1: buy m...2: call mom\n'&#10;  &#10;  - [ ] 1: buy milk&#10;  ?    ---&#10;  + 1. [ ] buy milk&#10;  ? +++&#10;  - [ ] 2: call mom&#10;  ?    ---&#10;  + 2. [ ] call mom&#10;  ? +++">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_add_and_list0')
+
+    def test_add_and_list(tmp_path):
+        run(tmp_path, "add", "buy milk")
+        run(tmp_path, "add", "call", "mom")
+        r = run(tmp_path, "list")
+&gt;       assert r.stdout == "[ ] 1: buy milk\n[ ] 2: call mom\n"
+E       AssertionError: assert '1. [ ] buy m... ] call mom\n' == '[ ] 1: buy m...2: call mom\n'
+E         
+E         - [ ] 1: buy milk
+E         ?    ---
+E         + 1. [ ] buy milk
+E         ? +++
+E         - [ ] 2: call mom
+E         ?    ---
+E         + 2. [ ] call mom
+E         ? +++
+
+test_hidden_todo.py:36: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_done_marks_task" time="0.804"><failure message="AssertionError: assert (0 == 0 and 'Marked task 1 as done.' == 'Done 1'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '1'], returncode=0, stdout='Marked task 1 as done.\n', stderr='').returncode&#10;  &#10;  - Done 1&#10;  + Marked task 1 as done.)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_done_marks_task0')
+
+    def test_done_marks_task(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "done", "1")
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "Done 1"
+E       AssertionError: assert (0 == 0 and 'Marked task 1 as done.' == 'Done 1'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '1'], returncode=0, stdout='Marked task 1 as done.\n', stderr='').returncode
+E         
+E         - Done 1
+E         + Marked task 1 as done.)
+
+test_hidden_todo.py:43: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_done_twice_ok" time="0.531"><failure message="AssertionError: assert (0 == 0 and 'Marked task 1 as done.' == 'Done 1'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '1'], returncode=0, stdout='Marked task 1 as done.\n', stderr='').returncode&#10;  &#10;  - Done 1&#10;  + Marked task 1 as done.)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_done_twice_ok0')
+
+    def test_done_twice_ok(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        r = run(tmp_path, "done", "1")
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "Done 1"
+E       AssertionError: assert (0 == 0 and 'Marked task 1 as done.' == 'Done 1'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '1'], returncode=0, stdout='Marked task 1 as done.\n', stderr='').returncode
+E         
+E         - Done 1
+E         + Marked task 1 as done.)
+
+test_hidden_todo.py:52: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_remove" time="0.483"><failure message="AssertionError: assert (0 == 0 and 'Removed task 1.' == 'Removed 1'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'remove', '1'], returncode=0, stdout='Removed task 1.\n', stderr='').returncode&#10;  &#10;  - Removed 1&#10;  + Removed task 1.&#10;  ?         +++++ +)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_remove0')
+
+    def test_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "remove", "1")
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "Removed 1"
+E       AssertionError: assert (0 == 0 and 'Removed task 1.' == 'Removed 1'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'remove', '1'], returncode=0, stdout='Removed task 1.\n', stderr='').returncode
+E         
+E         - Removed 1
+E         + Removed task 1.
+E         ?         +++++ +)
+
+test_hidden_todo.py:59: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_remove" time="0.627"><failure message="AssertionError: assert 'Added task 2: c' == 'Added 3: c'&#10;  &#10;  - Added 3: c&#10;  + Added task 2: c">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_ids_never_reused_after_re0')
+
+    def test_ids_never_reused_after_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        run(tmp_path, "remove", "2")
+        r = run(tmp_path, "add", "c")
+&gt;       assert r.stdout.strip() == "Added 3: c"
+E       AssertionError: assert 'Added task 2: c' == 'Added 3: c'
+E         
+E         - Added 3: c
+E         + Added task 2: c
+
+test_hidden_todo.py:68: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_clear" time="0.692"><failure message="AssertionError: assert 'Added task 1: b' == 'Added 2: b'&#10;  &#10;  - Added 2: b&#10;  + Added task 1: b">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_ids_never_reused_after_cl0')
+
+    def test_ids_never_reused_after_clear(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        run(tmp_path, "clear")
+        r = run(tmp_path, "add", "b")
+&gt;       assert r.stdout.strip() == "Added 2: b"
+E       AssertionError: assert 'Added task 1: b' == 'Added 2: b'
+E         
+E         - Added 2: b
+E         + Added task 1: b
+
+test_hidden_todo.py:76: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_clear_counts_only_done" time="1.213"><failure message="AssertionError: assert (0 == 0 and 'Cleared all tasks.' == 'Cleared 2'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....ee\\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'clear'], returncode=0, stdout='Cleared all tasks.\n', stderr='').returncode&#10;  &#10;  - Cleared 2&#10;  + Cleared all tasks.)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_clear_counts_only_done0')
+
+    def test_clear_counts_only_done(tmp_path):
+        for t in "abc":
+            run(tmp_path, "add", t)
+        run(tmp_path, "done", "1")
+        run(tmp_path, "done", "3")
+        r = run(tmp_path, "clear")
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "Cleared 2"
+E       AssertionError: assert (0 == 0 and 'Cleared all tasks.' == 'Cleared 2'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....ee\\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'clear'], returncode=0, stdout='Cleared all tasks.\n', stderr='').returncode
+E         
+E         - Cleared 2
+E         + Cleared all tasks.)
+
+test_hidden_todo.py:85: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_done_unknown_id" time="0.241"><failure message="AssertionError: assert 'Error: no task 42' in 'Task not found: 42\n'&#10; +  where 'Task not found: 42\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....uns\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '42'], returncode=1, stdout='', stderr='Task not found: 42\n').stderr">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_done_unknown_id0')
+
+    def test_done_unknown_id(tmp_path):
+        r = run(tmp_path, "done", "42")
+        assert r.returncode == 1
+        assert r.stdout == ""
+&gt;       assert "Error: no task 42" in r.stderr
+E       AssertionError: assert 'Error: no task 42' in 'Task not found: 42\n'
+E        +  where 'Task not found: 42\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....uns\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'done', '42'], returncode=1, stdout='', stderr='Task not found: 42\n').stderr
+
+test_hidden_todo.py:93: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_remove_unknown_id" time="0.542"><failure message="AssertionError: assert 'Error: no task 9' in 'Task not found: 9\n'&#10; +  where 'Task not found: 9\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....uns\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'remove', '9'], returncode=1, stdout='', stderr='Task not found: 9\n').stderr">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_remove_unknown_id0')
+
+    def test_remove_unknown_id(tmp_path):
+        run(tmp_path, "add", "a")
+        r = run(tmp_path, "remove", "9")
+        assert r.returncode == 1
+&gt;       assert "Error: no task 9" in r.stderr
+E       AssertionError: assert 'Error: no task 9' in 'Task not found: 9\n'
+E        +  where 'Task not found: 9\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....uns\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'remove', '9'], returncode=1, stdout='', stderr='Task not found: 9\n').stderr
+
+test_hidden_todo.py:100: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_no_command_usage" time="0.329"><failure message="AssertionError: assert False&#10; +  where False = &lt;built-in method startswith of str object at 0x000002512B6C6C90&gt;('Usage:')&#10; +    where &lt;built-in method startswith of str object at 0x000002512B6C6C90&gt; = 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command'.startswith&#10; +      where 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command' = &lt;built-in method strip of str object at 0x000002512B6C6650&gt;()&#10; +        where &lt;built-in method strip of str object at 0x000002512B6C6650&gt; = 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n'.strip&#10; +          where 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....e: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n').stderr">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_no_command_usage0')
+
+    def test_no_command_usage(tmp_path):
+        r = run(tmp_path)
+        assert r.returncode == 2
+&gt;       assert r.stderr.strip().startswith("Usage:")
+E       AssertionError: assert False
+E        +  where False = &lt;built-in method startswith of str object at 0x000002512B6C6C90&gt;('Usage:')
+E        +    where &lt;built-in method startswith of str object at 0x000002512B6C6C90&gt; = 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command'.startswith
+E        +      where 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command' = &lt;built-in method strip of str object at 0x000002512B6C6650&gt;()
+E        +        where &lt;built-in method strip of str object at 0x000002512B6C6650&gt; = 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n'.strip
+E        +          where 'usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....e: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: the following arguments are required: command\n').stderr
+
+test_hidden_todo.py:107: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_unknown_command_usage" time="0.276"><failure message="assert False&#10; +  where False = &lt;built-in method startswith of str object at 0x000002512B661450&gt;('Usage:')&#10; +    where &lt;built-in method startswith of str object at 0x000002512B661450&gt; = &quot;usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')&quot;.startswith&#10; +      where &quot;usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')&quot; = &lt;built-in method strip of str object at 0x000002512B661530&gt;()&#10; +        where &lt;built-in method strip of str object at 0x000002512B661530&gt; = &quot;usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n&quot;.strip&#10; +          where &quot;usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n&quot; = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n&quot;).stderr">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_unknown_command_usage0')
+
+    def test_unknown_command_usage(tmp_path):
+        r = run(tmp_path, "frobnicate")
+        assert r.returncode == 2
+&gt;       assert r.stderr.strip().startswith("Usage:")
+E       assert False
+E        +  where False = &lt;built-in method startswith of str object at 0x000002512B661450&gt;('Usage:')
+E        +    where &lt;built-in method startswith of str object at 0x000002512B661450&gt; = "usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')".startswith
+E        +      where "usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')" = &lt;built-in method strip of str object at 0x000002512B661530&gt;()
+E        +        where &lt;built-in method strip of str object at 0x000002512B661530&gt; = "usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n".strip
+E        +          where "usage: todo [-h] [-f FILE] {add,done,remove,list,clear} ...\ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n" = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....ntodo: error: argument command: invalid choice: 'frobnicate' (choose from 'add', 'done', 'remove', 'list', 'clear')\n").stderr
+
+test_hidden_todo.py:113: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_done_missing_arg_usage" time="0.268"><failure message="AssertionError: assert False&#10; +  where False = &lt;built-in method startswith of str object at 0x000002512B5300B0&gt;('Usage:')&#10; +    where &lt;built-in method startswith of str object at 0x000002512B5300B0&gt; = 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id'.startswith&#10; +      where 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id' = &lt;built-in method strip of str object at 0x000002512B530230&gt;()&#10; +        where &lt;built-in method strip of str object at 0x000002512B530230&gt; = 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n'.strip&#10; +          where 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....turncode=2, stdout='', stderr='usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n').stderr">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_done_missing_arg_usage0')
+
+    def test_done_missing_arg_usage(tmp_path):
+        r = run(tmp_path, "done")
+        assert r.returncode == 2
+&gt;       assert r.stderr.strip().startswith("Usage:")
+E       AssertionError: assert False
+E        +  where False = &lt;built-in method startswith of str object at 0x000002512B5300B0&gt;('Usage:')
+E        +    where &lt;built-in method startswith of str object at 0x000002512B5300B0&gt; = 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id'.startswith
+E        +      where 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id' = &lt;built-in method strip of str object at 0x000002512B530230&gt;()
+E        +        where &lt;built-in method strip of str object at 0x000002512B530230&gt; = 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n'.strip
+E        +          where 'usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n' = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....turncode=2, stdout='', stderr='usage: todo done [-h] id\ntodo done: error: the following arguments are required: id\n').stderr
+
+test_hidden_todo.py:119: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_default_file_in_cwd" time="0.437"><failure message="AssertionError: assert '1. [ ] x\n' == '[ ] 1: x\n'&#10;  &#10;  - [ ] 1: x&#10;  + 1. [ ] x">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_default_file_in_cwd0')
+
+    def test_default_file_in_cwd(tmp_path):
+        r = run(tmp_path, "add", "x", use_env=False)
+        assert r.returncode == 0
+        assert (tmp_path / "todo.json").exists()
+&gt;       assert run(tmp_path, "list", use_env=False).stdout == "[ ] 1: x\n"
+E       AssertionError: assert '1. [ ] x\n' == '[ ] 1: x\n'
+E         
+E         - [ ] 1: x
+E         + 1. [ ] x
+
+test_hidden_todo.py:126: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_missing_file_means_no_tasks" time="0.216"><failure message="AssertionError: assert (0 == 0 and 'No tasks.' == 'No tasks'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....s\\beam-free\\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'list'], returncode=0, stdout='No tasks.\n', stderr='').returncode&#10;  &#10;  - No tasks&#10;  + No tasks.&#10;  ?         +)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-53/test_missing_file_means_no_tas0')
+
+    def test_missing_file_means_no_tasks(tmp_path):
+        env = dict(os.environ, TODO_FILE=str(tmp_path / "nested" / "none.json"))
+        r = subprocess.run([sys.executable, TODO, "list"], capture_output=True, text=True, env=env, cwd=str(tmp_path), timeout=30)
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "No tasks"
+E       AssertionError: assert (0 == 0 and 'No tasks.' == 'No tasks'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....s\\beam-free\\runs\\iter1\\t3_todo_cli\\v0_brief\\ws\\todo.py', 'list'], returncode=0, stdout='No tasks.\n', stderr='').returncode
+E         
+E         - No tasks
+E         + No tasks.
+E         ?         +)
+
+test_hidden_todo.py:132: AssertionError</failure></testcase></testsuite></testsuites>

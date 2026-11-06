@@ -1,0 +1,113 @@
+.......F..FF.F........                                                   [100%]
+================================== FAILURES ===================================
+__________________________ test_merge_invalid_raises __________________________
+
+    def test_merge_invalid_raises():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_hidden_scheduler.py:39: Failed
+____________________________ test_free_empty_busy _____________________________
+
+    def test_free_empty_busy():
+>       assert find_free_slots([], 480, 1020, 30) == [(480, 1020)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] < day_end and b[1] > day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+>       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError
+_____________________ test_free_empty_busy_day_too_short ______________________
+
+    def test_free_empty_busy_day_too_short():
+>       assert find_free_slots([], 480, 500, 30) == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] < day_end and b[1] > day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+>       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError
+___________________ test_free_busy_entirely_outside_ignored ___________________
+
+    def test_free_busy_entirely_outside_ignored():
+>       assert find_free_slots([(0, 100), (2000, 3000)], 480, 1020, 30) == [(480, 1020)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] < day_end and b[1] > day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+>       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError
+=========================== short test summary info ===========================
+FAILED test_hidden_scheduler.py::test_merge_invalid_raises - Failed: DID NOT ...
+FAILED test_hidden_scheduler.py::test_free_empty_busy - IndexError: list inde...
+FAILED test_hidden_scheduler.py::test_free_empty_busy_day_too_short - IndexEr...
+FAILED test_hidden_scheduler.py::test_free_busy_entirely_outside_ignored - In...
+4 failed, 18 passed in 0.57s
+

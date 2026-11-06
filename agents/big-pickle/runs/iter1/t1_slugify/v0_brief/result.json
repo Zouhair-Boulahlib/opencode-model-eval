@@ -1,0 +1,63 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t1_slugify",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t1_slugify/v0_brief",
+  "finished": "2026-11-05T20:41:38",
+  "wall_s": 23.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 21,
+  "total": 22,
+  "score": 0.9545,
+  "score_adj": 0.9545,
+  "failed_tests": [
+    "test_basic[Stra\\xdfe \\u65e5\\u672c-stra-e]"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "slugify.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "write": 1
+  },
+  "tool_total": 3,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 17942,
+    "output": 413,
+    "reasoning": 70,
+    "cache_read": 25728,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 12,
+  "session_id": "ses_e528e3d7bffe997QhAQt23JD2a",
+  "final_text": "Created `slugify.py:5` with lowercase conversion, accent stripping, non-alphanumeric collapsing to hyphens, and optional `max_length` truncation that avoids trailing hyphens.",
+  "final_text_len": 174,
+  "final_text_asks_question": false,
+  "prompt_chars": 99
+}

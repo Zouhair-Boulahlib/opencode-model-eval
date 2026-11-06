@@ -1,0 +1,60 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t4_scheduler",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t4_scheduler/v1_spec",
+  "finished": "2026-11-06T10:47:26",
+  "wall_s": 21.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 22,
+  "total": 22,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "write": 1,
+    "bash": 1
+  },
+  "tool_total": 2,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 3,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 9371,
+    "output": 754,
+    "reasoning": 545,
+    "cache_read": 25856,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 9,
+  "session_id": "ses_e4f87dfd7ffeYNpNStkVWuuKLc",
+  "final_text": "Created `scheduler.py` with `merge_intervals`, `find_free_slots`, and `max_concurrent`, verified against the examples.",
+  "final_text_len": 118,
+  "final_text_asks_question": false,
+  "prompt_chars": 1387
+}

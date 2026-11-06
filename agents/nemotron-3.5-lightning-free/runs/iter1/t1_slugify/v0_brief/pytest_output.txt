@@ -1,0 +1,149 @@
+..F..F..FF..F..F.F....                                                   [100%]
+================================== FAILURES ===================================
+_______________ test_basic[Cr\xe8me Br\xfbl\xe9e-creme-brulee] ________________
+
+text = 'Crème Brûlée', expected = 'creme-brulee'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ & C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+>       assert slugify(text) == expected
+E       AssertionError: assert 'crème-brûlée' == 'creme-brulee'
+E         
+E         - creme-brulee
+E         ?   ^     ^  -
+E         + crème-brûlée
+E         ?   ^     ^ +
+
+test_hidden_slugify.py:19: AssertionError
+___________________________ test_basic[a_b_c-a-b-c] ___________________________
+
+text = 'a_b_c', expected = 'a-b-c'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ & C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+>       assert slugify(text) == expected
+E       AssertionError: assert 'a_b_c' == 'a-b-c'
+E         
+E         - a-b-c
+E         + a_b_c
+
+test_hidden_slugify.py:19: AssertionError
+___________________ test_basic[\xc0\xc9\xce\xd5\xdc-aeiou] ____________________
+
+text = 'ÀÉÎÕÜ', expected = 'aeiou'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ & C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+>       assert slugify(text) == expected
+E       AssertionError: assert 'àéîõü' == 'aeiou'
+E         
+E         - aeiou
+E         + àéîõü
+
+test_hidden_slugify.py:19: AssertionError
+__________________ test_basic[Stra\xdfe \u65e5\u672c-stra-e] __________________
+
+text = 'Straße 日本', expected = 'stra-e'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ & C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+>       assert slugify(text) == expected
+E       AssertionError: assert 'straße-日本' == 'stra-e'
+E         
+E         - stra-e
+E         + straße-日本
+
+test_hidden_slugify.py:19: AssertionError
+___________________________ test_empty_results[---] ___________________________
+
+text = '---'
+
+    @pytest.mark.parametrize("text", ["", "---", "!!!", "   ", "日本語"])
+    def test_empty_results(text):
+>       assert slugify(text) == ""
+E       AssertionError: assert '-' == ''
+E         
+E         + -
+
+test_hidden_slugify.py:24: AssertionError
+___________________ test_empty_results[\u65e5\u672c\u8a9e] ____________________
+
+text = '日本語'
+
+    @pytest.mark.parametrize("text", ["", "---", "!!!", "   ", "日本語"])
+    def test_empty_results(text):
+>       assert slugify(text) == ""
+E       AssertionError: assert '日本語' == ''
+E         
+E         + 日本語
+
+test_hidden_slugify.py:24: AssertionError
+___________________ test_max_length_strips_trailing_hyphen ____________________
+
+    def test_max_length_strips_trailing_hyphen():
+>       assert slugify("Hello World", max_length=6) == "hello"
+E       AssertionError: assert 'hello-' == 'hello'
+E         
+E         - hello
+E         + hello-
+E         ?      +
+
+test_hidden_slugify.py:32: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_slugify.py::test_basic[Cr\xe8me Br\xfbl\xe9e-creme-brulee]
+FAILED test_hidden_slugify.py::test_basic[a_b_c-a-b-c] - AssertionError: asse...
+FAILED test_hidden_slugify.py::test_basic[\xc0\xc9\xce\xd5\xdc-aeiou] - Asser...
+FAILED test_hidden_slugify.py::test_basic[Stra\xdfe \u65e5\u672c-stra-e] - As...
+FAILED test_hidden_slugify.py::test_empty_results[---] - AssertionError: asse...
+FAILED test_hidden_slugify.py::test_empty_results[\u65e5\u672c\u8a9e] - Asser...
+FAILED test_hidden_slugify.py::test_max_length_strips_trailing_hyphen - Asser...
+7 failed, 15 passed in 1.49s
+

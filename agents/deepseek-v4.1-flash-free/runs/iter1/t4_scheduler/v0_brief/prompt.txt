@@ -1,0 +1,1 @@
+Write scheduler.py with merge_intervals(intervals), find_free_slots(busy, day_start, day_end, min_minutes) and max_concurrent(intervals) for integer-minute time intervals.

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/big-pickle",
+  "small_model": "opencode/big-pickle",
+  "disabled_providers": ["ollama"],
+  "permission": {
+    "external_directory": "deny",
+    "webfetch": "deny",
+    "websearch": "deny",
+    "question": "deny"
+  }
+}

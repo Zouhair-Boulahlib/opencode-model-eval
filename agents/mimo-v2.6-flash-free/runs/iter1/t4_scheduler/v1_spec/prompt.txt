@@ -1,0 +1,19 @@
+Create `scheduler.py` in the current directory with three pure functions. Times are integers (minutes). An interval is a tuple `(start, end)` and is half-open: it covers `start` but not `end`.
+
+    def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]
+
+- Return a NEW sorted list in which overlapping or touching intervals are merged: (1,3) and (3,5) become (1,5); (1,4) and (2,3) become (1,4).
+- Input may be unsorted; do not mutate the input list. Empty input returns [].
+- Any interval with start >= end raises ValueError.
+
+    def find_free_slots(busy: list[tuple[int, int]], day_start: int, day_end: int, min_minutes: int) -> list[tuple[int, int]]
+
+- Return the free gaps inside [day_start, day_end) that are not covered by any busy interval, keeping only gaps whose length is >= min_minutes, sorted by start.
+- Busy intervals may overlap each other, be unsorted, or extend before day_start / after day_end (clip them to the day). Busy intervals entirely outside the day are ignored.
+- If busy is empty, the whole day is one free slot (if it is long enough).
+
+    def max_concurrent(intervals: list[tuple[int, int]]) -> int
+
+- Return the maximum number of intervals that overlap at any single instant. Touching intervals such as (1,3) and (3,5) do NOT overlap. Empty input returns 0.
+
+Use only the Python standard library. Put everything in `scheduler.py`.

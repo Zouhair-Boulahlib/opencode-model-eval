@@ -1,0 +1,62 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t5_refactor",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t5_refactor/v1_spec",
+  "finished": "2026-11-06T10:47:57",
+  "wall_s": 27.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 12,
+  "total": 12,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "read": 2,
+    "write": 1,
+    "bash": 2
+  },
+  "tool_total": 5,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 14682,
+    "output": 1523,
+    "reasoning": 1809,
+    "cache_read": 40192,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 14,
+  "session_id": "ses_e4f87809dffeyw8AyrYZeoLiBL",
+  "final_text": "Refactored `orders.py` into small typed helpers. All 5 tests pass, and every function is 15 lines or fewer (max: `_process_one`, 15).",
+  "final_text_len": 133,
+  "final_text_asks_question": false,
+  "prompt_chars": 884
+}

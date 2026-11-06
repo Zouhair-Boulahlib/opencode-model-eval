@@ -1,0 +1,66 @@
+{
+  "model": "opencode/nemotron-3.5-super-vl-free",
+  "slug": "nemotron-3.5-super-vl-free",
+  "task": "t3_todo_cli",
+  "variant": "v2_spec_verify",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/nemotron-3.5-super-vl-free/runs/iter1/t3_todo_cli/v2_spec_verify",
+  "finished": "2026-11-06T14:56:35",
+  "wall_s": 44.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 14,
+  "total": 16,
+  "score": 0.875,
+  "score_adj": 0.875,
+  "failed_tests": [
+    "test_ids_never_reused_after_remove",
+    "test_ids_never_reused_after_clear"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "test_own.py",
+    "todo.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "write": 2
+  },
+  "tool_total": 4,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 5,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 25318,
+    "output": 2453,
+    "reasoning": 157,
+    "cache_read": 39024,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 15,
+  "session_id": "ses_e4ea448f0ffehfxAPyNu0PJp6E",
+  "final_text": "16 passed in 7.35s",
+  "final_text_len": 18,
+  "final_text_asks_question": false,
+  "prompt_chars": 1741
+}

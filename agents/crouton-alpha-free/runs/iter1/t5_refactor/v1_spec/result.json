@@ -1,0 +1,63 @@
+{
+  "model": "opencode/crouton-alpha-free",
+  "slug": "crouton-alpha-free",
+  "task": "t5_refactor",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/crouton-alpha-free/runs/iter1/t5_refactor/v1_spec",
+  "finished": "2026-11-06T10:50:29",
+  "wall_s": 34.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 12,
+  "total": 12,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "read": 2,
+    "bash": 2,
+    "write": 1
+  },
+  "tool_total": 5,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 5,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 32876,
+    "output": 1033,
+    "reasoning": 0,
+    "cache_read": 0,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 17,
+  "session_id": "ses_e4f85443affe1gygjrY2PQu2x7",
+  "final_text": "Refactored `orders.py` into typed helpers (all ≤8 lines); all 5 tests pass and `process_orders` signature/behaviour unchanged.",
+  "final_text_len": 126,
+  "final_text_asks_question": false,
+  "prompt_chars": 884
+}

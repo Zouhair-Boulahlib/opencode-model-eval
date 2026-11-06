@@ -1,0 +1,70 @@
+{
+  "model": "opencode/pulse-alpha-free",
+  "slug": "pulse-alpha-free",
+  "task": "t2_bugfix",
+  "variant": "v2_spec_verify",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/pulse-alpha-free/runs/iter1/t2_bugfix/v2_spec_verify",
+  "finished": "2026-11-06T14:58:53",
+  "wall_s": 68.2,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 16,
+  "total": 16,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "test_own.py"
+  ],
+  "files_modified": [
+    "inventory.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 3,
+    "read": 3,
+    "write": 1,
+    "edit": 1
+  },
+  "tool_total": 8,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 9,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 18103,
+    "output": 2510,
+    "reasoning": 585,
+    "cache_read": 116224,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 27,
+  "session_id": "ses_e4ea26b88ffensPU2vZGDWAqXQ",
+  "final_text": "Fixed bugs in `inventory.py`: mutable `tags=[]` default (now `None` + copied list), `remove` deleting zero-qty items, `low_stock` using `<` instead of `<=`, `search` not case-insensitive/tag-aware, `page` 0-indexed offset. Added `test_own.py` covering the rules; `test_inventory.py` untouched.\n\n`20 passed in 0.18s`",
+  "final_text_len": 315,
+  "final_text_asks_question": false,
+  "prompt_chars": 1636
+}

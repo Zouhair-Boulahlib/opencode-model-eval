@@ -1,0 +1,129 @@
+# opencode/deepseek-v4.1-flash-free: behaviour and prompting report
+
+Generated 2026-11-06 16:11 from 15 runs. Best variant: `v1_spec` with mean score 100% (baseline `v0_brief`: 77%).
+
+## 1. Scores
+
+### Iteration 1
+
+| task | v0_brief | v1_spec | v2_spec_verify |
+|---|---|---|---|
+| t1_slugify | 21/22 | 22/22 | 22/22 |
+| t2_bugfix | 16/16 | 16/16 | 16/16 |
+| t3_todo_cli | 0/16 | 16/16 | 16/16 |
+| t4_scheduler | 21/22 | 22/22 | 22/22 |
+| t5_refactor | 11/12 | 12/12 | 12/12 |
+| **mean** | 77% | 100% | 100% |
+
+Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
+
+## 2. Behaviour profile
+
+| metric | value |
+|---|---|
+| runs | 15 |
+| mean score (all runs) | 92% |
+| perfect runs / zero runs | 11 / 1 |
+| avg wall time | 31 s |
+| avg tokens in / out / reasoning | 11903 / 1368 / 623 |
+| avg LLM steps per run | 4.7 |
+| avg tool calls per run (errors) | 5.3 (0.00) |
+| tool usage (total) | bash: 32, edit: 19, write: 17, read: 12 |
+| tool errors by tool (total) | - |
+| bash calls blocked by permission (unquoted absolute path with a space) | 0 |
+| ran pytest / wrote own tests | 60% / 33% |
+| timeouts | 0% |
+| edited protected test files | 0 |
+| question-tool attempts / final message is a question | 0 / 0% |
+| target file missing at end | 0 |
+| avg final message length | 148 chars |
+| runs with provider/tool errors | 0 |
+
+### Behaviour by prompt variant
+
+| variant | runs | mean score | wall s | tools/run | ran pytest | own tests | timeouts | final chars |
+|---|---|---|---|---|---|---|---|---|
+| v0_brief | 5 | 77% | 27 | 4.8 | 40% | 0% | 0% | 206 |
+| v1_spec | 5 | 100% | 29 | 4.0 | 40% | 0% | 0% | 142 |
+| v2_spec_verify | 5 | 100% | 36 | 7.2 | 100% | 100% | 0% | 96 |
+
+## 3. Failure analysis
+
+### t1_slugify
+
+- iter1 `v0_brief`: **FAIL** 21/22 in 22.1s, 3 tool calls, never ran tests. failed: test_basic[Stra\xdfe \u65e5\u672c-stra-e] ([run folder](runs/iter1/t1_slugify/v0_brief))
+- iter1 `v1_spec`: **PASS** 22/22 in 14.0s, 2 tool calls, never ran tests.  ([run folder](runs/iter1/t1_slugify/v1_spec))
+- iter1 `v2_spec_verify`: **PASS** 22/22 in 31.1s, 7 tool calls, ran pytest.  ([run folder](runs/iter1/t1_slugify/v2_spec_verify))
+
+### t2_bugfix
+
+- iter1 `v0_brief`: **PASS** 16/16 in 32.1s, 9 tool calls, ran pytest.  ([run folder](runs/iter1/t2_bugfix/v0_brief))
+- iter1 `v1_spec`: **PASS** 16/16 in 24.1s, 8 tool calls, ran pytest.  ([run folder](runs/iter1/t2_bugfix/v1_spec))
+- iter1 `v2_spec_verify`: **PASS** 16/16 in 32.1s, 12 tool calls, ran pytest.  ([run folder](runs/iter1/t2_bugfix/v2_spec_verify))
+
+### t3_todo_cli
+
+- iter1 `v0_brief`: **FAIL** 0/16 in 26.0s, 4 tool calls, never ran tests. failed: test_list_empty, test_add_prints_exact_line, test_add_and_list, test_done_marks_task, test_done_twice_ok, test_remove, test_ids_never_reused_after_remove, test_ids_never_reused_after_clear ... ([run folder](runs/iter1/t3_todo_cli/v0_brief))
+- iter1 `v1_spec`: **PASS** 16/16 in 25.1s, 2 tool calls, never ran tests.  ([run folder](runs/iter1/t3_todo_cli/v1_spec))
+- iter1 `v2_spec_verify`: **PASS** 16/16 in 45.2s, 4 tool calls, ran pytest.  ([run folder](runs/iter1/t3_todo_cli/v2_spec_verify))
+
+### t4_scheduler
+
+- iter1 `v0_brief`: **FAIL** 21/22 in 32.0s, 4 tool calls, never ran tests. failed: test_merge_invalid_raises ([run folder](runs/iter1/t4_scheduler/v0_brief))
+- iter1 `v1_spec`: **PASS** 22/22 in 25.2s, 3 tool calls, never ran tests.  ([run folder](runs/iter1/t4_scheduler/v1_spec))
+- iter1 `v2_spec_verify`: **PASS** 22/22 in 25.1s, 4 tool calls, ran pytest.  ([run folder](runs/iter1/t4_scheduler/v2_spec_verify))
+
+### t5_refactor
+
+- iter1 `v0_brief`: **FAIL** 11/12 in 25.1s, 4 tool calls, ran pytest. failed: test_no_function_longer_than_20_lines ([run folder](runs/iter1/t5_refactor/v0_brief))
+- iter1 `v1_spec`: **PASS** 12/12 in 55.1s, 5 tool calls, ran pytest.  ([run folder](runs/iter1/t5_refactor/v1_spec))
+- iter1 `v2_spec_verify`: **PASS** 12/12 in 46.2s, 9 tool calls, ran pytest.  ([run folder](runs/iter1/t5_refactor/v2_spec_verify))
+
+## 4. Behaviour notes (hand-written)
+
+_Iteration 1 complete (15 runs). Iteration 2/3 pending._
+
+**Style.** 3 to 5 steps, reads, writes, verifies with `python -c` or the provided pytest, then a dense summary with file:line references and an explicit "fixed: ..." list (around 140 to 200 characters).
+
+**Scores.** Brief 77% -> spec 100% on all five tasks; the spec runs are among the fastest in the set (14 to 25 s, except the refactor at 55 s). Spec + verify: 100%, wall 36 s vs 29 s, steps 6.0 vs 3.6.
+
+**Quirks observed.**
+- Brief todo: `Added task 1: Buy milk`, `[ ] 1. Buy milk`, storage `todos.json`.
+- Nothing erratic in 15 runs: no tool errors, no exploration outside the directory, no timeouts.
+
+**Recommendation.** Spec only. Together with big-pickle this is the most predictable model here; extra scaffolding (plan, verify, role) is overhead for tasks of this size.
+
+## 5. Recommended prompt recipe
+
+Best-performing variant `v1_spec` = components `spec`. Rendered for `t3_todo_cli`:
+
+```text
+Create `todo.py` in the current directory: a command-line to-do manager using only the Python standard library.
+
+Storage: a JSON file. Its path is the environment variable `TODO_FILE` if set, otherwise `todo.json` in the current working directory. Create the file on first write. A missing file means "no tasks".
+
+Commands (`python todo.py <command> ...`):
+- `add <word> [<word> ...]`  Appends a task whose text is the words joined by single spaces. Prints `Added <id>: <text>`.
+- `list`  Prints one line per task in id order: `[ ] <id>: <text>` for open tasks, `[x] <id>: <text>` for done tasks. If there are no tasks prints exactly `No tasks`.
+- `done <id>`  Marks the task done. Prints `Done <id>`. Marking an already-done task is fine (same output, exit 0).
+- `remove <id>`  Deletes the task. Prints `Removed <id>`.
+- `clear`  Deletes all done tasks. Prints `Cleared <n>` where n is how many were deleted.
+
+Rules:
+- IDs start at 1 and always increase; an id is never reused, even after `remove` or `clear`.
+- `done`/`remove` with an id that does not exist: print `Error: no task <id>` to stderr, print nothing to stdout, exit code 1.
+- Unknown command, missing command, missing/invalid arguments: print `Usage: todo.py <add|list|done|remove|clear> ...` to stderr, exit code 2.
+- All successful commands exit with code 0 and print exactly one line (or one line per task for list), with no extra output.
+- Do not create any other source files.
+```
+
+## 6. Sample final messages
+
+**best run** (t1_slugify / iter1 / `v1_spec`, 22/22):
+
+> Created `slugify.py` with the requested function. Verified cases: `Crème Brûlée` → `creme-brulee`, separators-only → `""`, `max_length=0` → `""`.
+
+**worst run** (t3_todo_cli / iter1 / `v0_brief`, 0/16):
+
+> Created `todo.py` with `add`, `list`, `done`, `remove`, and `clear` commands, persisting to `todos.json` alongside the script. All commands tested end-to-end.
+

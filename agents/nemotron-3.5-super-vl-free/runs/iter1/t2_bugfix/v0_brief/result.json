@@ -1,0 +1,62 @@
+{
+  "model": "opencode/nemotron-3.5-super-vl-free",
+  "slug": "nemotron-3.5-super-vl-free",
+  "task": "t2_bugfix",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/nemotron-3.5-super-vl-free/runs/iter1/t2_bugfix/v0_brief",
+  "finished": "2026-11-05T20:42:30",
+  "wall_s": 36.2,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 16,
+  "total": 16,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "inventory.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "read": 2,
+    "edit": 5,
+    "bash": 1
+  },
+  "tool_total": 8,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 17568,
+    "output": 1118,
+    "reasoning": 412,
+    "cache_read": 34688,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 17,
+  "session_id": "ses_e528d9ef3ffesjA0JbqEBIBXVA",
+  "final_text": "All 8 tests pass. Fixed 5 bugs in `inventory.py`:\n\n1. **Mutable default arg** `tags=[]` → `tags=None` with `if tags is None: tags = []` (tags were shared between items)\n2. **`remove` deleted item at qty 0** → removed the `del` so the item stays (test_remove_to_zero_keeps_item)\n3. **`low_stock` used `<`** → changed to `<=` to include items at the threshold\n4. **`search` was case-sensitive and name-only** → case-insensitive match on name or tags\n5. **`page` used 0-indexed start** → `(number - 1) * size` for 1-indexed pages",
+  "final_text_len": 526,
+  "final_text_asks_question": false,
+  "prompt_chars": 117
+}

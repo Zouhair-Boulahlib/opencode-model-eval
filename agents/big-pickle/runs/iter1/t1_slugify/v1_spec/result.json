@@ -1,0 +1,60 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t1_slugify",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t1_slugify/v1_spec",
+  "finished": "2026-11-06T10:46:49",
+  "wall_s": 17.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 22,
+  "total": 22,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "slugify.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "write": 1,
+    "bash": 1
+  },
+  "tool_total": 2,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 3,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 10482,
+    "output": 437,
+    "reasoning": 395,
+    "cache_read": 23680,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 9,
+  "session_id": "ses_e4f885c15ffeehvYwtbzV4di4T",
+  "final_text": "Created `slugify.py` with the function. Verified against accents, non-ASCII separators, whitespace/punctuation, and `max_length` edge cases.",
+  "final_text_len": 140,
+  "final_text_asks_question": false,
+  "prompt_chars": 963
+}

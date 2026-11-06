@@ -1,0 +1,70 @@
+{
+  "model": "opencode/mimo-v2.6-flash-free",
+  "slug": "mimo-v2.6-flash-free",
+  "task": "t5_refactor",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/mimo-v2.6-flash-free/runs/iter1/t5_refactor/v0_brief",
+  "finished": "2026-11-06T14:34:26",
+  "wall_s": 153.9,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 11,
+  "total": 12,
+  "score": 0.9167,
+  "score_adj": 0.9167,
+  "failed_tests": [
+    "test_no_function_longer_than_20_lines"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "glob": 1,
+    "bash": 5,
+    "read": 2,
+    "write": 1,
+    "edit": 1
+  },
+  "tool_total": 10,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 8,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 17379,
+    "output": 2390,
+    "reasoning": 2144,
+    "cache_read": 96128,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 29,
+  "session_id": "ses_e4eba1f91ffeiZqhyGfQtgz6sS",
+  "final_text": "Refactor complete — `orders.py` split into small type-hinted functions, all tests pass.\n\n- **`orders.py`**: `process_orders` (orchestrator only) delegates to `copy_inventory`, `check_item`, `compute_items_total`, `apply_coupon`, `reserve_stock`, with `TypedDict` types (`Order`, `Item`, `Inventory`, `Discounts`, `ProcessResult`).\n- **Verification**: `pytest test_orders.py` → 5 passed; a differential fuzz run of 3000 random order/inventory/coupon cases against the original implementation produced identical outputs.",
+  "final_text_len": 518,
+  "final_text_asks_question": false,
+  "prompt_chars": 164
+}

@@ -1,0 +1,147 @@
+FFF.F.FFFFF.FFF.F.....                                                   [100%]
+================================== FAILURES ===================================
+______________________________ test_merge_basic _______________________________
+
+    def test_merge_basic():
+>       assert merge_intervals([(5, 8), (1, 3), (2, 4), (8, 10)]) == [(1, 4), (5, 10)]
+E       assert [[1, 4], [5, 10]] == [(1, 4), (5, 10)]
+E         
+E         At index 0 diff: [1, 4] != (1, 4)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:6: AssertionError
+_____________________________ test_merge_touching _____________________________
+
+    def test_merge_touching():
+>       assert merge_intervals([(1, 3), (3, 5)]) == [(1, 5)]
+E       assert [[1, 5]] == [(1, 5)]
+E         
+E         At index 0 diff: [1, 5] != (1, 5)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:10: AssertionError
+____________________________ test_merge_contained _____________________________
+
+    def test_merge_contained():
+>       assert merge_intervals([(1, 10), (2, 3), (4, 5)]) == [(1, 10)]
+E       assert [[1, 10]] == [(1, 10)]
+E         
+E         At index 0 diff: [1, 10] != (1, 10)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:14: AssertionError
+______________________________ test_merge_single ______________________________
+
+    def test_merge_single():
+>       assert merge_intervals([(7, 9)]) == [(7, 9)]
+E       assert [[7, 9]] == [(7, 9)]
+E         
+E         At index 0 diff: [7, 9] != (7, 9)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:22: AssertionError
+______________________ test_merge_returns_tuples_sorted _______________________
+
+    def test_merge_returns_tuples_sorted():
+        out = merge_intervals([(10, 12), (1, 2)])
+>       assert out == [(1, 2), (10, 12)]
+E       assert [[1, 2], [10, 12]] == [(1, 2), (10, 12)]
+E         
+E         At index 0 diff: [1, 2] != (1, 2)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:34: AssertionError
+__________________________ test_merge_invalid_raises __________________________
+
+    def test_merge_invalid_raises():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_hidden_scheduler.py:39: Failed
+_______________________________ test_free_basic _______________________________
+
+    def test_free_basic():
+>       assert find_free_slots([(540, 600), (720, 780)], 480, 1020, 60) == [(480, 540), (600, 720), (780, 1020)]
+E       assert [[480, 540], ..., [780, 1020]] == [(480, 540), ..., (780, 1020)]
+E         
+E         At index 0 diff: [480, 540] != (480, 540)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:46: AssertionError
+____________________________ test_free_min_filter _____________________________
+
+    def test_free_min_filter():
+>       assert find_free_slots([(540, 600)], 480, 1020, 90) == [(600, 1020)]
+E       assert [[600, 1020]] == [(600, 1020)]
+E         
+E         At index 0 diff: [600, 1020] != (600, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:50: AssertionError
+____________________________ test_free_empty_busy _____________________________
+
+    def test_free_empty_busy():
+>       assert find_free_slots([], 480, 1020, 30) == [(480, 1020)]
+E       assert [[480, 1020]] == [(480, 1020)]
+E         
+E         At index 0 diff: [480, 1020] != (480, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:54: AssertionError
+_____________________ test_free_busy_outside_day_clipped ______________________
+
+    def test_free_busy_outside_day_clipped():
+>       assert find_free_slots([(0, 500), (1000, 2000)], 480, 1020, 30) == [(500, 1000)]
+E       assert [[500, 1000]] == [(500, 1000)]
+E         
+E         At index 0 diff: [500, 1000] != (500, 1000)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:62: AssertionError
+___________________ test_free_busy_entirely_outside_ignored ___________________
+
+    def test_free_busy_entirely_outside_ignored():
+>       assert find_free_slots([(0, 100), (2000, 3000)], 480, 1020, 30) == [(480, 1020)]
+E       assert [[480, 1020]] == [(480, 1020)]
+E         
+E         At index 0 diff: [480, 1020] != (480, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:66: AssertionError
+_____________________ test_free_overlapping_unsorted_busy _____________________
+
+    def test_free_overlapping_unsorted_busy():
+>       assert find_free_slots([(700, 800), (500, 650), (600, 720)], 480, 900, 10) == [(480, 500), (800, 900)]
+E       assert [[480, 500], [800, 900]] == [(480, 500), (800, 900)]
+E         
+E         At index 0 diff: [480, 500] != (480, 500)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:70: AssertionError
+__________________________ test_free_gap_exactly_min __________________________
+
+    def test_free_gap_exactly_min():
+>       assert find_free_slots([(500, 600)], 480, 700, 20) == [(480, 500), (600, 700)]
+E       assert [[480, 500], [600, 700]] == [(480, 500), (600, 700)]
+E         
+E         At index 0 diff: [480, 500] != (480, 500)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:78: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_scheduler.py::test_merge_basic - assert [[1, 4], [5, 10]] ...
+FAILED test_hidden_scheduler.py::test_merge_touching - assert [[1, 5]] == [(1...
+FAILED test_hidden_scheduler.py::test_merge_contained - assert [[1, 10]] == [...
+FAILED test_hidden_scheduler.py::test_merge_single - assert [[7, 9]] == [(7, 9)]
+FAILED test_hidden_scheduler.py::test_merge_returns_tuples_sorted - assert [[...
+FAILED test_hidden_scheduler.py::test_merge_invalid_raises - Failed: DID NOT ...
+FAILED test_hidden_scheduler.py::test_free_basic - assert [[480, 540], ..., [...
+FAILED test_hidden_scheduler.py::test_free_min_filter - assert [[600, 1020]] ...
+FAILED test_hidden_scheduler.py::test_free_empty_busy - assert [[480, 1020]] ...
+FAILED test_hidden_scheduler.py::test_free_busy_outside_day_clipped - assert ...
+FAILED test_hidden_scheduler.py::test_free_busy_entirely_outside_ignored - as...
+FAILED test_hidden_scheduler.py::test_free_overlapping_unsorted_busy - assert...
+FAILED test_hidden_scheduler.py::test_free_gap_exactly_min - assert [[480, 50...
+13 failed, 9 passed in 1.29s
+

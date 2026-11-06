@@ -1,0 +1,67 @@
+{
+  "model": "opencode/beam-free",
+  "slug": "beam-free",
+  "task": "t2_bugfix",
+  "variant": "v2_spec_verify",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/beam-free/runs/iter1/t2_bugfix/v2_spec_verify",
+  "finished": "2026-11-06T10:45:26",
+  "wall_s": 35.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 16,
+  "total": 16,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "test_own.py"
+  ],
+  "files_modified": [
+    "inventory.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 3,
+    "edit": 5,
+    "write": 1
+  },
+  "tool_total": 9,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 7,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 31770,
+    "output": 1660,
+    "reasoning": 555,
+    "cache_read": 53440,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 24,
+  "session_id": "ses_e4f89ea6bffekHzbvlGCRH25gn",
+  "final_text": "18 passed in 0.12s",
+  "final_text_len": 18,
+  "final_text_asks_question": false,
+  "prompt_chars": 1636
+}

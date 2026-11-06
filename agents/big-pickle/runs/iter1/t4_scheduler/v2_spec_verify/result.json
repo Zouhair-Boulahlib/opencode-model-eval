@@ -1,0 +1,62 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t4_scheduler",
+  "variant": "v2_spec_verify",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t4_scheduler/v2_spec_verify",
+  "finished": "2026-11-06T10:49:16",
+  "wall_s": 25.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 22,
+  "total": 22,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py",
+    "test_own.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "write": 2
+  },
+  "tool_total": 4,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 11891,
+    "output": 1358,
+    "reasoning": 695,
+    "cache_read": 36480,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 13,
+  "session_id": "ses_e4f86441cffetOZ9AYpbzSBRSA",
+  "final_text": "Created `scheduler.py` and `test_own.py`. All tests pass.\n\n```\n8 passed in 0.09s\n```",
+  "final_text_len": 84,
+  "final_text_asks_question": false,
+  "prompt_chars": 1682
+}

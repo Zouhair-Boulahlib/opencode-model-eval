@@ -1,0 +1,25 @@
+.......F.....F........                                                   [100%]
+================================== FAILURES ===================================
+__________________________ test_merge_invalid_raises __________________________
+
+    def test_merge_invalid_raises():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_hidden_scheduler.py:39: Failed
+___________________ test_free_busy_entirely_outside_ignored ___________________
+
+    def test_free_busy_entirely_outside_ignored():
+>       assert find_free_slots([(0, 100), (2000, 3000)], 480, 1020, 30) == [(480, 1020)]
+E       assert [(480, 2000)] == [(480, 1020)]
+E         
+E         At index 0 diff: (480, 2000) != (480, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:66: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_scheduler.py::test_merge_invalid_raises - Failed: DID NOT ...
+FAILED test_hidden_scheduler.py::test_free_busy_entirely_outside_ignored - as...
+2 failed, 20 passed in 0.55s
+

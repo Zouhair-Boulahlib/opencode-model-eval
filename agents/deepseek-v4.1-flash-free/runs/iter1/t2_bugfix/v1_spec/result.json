@@ -1,0 +1,62 @@
+{
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "slug": "deepseek-v4.1-flash-free",
+  "task": "t2_bugfix",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/deepseek-v4.1-flash-free/runs/iter1/t2_bugfix/v1_spec",
+  "finished": "2026-11-06T10:52:05",
+  "wall_s": 24.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 16,
+  "total": 16,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "inventory.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "read": 2,
+    "edit": 5,
+    "bash": 1
+  },
+  "tool_total": 8,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 10860,
+    "output": 1251,
+    "reasoning": 66,
+    "cache_read": 40192,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 17,
+  "session_id": "ses_e4f83ae53ffeICWeB6jLuev1IX",
+  "final_text": "All 8 tests pass. Fixed the mutable-default tags, zero-removal deletion, threshold comparison, case-insensitive tag search, and 1-indexed pagination.",
+  "final_text_len": 149,
+  "final_text_asks_question": false,
+  "prompt_chars": 1341
+}

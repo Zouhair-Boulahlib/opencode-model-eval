@@ -1,0 +1,72 @@
+{
+  "model": "opencode/beam-free",
+  "slug": "beam-free",
+  "task": "t5_refactor",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/beam-free/runs/iter1/t5_refactor/v0_brief",
+  "finished": "2026-11-06T10:43:55",
+  "wall_s": 63.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 11,
+  "total": 12,
+  "score": 0.9167,
+  "score_adj": 0.9167,
+  "failed_tests": [
+    "test_no_function_longer_than_20_lines"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "glob": 2,
+    "read": 3,
+    "bash": 4,
+    "write": 1,
+    "edit": 1
+  },
+  "tool_total": 11,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 10,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 51290,
+    "output": 1393,
+    "reasoning": 2271,
+    "cache_read": 88640,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 32,
+  "session_id": "ses_e4f8bba65ffexkaiTfTcWyNOkc",
+  "final_text": "Done.",
+  "final_text_len": 5,
+  "final_text_asks_question": false,
+  "prompt_chars": 164
+}

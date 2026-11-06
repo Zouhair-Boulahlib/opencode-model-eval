@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="22" time="0.495" timestamp="2026-11-05T20:43:59.016495+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_scheduler" name="test_merge_basic" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_touching" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_contained" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_empty" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_single" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_does_not_mutate" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_returns_tuples_sorted" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_invalid_raises" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_merge_invalid_raises():
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+test_hidden_scheduler.py:39: Failed</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_basic" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_min_filter" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_empty_busy" time="0.001"><failure message="IndexError: list index out of range">def test_free_empty_busy():
+&gt;       assert find_free_slots([], 480, 1020, 30) == [(480, 1020)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] &lt; day_end and b[1] &gt; day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+&gt;       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_empty_busy_day_too_short" time="0.001"><failure message="IndexError: list index out of range">def test_free_empty_busy_day_too_short():
+&gt;       assert find_free_slots([], 480, 500, 30) == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] &lt; day_end and b[1] &gt; day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+&gt;       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_busy_outside_day_clipped" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_busy_entirely_outside_ignored" time="0.001"><failure message="IndexError: list index out of range">def test_free_busy_entirely_outside_ignored():
+&gt;       assert find_free_slots([(0, 100), (2000, 3000)], 480, 1020, 30) == [(480, 1020)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:45: in find_free_slots
+    merged = merge_intervals(b for b in merge_intervals(busy) if b[0] &lt; day_end and b[1] &gt; day_start)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = []
+
+    def merge_intervals(intervals):
+        """Merge overlapping or touching intervals.
+    
+        Args:
+            intervals: iterable of (start, end) integer-minute tuples.
+    
+        Returns:
+            Sorted list of non-overlapping (start, end) tuples.
+        """
+        if not intervals:
+            return []
+        intervals = sorted((int(s), int(e)) for s, e in intervals)
+&gt;       merged = [list(intervals[0])]
+                       ^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+scheduler.py:20: IndexError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_overlapping_unsorted_busy" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_fully_booked" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_gap_exactly_min" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_basic" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_touching_not_overlap" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_all_overlap" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_empty" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_many_start_same_instant" time="0.001" /></testsuite></testsuites>

@@ -1,0 +1,64 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t5_refactor",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t5_refactor/v0_brief",
+  "finished": "2026-11-06T10:46:28",
+  "wall_s": 19.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 11,
+  "total": 12,
+  "score": 0.9167,
+  "score_adj": 0.9167,
+  "failed_tests": [
+    "test_no_function_longer_than_20_lines"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "read": 2,
+    "write": 1
+  },
+  "tool_total": 5,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 12804,
+    "output": 1312,
+    "reasoning": 308,
+    "cache_read": 38528,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 14,
+  "session_id": "ses_e4f88c1a4ffejzqvkaqrg6achs",
+  "final_text": "Refactored `orders.py` into small typed helpers (`_copy_inventory`, `_price_items`, `_apply_discount`, `_commit_stock`, `_fulfil_order`, `_reject_order`) with `process_orders` orchestrating them. All 5 tests pass.",
+  "final_text_len": 213,
+  "final_text_asks_question": false,
+  "prompt_chars": 164
+}

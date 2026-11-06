@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="16" time="9.254" timestamp="2026-11-06T14:54:29.729122+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_todo" name="test_list_empty" time="0.208" /><testcase classname="test_hidden_todo" name="test_add_prints_exact_line" time="0.148" /><testcase classname="test_hidden_todo" name="test_add_and_list" time="0.497" /><testcase classname="test_hidden_todo" name="test_done_marks_task" time="0.787" /><testcase classname="test_hidden_todo" name="test_done_twice_ok" time="0.704" /><testcase classname="test_hidden_todo" name="test_remove" time="0.589"><failure message="AssertionError: assert (0 == 0 and '' == 'Removed 1'&#10; +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....tning-free\\runs\\iter1\\t3_todo_cli\\v2_spec_verify\\ws\\todo.py', 'remove', '1'], returncode=0, stdout='', stderr='').returncode&#10;  &#10;  - Removed 1)">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_remove0')
+
+    def test_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "remove", "1")
+&gt;       assert r.returncode == 0 and r.stdout.strip() == "Removed 1"
+E       AssertionError: assert (0 == 0 and '' == 'Removed 1'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....tning-free\\runs\\iter1\\t3_todo_cli\\v2_spec_verify\\ws\\todo.py', 'remove', '1'], returncode=0, stdout='', stderr='').returncode
+E         
+E         - Removed 1)
+
+test_hidden_todo.py:59: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_remove" time="0.763"><failure message="AssertionError: assert 'Added 2: c' == 'Added 3: c'&#10;  &#10;  - Added 3: c&#10;  ?       ^&#10;  + Added 2: c&#10;  ?       ^">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_ids_never_reused_after_re0')
+
+    def test_ids_never_reused_after_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        run(tmp_path, "remove", "2")
+        r = run(tmp_path, "add", "c")
+&gt;       assert r.stdout.strip() == "Added 3: c"
+E       AssertionError: assert 'Added 2: c' == 'Added 3: c'
+E         
+E         - Added 3: c
+E         ?       ^
+E         + Added 2: c
+E         ?       ^
+
+test_hidden_todo.py:68: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_clear" time="0.871"><failure message="AssertionError: assert 'Added 1: b' == 'Added 2: b'&#10;  &#10;  - Added 2: b&#10;  ?       ^&#10;  + Added 1: b&#10;  ?       ^">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_ids_never_reused_after_cl0')
+
+    def test_ids_never_reused_after_clear(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        run(tmp_path, "clear")
+        r = run(tmp_path, "add", "b")
+&gt;       assert r.stdout.strip() == "Added 2: b"
+E       AssertionError: assert 'Added 1: b' == 'Added 2: b'
+E         
+E         - Added 2: b
+E         ?       ^
+E         + Added 1: b
+E         ?       ^
+
+test_hidden_todo.py:76: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_clear_counts_only_done" time="1.367" /><testcase classname="test_hidden_todo" name="test_done_unknown_id" time="0.366" /><testcase classname="test_hidden_todo" name="test_remove_unknown_id" time="0.971" /><testcase classname="test_hidden_todo" name="test_no_command_usage" time="0.272" /><testcase classname="test_hidden_todo" name="test_unknown_command_usage" time="0.228" /><testcase classname="test_hidden_todo" name="test_done_missing_arg_usage" time="0.199" /><testcase classname="test_hidden_todo" name="test_default_file_in_cwd" time="0.408" /><testcase classname="test_hidden_todo" name="test_missing_file_means_no_tasks" time="0.210" /></testsuite></testsuites>

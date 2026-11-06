@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="22" time="0.493" timestamp="2026-11-05T20:45:10.645640+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_scheduler" name="test_merge_basic" time="0.001"><failure message="TypeError: 'tuple' object does not support item assignment">def test_merge_basic():
+&gt;       assert merge_intervals([(5, 8), (1, 3), (2, 4), (8, 10)]) == [(1, 4), (5, 10)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = [(5, 8), (1, 3), (2, 4), (8, 10)]
+
+    def merge_intervals(intervals):
+        if not intervals:
+            return []
+        sorted_intervals = sorted(intervals, key=lambda x: x[0])
+        merged = [sorted_intervals[0][:]]
+        for current in sorted_intervals[1:]:
+            last = merged[-1]
+            if current[0] &lt;= last[1]:
+&gt;               last[1] = max(last[1], current[1])
+                ^^^^^^^
+E               TypeError: 'tuple' object does not support item assignment
+
+scheduler.py:9: TypeError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_merge_touching" time="0.001"><failure message="TypeError: 'tuple' object does not support item assignment">def test_merge_touching():
+&gt;       assert merge_intervals([(1, 3), (3, 5)]) == [(1, 5)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = [(1, 3), (3, 5)]
+
+    def merge_intervals(intervals):
+        if not intervals:
+            return []
+        sorted_intervals = sorted(intervals, key=lambda x: x[0])
+        merged = [sorted_intervals[0][:]]
+        for current in sorted_intervals[1:]:
+            last = merged[-1]
+            if current[0] &lt;= last[1]:
+&gt;               last[1] = max(last[1], current[1])
+                ^^^^^^^
+E               TypeError: 'tuple' object does not support item assignment
+
+scheduler.py:9: TypeError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_merge_contained" time="0.001"><failure message="TypeError: 'tuple' object does not support item assignment">def test_merge_contained():
+&gt;       assert merge_intervals([(1, 10), (2, 3), (4, 5)]) == [(1, 10)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = [(1, 10), (2, 3), (4, 5)]
+
+    def merge_intervals(intervals):
+        if not intervals:
+            return []
+        sorted_intervals = sorted(intervals, key=lambda x: x[0])
+        merged = [sorted_intervals[0][:]]
+        for current in sorted_intervals[1:]:
+            last = merged[-1]
+            if current[0] &lt;= last[1]:
+&gt;               last[1] = max(last[1], current[1])
+                ^^^^^^^
+E               TypeError: 'tuple' object does not support item assignment
+
+scheduler.py:9: TypeError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_merge_empty" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_single" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_does_not_mutate" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_returns_tuples_sorted" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_merge_invalid_raises" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_merge_invalid_raises():
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+test_hidden_scheduler.py:39: Failed</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_basic" time="0.001"><failure message="assert [[480, 540], ..., [780, 1020]] == [(480, 540), ..., (780, 1020)]&#10;  &#10;  At index 0 diff: [480, 540] != (480, 540)&#10;  Use -v to get more diff">def test_free_basic():
+&gt;       assert find_free_slots([(540, 600), (720, 780)], 480, 1020, 60) == [(480, 540), (600, 720), (780, 1020)]
+E       assert [[480, 540], ..., [780, 1020]] == [(480, 540), ..., (780, 1020)]
+E         
+E         At index 0 diff: [480, 540] != (480, 540)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:46: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_min_filter" time="0.001"><failure message="assert [[600, 1020]] == [(600, 1020)]&#10;  &#10;  At index 0 diff: [600, 1020] != (600, 1020)&#10;  Use -v to get more diff">def test_free_min_filter():
+&gt;       assert find_free_slots([(540, 600)], 480, 1020, 90) == [(600, 1020)]
+E       assert [[600, 1020]] == [(600, 1020)]
+E         
+E         At index 0 diff: [600, 1020] != (600, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:50: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_empty_busy" time="0.001"><failure message="assert [[480, 1020]] == [(480, 1020)]&#10;  &#10;  At index 0 diff: [480, 1020] != (480, 1020)&#10;  Use -v to get more diff">def test_free_empty_busy():
+&gt;       assert find_free_slots([], 480, 1020, 30) == [(480, 1020)]
+E       assert [[480, 1020]] == [(480, 1020)]
+E         
+E         At index 0 diff: [480, 1020] != (480, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:54: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_empty_busy_day_too_short" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_busy_outside_day_clipped" time="0.001"><failure message="assert [[500, 1000]] == [(500, 1000)]&#10;  &#10;  At index 0 diff: [500, 1000] != (500, 1000)&#10;  Use -v to get more diff">def test_free_busy_outside_day_clipped():
+&gt;       assert find_free_slots([(0, 500), (1000, 2000)], 480, 1020, 30) == [(500, 1000)]
+E       assert [[500, 1000]] == [(500, 1000)]
+E         
+E         At index 0 diff: [500, 1000] != (500, 1000)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:62: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_busy_entirely_outside_ignored" time="0.002"><failure message="assert [[480, 2000]] == [(480, 1020)]&#10;  &#10;  At index 0 diff: [480, 2000] != (480, 1020)&#10;  Use -v to get more diff">def test_free_busy_entirely_outside_ignored():
+&gt;       assert find_free_slots([(0, 100), (2000, 3000)], 480, 1020, 30) == [(480, 1020)]
+E       assert [[480, 2000]] == [(480, 1020)]
+E         
+E         At index 0 diff: [480, 2000] != (480, 1020)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:66: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_overlapping_unsorted_busy" time="0.001"><failure message="TypeError: 'tuple' object does not support item assignment">def test_free_overlapping_unsorted_busy():
+&gt;       assert find_free_slots([(700, 800), (500, 650), (600, 720)], 480, 900, 10) == [(480, 500), (800, 900)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_hidden_scheduler.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scheduler.py:16: in find_free_slots
+    merged = merge_intervals(busy)
+             ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+intervals = [(700, 800), (500, 650), (600, 720)]
+
+    def merge_intervals(intervals):
+        if not intervals:
+            return []
+        sorted_intervals = sorted(intervals, key=lambda x: x[0])
+        merged = [sorted_intervals[0][:]]
+        for current in sorted_intervals[1:]:
+            last = merged[-1]
+            if current[0] &lt;= last[1]:
+&gt;               last[1] = max(last[1], current[1])
+                ^^^^^^^
+E               TypeError: 'tuple' object does not support item assignment
+
+scheduler.py:9: TypeError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_free_fully_booked" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_free_gap_exactly_min" time="0.001"><failure message="assert [[480, 500], [600, 700]] == [(480, 500), (600, 700)]&#10;  &#10;  At index 0 diff: [480, 500] != (480, 500)&#10;  Use -v to get more diff">def test_free_gap_exactly_min():
+&gt;       assert find_free_slots([(500, 600)], 480, 700, 20) == [(480, 500), (600, 700)]
+E       assert [[480, 500], [600, 700]] == [(480, 500), (600, 700)]
+E         
+E         At index 0 diff: [480, 500] != (480, 500)
+E         Use -v to get more diff
+
+test_hidden_scheduler.py:78: AssertionError</failure></testcase><testcase classname="test_hidden_scheduler" name="test_concurrent_basic" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_touching_not_overlap" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_all_overlap" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_empty" time="0.001" /><testcase classname="test_hidden_scheduler" name="test_concurrent_many_start_same_instant" time="0.001" /></testsuite></testsuites>

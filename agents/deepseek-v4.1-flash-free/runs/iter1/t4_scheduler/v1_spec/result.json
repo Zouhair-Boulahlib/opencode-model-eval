@@ -1,0 +1,61 @@
+{
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "slug": "deepseek-v4.1-flash-free",
+  "task": "t4_scheduler",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/deepseek-v4.1-flash-free/runs/iter1/t4_scheduler/v1_spec",
+  "finished": "2026-11-06T10:52:12",
+  "wall_s": 25.2,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 22,
+  "total": 22,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "write": 1
+  },
+  "tool_total": 3,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 12142,
+    "output": 925,
+    "reasoning": 1307,
+    "cache_read": 37504,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 12,
+  "session_id": "ses_e4f8393e7ffemy43zFgLn3kCac",
+  "final_text": "Created `scheduler.py` with all three pure functions. Verified merging, clipping, empty inputs, `ValueError`, non-mutation, and touching-interval concurrency behavior.",
+  "final_text_len": 167,
+  "final_text_asks_question": false,
+  "prompt_chars": 1387
+}

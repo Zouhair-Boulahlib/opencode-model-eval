@@ -1,0 +1,62 @@
+{
+  "model": "opencode/crouton-alpha-free",
+  "slug": "crouton-alpha-free",
+  "task": "t1_slugify",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/crouton-alpha-free/runs/iter1/t1_slugify/v1_spec",
+  "finished": "2026-11-06T10:49:35",
+  "wall_s": 15.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 22,
+  "total": 22,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "slugify.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "read": 1,
+    "write": 1,
+    "bash": 1
+  },
+  "tool_total": 3,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 22539,
+    "output": 334,
+    "reasoning": 0,
+    "cache_read": 0,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 13,
+  "session_id": "ses_e4f85d3f5ffeza6Q41sOAIaf6X",
+  "final_text": "Created `slugify.py` with the specified `slugify` function.",
+  "final_text_len": 59,
+  "final_text_asks_question": false,
+  "prompt_chars": 963
+}

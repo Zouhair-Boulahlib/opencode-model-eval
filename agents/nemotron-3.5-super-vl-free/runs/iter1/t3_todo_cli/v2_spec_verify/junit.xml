@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="16" time="8.390" timestamp="2026-11-06T14:56:25.983327+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_todo" name="test_list_empty" time="0.258" /><testcase classname="test_hidden_todo" name="test_add_prints_exact_line" time="0.288" /><testcase classname="test_hidden_todo" name="test_add_and_list" time="0.881" /><testcase classname="test_hidden_todo" name="test_done_marks_task" time="0.909" /><testcase classname="test_hidden_todo" name="test_done_twice_ok" time="0.609" /><testcase classname="test_hidden_todo" name="test_remove" time="0.775" /><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_remove" time="0.655"><failure message="AssertionError: assert 'Added 2: c' == 'Added 3: c'&#10;  &#10;  - Added 3: c&#10;  ?       ^&#10;  + Added 2: c&#10;  ?       ^">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-125/test_ids_never_reused_after_re0')
+
+    def test_ids_never_reused_after_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        run(tmp_path, "remove", "2")
+        r = run(tmp_path, "add", "c")
+&gt;       assert r.stdout.strip() == "Added 3: c"
+E       AssertionError: assert 'Added 2: c' == 'Added 3: c'
+E         
+E         - Added 3: c
+E         ?       ^
+E         + Added 2: c
+E         ?       ^
+
+test_hidden_todo.py:68: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_ids_never_reused_after_clear" time="0.536"><failure message="AssertionError: assert 'Added 1: b' == 'Added 2: b'&#10;  &#10;  - Added 2: b&#10;  ?       ^&#10;  + Added 1: b&#10;  ?       ^">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-125/test_ids_never_reused_after_cl0')
+
+    def test_ids_never_reused_after_clear(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        run(tmp_path, "clear")
+        r = run(tmp_path, "add", "b")
+&gt;       assert r.stdout.strip() == "Added 2: b"
+E       AssertionError: assert 'Added 1: b' == 'Added 2: b'
+E         
+E         - Added 2: b
+E         ?       ^
+E         + Added 1: b
+E         ?       ^
+
+test_hidden_todo.py:76: AssertionError</failure></testcase><testcase classname="test_hidden_todo" name="test_clear_counts_only_done" time="1.171" /><testcase classname="test_hidden_todo" name="test_done_unknown_id" time="0.167" /><testcase classname="test_hidden_todo" name="test_remove_unknown_id" time="0.479" /><testcase classname="test_hidden_todo" name="test_no_command_usage" time="0.177" /><testcase classname="test_hidden_todo" name="test_unknown_command_usage" time="0.174" /><testcase classname="test_hidden_todo" name="test_done_missing_arg_usage" time="0.175" /><testcase classname="test_hidden_todo" name="test_default_file_in_cwd" time="0.365" /><testcase classname="test_hidden_todo" name="test_missing_file_means_no_tasks" time="0.185" /></testsuite></testsuites>

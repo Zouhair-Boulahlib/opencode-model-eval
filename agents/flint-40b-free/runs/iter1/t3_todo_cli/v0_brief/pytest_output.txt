@@ -1,0 +1,236 @@
+FFFFFFFFFFFFFFFF                                                         [100%]
+================================== FAILURES ===================================
+_______________________________ test_list_empty _______________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_list_empty0')
+
+    def test_list_empty(tmp_path):
+        r = run(tmp_path, "list")
+>       assert r.returncode == 0
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:21: AssertionError
+_________________________ test_add_prints_exact_line __________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_add_prints_exact_line0')
+
+    def test_add_prints_exact_line(tmp_path):
+        r = run(tmp_path, "add", "buy", "milk")
+>       assert r.returncode == 0
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:27: AssertionError
+______________________________ test_add_and_list ______________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_add_and_list0')
+
+    def test_add_and_list(tmp_path):
+        run(tmp_path, "add", "buy milk")
+        run(tmp_path, "add", "call", "mom")
+        r = run(tmp_path, "list")
+>       assert r.stdout == "[ ] 1: buy milk\n[ ] 2: call mom\n"
+E       AssertionError: assert '' == '[ ] 1: buy m...2: call mom\n'
+E         
+E         - [ ] 1: buy milk
+E         - [ ] 2: call mom
+
+test_hidden_todo.py:36: AssertionError
+____________________________ test_done_marks_task _____________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_done_marks_task0')
+
+    def test_done_marks_task(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "done", "1")
+>       assert r.returncode == 0 and r.stdout.strip() == "Done 1"
+E       assert (2 == 0)
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:43: AssertionError
+_____________________________ test_done_twice_ok ______________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_done_twice_ok0')
+
+    def test_done_twice_ok(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        r = run(tmp_path, "done", "1")
+>       assert r.returncode == 0 and r.stdout.strip() == "Done 1"
+E       assert (2 == 0)
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:52: AssertionError
+_________________________________ test_remove _________________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_remove0')
+
+    def test_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "remove", "1")
+>       assert r.returncode == 0 and r.stdout.strip() == "Removed 1"
+E       assert (2 == 0)
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:59: AssertionError
+_____________________ test_ids_never_reused_after_remove ______________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_ids_never_reused_after_re0')
+
+    def test_ids_never_reused_after_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        run(tmp_path, "remove", "2")
+        r = run(tmp_path, "add", "c")
+>       assert r.stdout.strip() == "Added 3: c"
+E       AssertionError: assert '' == 'Added 3: c'
+E         
+E         - Added 3: c
+
+test_hidden_todo.py:68: AssertionError
+______________________ test_ids_never_reused_after_clear ______________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_ids_never_reused_after_cl0')
+
+    def test_ids_never_reused_after_clear(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        run(tmp_path, "clear")
+        r = run(tmp_path, "add", "b")
+>       assert r.stdout.strip() == "Added 2: b"
+E       AssertionError: assert '' == 'Added 2: b'
+E         
+E         - Added 2: b
+
+test_hidden_todo.py:76: AssertionError
+_________________________ test_clear_counts_only_done _________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_clear_counts_only_done0')
+
+    def test_clear_counts_only_done(tmp_path):
+        for t in "abc":
+            run(tmp_path, "add", t)
+        run(tmp_path, "done", "1")
+        run(tmp_path, "done", "3")
+        r = run(tmp_path, "clear")
+>       assert r.returncode == 0 and r.stdout.strip() == "Cleared 2"
+E       assert (2 == 0)
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:85: AssertionError
+____________________________ test_done_unknown_id _____________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_done_unknown_id0')
+
+    def test_done_unknown_id(tmp_path):
+        r = run(tmp_path, "done", "42")
+>       assert r.returncode == 1
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:91: AssertionError
+___________________________ test_remove_unknown_id ____________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_remove_unknown_id0')
+
+    def test_remove_unknown_id(tmp_path):
+        run(tmp_path, "add", "a")
+        r = run(tmp_path, "remove", "9")
+>       assert r.returncode == 1
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:99: AssertionError
+____________________________ test_no_command_usage ____________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_no_command_usage0')
+
+    def test_no_command_usage(tmp_path):
+        r = run(tmp_path)
+        assert r.returncode == 2
+>       assert r.stderr.strip().startswith("Usage:")
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x00000264D3B40FF0>('Usage:')
+E        +    where <built-in method startswith of str object at 0x00000264D3B40FF0> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory".startswith
+E        +      where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory" = <built-in method strip of str object at 0x00000264D3B40AB0>()
+E        +        where <built-in method strip of str object at 0x00000264D3B40AB0> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n".strip
+E        +          where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").stderr
+
+test_hidden_todo.py:107: AssertionError
+_________________________ test_unknown_command_usage __________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_unknown_command_usage0')
+
+    def test_unknown_command_usage(tmp_path):
+        r = run(tmp_path, "frobnicate")
+        assert r.returncode == 2
+>       assert r.stderr.strip().startswith("Usage:")
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x00000264D3B413E0>('Usage:')
+E        +    where <built-in method startswith of str object at 0x00000264D3B413E0> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory".startswith
+E        +      where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory" = <built-in method strip of str object at 0x00000264D3B41290>()
+E        +        where <built-in method strip of str object at 0x00000264D3B41290> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n".strip
+E        +          where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").stderr
+
+test_hidden_todo.py:113: AssertionError
+_________________________ test_done_missing_arg_usage _________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_done_missing_arg_usage0')
+
+    def test_done_missing_arg_usage(tmp_path):
+        r = run(tmp_path, "done")
+        assert r.returncode == 2
+>       assert r.stderr.strip().startswith("Usage:")
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x00000264D3B40FF0>('Usage:')
+E        +    where <built-in method startswith of str object at 0x00000264D3B40FF0> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory".startswith
+E        +      where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...s\\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory" = <built-in method strip of str object at 0x00000264D3B41140>()
+E        +        where <built-in method strip of str object at 0x00000264D3B41140> = "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n".strip
+E        +          where "C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\pytho...\\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").stderr
+
+test_hidden_todo.py:119: AssertionError
+__________________________ test_default_file_in_cwd ___________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_default_file_in_cwd0')
+
+    def test_default_file_in_cwd(tmp_path):
+        r = run(tmp_path, "add", "x", use_env=False)
+>       assert r.returncode == 0
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:124: AssertionError
+______________________ test_missing_file_means_no_tasks _______________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-73/test_missing_file_means_no_tas0')
+
+    def test_missing_file_means_no_tasks(tmp_path):
+        env = dict(os.environ, TODO_FILE=str(tmp_path / "nested" / "none.json"))
+        r = subprocess.run([sys.executable, TODO, "list"], capture_output=True, text=True, env=env, cwd=str(tmp_path), timeout=30)
+>       assert r.returncode == 0 and r.stdout.strip() == "No tasks"
+E       assert (2 == 0)
+E        +  where 2 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....\\flint-40b-free\\\\runs\\\\iter1\\\\t3_todo_cli\\\\v0_brief\\\\ws\\\\todo.py': [Errno 2] No such file or directory\n").returncode
+
+test_hidden_todo.py:132: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_todo.py::test_list_empty - assert 2 == 0
+FAILED test_hidden_todo.py::test_add_prints_exact_line - assert 2 == 0
+FAILED test_hidden_todo.py::test_add_and_list - AssertionError: assert '' == ...
+FAILED test_hidden_todo.py::test_done_marks_task - assert (2 == 0)
+FAILED test_hidden_todo.py::test_done_twice_ok - assert (2 == 0)
+FAILED test_hidden_todo.py::test_remove - assert (2 == 0)
+FAILED test_hidden_todo.py::test_ids_never_reused_after_remove - AssertionErr...
+FAILED test_hidden_todo.py::test_ids_never_reused_after_clear - AssertionErro...
+FAILED test_hidden_todo.py::test_clear_counts_only_done - assert (2 == 0)
+FAILED test_hidden_todo.py::test_done_unknown_id - assert 2 == 1
+FAILED test_hidden_todo.py::test_remove_unknown_id - assert 2 == 1
+FAILED test_hidden_todo.py::test_no_command_usage - assert False
+FAILED test_hidden_todo.py::test_unknown_command_usage - assert False
+FAILED test_hidden_todo.py::test_done_missing_arg_usage - assert False
+FAILED test_hidden_todo.py::test_default_file_in_cwd - assert 2 == 0
+FAILED test_hidden_todo.py::test_missing_file_means_no_tasks - assert (2 == 0)
+16 failed in 4.01s
+

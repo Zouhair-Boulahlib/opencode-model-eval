@@ -1,0 +1,10 @@
+{
+  "m_flint_env_tool": {
+    "components": ["env", "toolhint", "spec", "files_exact"],
+    "note": "flint's failures are tool-argument schema errors, mangled paths with spaces, and filesystem-wide searching; this variant adds the environment clause, the write/read argument hint and the exact-files rule, without the verify loop"
+  },
+  "m_flint_env_tool_verify": {
+    "components": ["env", "toolhint", "spec", "files_exact", "verify"],
+    "note": "same plus the verify loop, to see whether verification is still worth its cost once the tool problems are addressed"
+  }
+}

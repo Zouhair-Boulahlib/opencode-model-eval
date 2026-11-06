@@ -1,0 +1,1 @@
+Build a command-line todo app in todo.py (commands: add, list, done, remove, clear) that saves tasks to a JSON file.

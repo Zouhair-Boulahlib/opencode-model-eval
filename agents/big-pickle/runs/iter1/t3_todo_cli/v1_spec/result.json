@@ -1,0 +1,61 @@
+{
+  "model": "opencode/big-pickle",
+  "slug": "big-pickle",
+  "task": "t3_todo_cli",
+  "variant": "v1_spec",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/big-pickle/runs/iter1/t3_todo_cli/v1_spec",
+  "finished": "2026-11-06T10:47:26",
+  "wall_s": 28.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 16,
+  "total": 16,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "todo.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "write": 1,
+    "bash": 2
+  },
+  "tool_total": 3,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 9540,
+    "output": 1432,
+    "reasoning": 271,
+    "cache_read": 39296,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 12,
+  "session_id": "ses_e4f8815a1ffeNOiWC8qCcYSg6o",
+  "final_text": "Created `todo.py` and verified add/list/done/remove/clear, error exit codes, and non-reused IDs.",
+  "final_text_len": 96,
+  "final_text_asks_question": false,
+  "prompt_chars": 1446
+}

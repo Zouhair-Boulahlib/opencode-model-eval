@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="22" time="1.129" timestamp="2026-11-05T20:41:48.896956+00:00" hostname="DESKTOP-FS733RS"><testcase classname="test_hidden_slugify" name="test_basic[Hello World-hello-world]" time="0.003" /><testcase classname="test_hidden_slugify" name="test_basic[  Hello,   World!  -hello-world]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[Cr\xe8me Br\xfbl\xe9e-creme-brulee]" time="0.003"><failure message="AssertionError: assert 'crème-brûlée' == 'creme-brulee'&#10;  &#10;  - creme-brulee&#10;  ?   ^     ^  -&#10;  + crème-brûlée&#10;  ?   ^     ^ +">text = 'Crème Brûlée', expected = 'creme-brulee'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ &amp; C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+&gt;       assert slugify(text) == expected
+E       AssertionError: assert 'crème-brûlée' == 'creme-brulee'
+E         
+E         - creme-brulee
+E         ?   ^     ^  -
+E         + crème-brûlée
+E         ?   ^     ^ +
+
+test_hidden_slugify.py:19: AssertionError</failure></testcase><testcase classname="test_hidden_slugify" name="test_basic[already-slugged-already-slugged]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[C++ &amp; C# rock-c-c-rock]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[a_b_c-a-b-c]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[123 Main St.-123-main-st]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_basic[tab\tand\nnewline-tab-and-newline]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_basic[\xc0\xc9\xce\xd5\xdc-aeiou]" time="0.002"><failure message="AssertionError: assert 'àéîõü' == 'aeiou'&#10;  &#10;  - aeiou&#10;  + àéîõü">text = 'ÀÉÎÕÜ', expected = 'aeiou'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ &amp; C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+&gt;       assert slugify(text) == expected
+E       AssertionError: assert 'àéîõü' == 'aeiou'
+E         
+E         - aeiou
+E         + àéîõü
+
+test_hidden_slugify.py:19: AssertionError</failure></testcase><testcase classname="test_hidden_slugify" name="test_basic[Stra\xdfe \u65e5\u672c-stra-e]" time="0.002"><failure message="AssertionError: assert 'straße-日本' == 'stra-e'&#10;  &#10;  - stra-e&#10;  + straße-日本">text = 'Straße 日本', expected = 'stra-e'
+
+    @pytest.mark.parametrize("text,expected", [
+        ("Hello World", "hello-world"),
+        ("  Hello,   World!  ", "hello-world"),
+        ("Crème Brûlée", "creme-brulee"),
+        ("already-slugged", "already-slugged"),
+        ("C++ &amp; C# rock", "c-c-rock"),
+        ("a_b_c", "a-b-c"),
+        ("123 Main St.", "123-main-st"),
+        ("tab\tand\nnewline", "tab-and-newline"),
+        ("ÀÉÎÕÜ", "aeiou"),
+        ("Straße 日本", "stra-e"),
+        ("MiXeD CaSe", "mixed-case"),
+    ])
+    def test_basic(text, expected):
+&gt;       assert slugify(text) == expected
+E       AssertionError: assert 'straße-日本' == 'stra-e'
+E         
+E         - stra-e
+E         + straße-日本
+
+test_hidden_slugify.py:19: AssertionError</failure></testcase><testcase classname="test_hidden_slugify" name="test_basic[MiXeD CaSe-mixed-case]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_empty_results[]" time="0.001" /><testcase classname="test_hidden_slugify" name="test_empty_results[---]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_empty_results[!!!]" time="0.002" /><testcase classname="test_hidden_slugify" name="test_empty_results[   ]" time="0.003" /><testcase classname="test_hidden_slugify" name="test_empty_results[\u65e5\u672c\u8a9e]" time="0.002"><failure message="AssertionError: assert '日本語' == ''&#10;  &#10;  + 日本語">text = '日本語'
+
+    @pytest.mark.parametrize("text", ["", "---", "!!!", "   ", "日本語"])
+    def test_empty_results(text):
+&gt;       assert slugify(text) == ""
+E       AssertionError: assert '日本語' == ''
+E         
+E         + 日本語
+
+test_hidden_slugify.py:24: AssertionError</failure></testcase><testcase classname="test_hidden_slugify" name="test_max_length_cut" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_strips_trailing_hyphen" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_longer_than_slug" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_zero" time="0.001" /><testcase classname="test_hidden_slugify" name="test_max_length_exact" time="0.001" /><testcase classname="test_hidden_slugify" name="test_returns_str_type" time="0.001" /></testsuite></testsuites>

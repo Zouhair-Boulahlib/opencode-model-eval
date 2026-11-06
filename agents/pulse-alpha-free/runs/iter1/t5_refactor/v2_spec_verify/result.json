@@ -1,0 +1,73 @@
+{
+  "model": "opencode/pulse-alpha-free",
+  "slug": "pulse-alpha-free",
+  "task": "t5_refactor",
+  "variant": "v2_spec_verify",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/pulse-alpha-free/runs/iter1/t5_refactor/v2_spec_verify",
+  "finished": "2026-11-06T15:00:43",
+  "wall_s": 120.4,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 12,
+  "total": 12,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "test_own.py"
+  ],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 4,
+    "read": 3,
+    "write": 3,
+    "edit": 1
+  },
+  "tool_total": 11,
+  "tool_errors": 1,
+  "question_attempts": 0,
+  "steps": 12,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 21137,
+    "output": 3196,
+    "reasoning": 2294,
+    "cache_read": 182912,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 37,
+  "session_id": "ses_e4ea18510ffePa2tnmi1gWHO8W",
+  "final_text": "Done. Refactored `orders.py` into typed helpers (`_copy_inventory`, `_item_error`, `_subtotal`, `_apply_coupon`, `_deduct_stock`, `_fulfill`) with `process_orders` keeping its name, params and return shape; behavior unchanged. `test_own.py` checks signature, ≤20-line functions and full type hints.\n\n`9 passed in 0.26s`",
+  "final_text_len": 319,
+  "final_text_asks_question": false,
+  "prompt_chars": 1179
+}

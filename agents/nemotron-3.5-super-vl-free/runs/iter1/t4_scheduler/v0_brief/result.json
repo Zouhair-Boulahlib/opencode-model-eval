@@ -1,0 +1,62 @@
+{
+  "model": "opencode/nemotron-3.5-super-vl-free",
+  "slug": "nemotron-3.5-super-vl-free",
+  "task": "t4_scheduler",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/nemotron-3.5-super-vl-free/runs/iter1/t4_scheduler/v0_brief",
+  "finished": "2026-11-05T20:44:53",
+  "wall_s": 59.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 20,
+  "total": 22,
+  "score": 0.9091,
+  "score_adj": 0.9091,
+  "failed_tests": [
+    "test_merge_invalid_raises",
+    "test_free_busy_entirely_outside_ignored"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "write": 1,
+    "bash": 1
+  },
+  "tool_total": 2,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 2,
+  "finish_reasons": [
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 15400,
+    "output": 913,
+    "reasoning": 1238,
+    "cache_read": 8672,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 7,
+  "session_id": "ses_e528bd70fffevgg9VW7nyWNIco",
+  "final_text": "Done. `scheduler.py` written and verified:\n\n- `merge_intervals` — sorts and merges overlapping/touching intervals (half-open `[start, end)`)\n- `find_free_slots` — gaps in merged busy time within `[day_start, day_end)` meeting `min_minutes`\n- `max_concurrent` — sweep-line over start/end events, ends processed before starts at equal timestamps\n\nOutput matches expectations: `[(540, 660), (780, 840)]`, `[(480, 540), (660, 780), (840, 1020)]`, `2`.",
+  "final_text_len": 447,
+  "final_text_asks_question": false,
+  "prompt_chars": 172
+}

@@ -1,0 +1,17 @@
+
+=================================== ERRORS ====================================
+__________________ ERROR collecting test_hidden_scheduler.py __________________
+ImportError while importing test module 'C:\Users\USER\Desktop\eval opencode\agents\flint-40b-free\runs\iter1\t4_scheduler\v1_spec\ws\test_hidden_scheduler.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test_hidden_scheduler.py:2: in <module>
+    from scheduler import merge_intervals, find_free_slots, max_concurrent
+E   ModuleNotFoundError: No module named 'scheduler'
+=========================== short test summary info ===========================
+ERROR test_hidden_scheduler.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.23s
+

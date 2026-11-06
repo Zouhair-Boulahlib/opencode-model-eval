@@ -1,0 +1,59 @@
+.....FFF........                                                         [100%]
+================================== FAILURES ===================================
+_________________________________ test_remove _________________________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_remove0')
+
+    def test_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        r = run(tmp_path, "remove", "1")
+>       assert r.returncode == 0 and r.stdout.strip() == "Removed 1"
+E       AssertionError: assert (0 == 0 and '' == 'Removed 1'
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3....tning-free\\runs\\iter1\\t3_todo_cli\\v2_spec_verify\\ws\\todo.py', 'remove', '1'], returncode=0, stdout='', stderr='').returncode
+E         
+E         - Removed 1)
+
+test_hidden_todo.py:59: AssertionError
+_____________________ test_ids_never_reused_after_remove ______________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_ids_never_reused_after_re0')
+
+    def test_ids_never_reused_after_remove(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "add", "b")
+        run(tmp_path, "remove", "2")
+        r = run(tmp_path, "add", "c")
+>       assert r.stdout.strip() == "Added 3: c"
+E       AssertionError: assert 'Added 2: c' == 'Added 3: c'
+E         
+E         - Added 3: c
+E         ?       ^
+E         + Added 2: c
+E         ?       ^
+
+test_hidden_todo.py:68: AssertionError
+______________________ test_ids_never_reused_after_clear ______________________
+
+tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-124/test_ids_never_reused_after_cl0')
+
+    def test_ids_never_reused_after_clear(tmp_path):
+        run(tmp_path, "add", "a")
+        run(tmp_path, "done", "1")
+        run(tmp_path, "clear")
+        r = run(tmp_path, "add", "b")
+>       assert r.stdout.strip() == "Added 2: b"
+E       AssertionError: assert 'Added 1: b' == 'Added 2: b'
+E         
+E         - Added 2: b
+E         ?       ^
+E         + Added 1: b
+E         ?       ^
+
+test_hidden_todo.py:76: AssertionError
+=========================== short test summary info ===========================
+FAILED test_hidden_todo.py::test_remove - AssertionError: assert (0 == 0 and ...
+FAILED test_hidden_todo.py::test_ids_never_reused_after_remove - AssertionErr...
+FAILED test_hidden_todo.py::test_ids_never_reused_after_clear - AssertionErro...
+3 failed, 13 passed in 9.43s
+

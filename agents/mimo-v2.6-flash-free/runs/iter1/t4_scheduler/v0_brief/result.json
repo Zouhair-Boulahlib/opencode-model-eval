@@ -1,0 +1,62 @@
+{
+  "model": "opencode/mimo-v2.6-flash-free",
+  "slug": "mimo-v2.6-flash-free",
+  "task": "t4_scheduler",
+  "variant": "v0_brief",
+  "rep": 0,
+  "iteration": 1,
+  "run_dir": "agents/mimo-v2.6-flash-free/runs/iter1/t4_scheduler/v0_brief",
+  "finished": "2026-11-05T20:44:21",
+  "wall_s": 42.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 21,
+  "total": 22,
+  "score": 0.9545,
+  "score_adj": 0.9545,
+  "failed_tests": [
+    "test_merge_invalid_raises"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": false,
+  "ran_pytest": false,
+  "ran_python": true,
+  "tool_calls": {
+    "write": 1,
+    "bash": 1
+  },
+  "tool_total": 2,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 3,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 5734,
+    "output": 1053,
+    "reasoning": 47,
+    "cache_read": 28288,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 9,
+  "session_id": "ses_e528c11d2ffe7p8k13gwQN3Vdx",
+  "final_text": "`scheduler.py` written with all three functions; smoke tests pass (merging, free-slot gaps, concurrency sweep).",
+  "final_text_len": 111,
+  "final_text_asks_question": false,
+  "prompt_chars": 172
+}

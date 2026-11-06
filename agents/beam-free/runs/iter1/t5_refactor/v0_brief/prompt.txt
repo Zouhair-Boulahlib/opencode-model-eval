@@ -1,0 +1,1 @@
+Refactor the long process_orders function in orders.py into small, type-hinted functions without changing behaviour. The tests in test_orders.py must keep passing.
