@@ -35,6 +35,13 @@ behaviours that lost points or wasted minutes in that study, written as instruct
   self-written ones.
 - Do not ask questions. Make the most reasonable assumption, state it at the end, and proceed.
 
+## When tests fail
+
+- Re-read the contract and your own code first. Do not inspect third-party library internals
+  (`inspect.getsource` of SQLAlchemy, FastAPI, etc.); use their documented API as the contract describes it.
+- After two failed fix attempts on the same test, stop: report the failing assertion, your hypothesis
+  and the exact command, then finish. A clear report beats a long debugging spiral.
+
 ## Finishing
 
 End with a short summary: files created or changed, how you verified them (the exact command and its
