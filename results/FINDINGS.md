@@ -8,8 +8,8 @@ _Status: iteration 1 complete (125 valid runs: 10 models x 5 tasks x up to 3 pro
 
 ### 2. The self-verify loop ("write tests, run pytest, do not stop until green") bought nothing here.
 
-- 32 paired cells: identical score in every one, except flint where a verify-prompt retry recovered a timed-out spec run (a reliability effect, not a prompt effect).
-- Every model complied (100% ran pytest, 100% wrote a test file), and paid for it: +30% to +150% wall time (glm bug-fix 36 s -> 75 s; beam todo 91 s -> 200 s; mimo refactor 210 s -> 272 s) and +40% steps.
+- 25 paired cells (same model, same task, spec vs spec+verify): identical score in 22. The three exceptions: flint scheduler 0 -> 22 (its spec run had timed out after seven minutes of path confusion and the retry did not; a reliability effect, not a prompt effect), nemotron-lightning bug-fix 15 -> 16 and todo 14 -> 13 (noise in both directions).
+- Every model complied (33 of 33 verify runs ran pytest and wrote a test file), and paid for it: wall time rose by a median of 30% per pair (range -57% to +243%; e.g. glm bug-fix 36 s -> 75 s, beam todo 91 s -> 200 s, mimo refactor 210 s -> 272 s) with about 40% more steps.
 - It did not fix the one real spec-adherence bug in the set (the nemotron pair reusing ids): both ran their own tests and still shipped it.
 - Conclusion for single-file tasks: provide tests instead of asking for them. On the bug-fix task, where tests were provided, nine of ten models were perfect from a one-line prompt.
 

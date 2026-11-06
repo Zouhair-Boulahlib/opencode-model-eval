@@ -14,7 +14,7 @@ its effect is measured in iteration 3, which is queued, and the guide says so wh
    test will parse the output, quote the literal string in the prompt.
 2. **Provide the tests you have.** On the one task that shipped with tests, nine of ten models were
    perfect from a one-line prompt. Asking the model to write and run its own tests ("do not stop until
-   green") changed zero scores in 32 paired runs and cost 30 to 150% more time.
+   green") changed the score in only 3 of 25 paired cells (one timeout rescue, one +1, one -1) and cost a median 30% more wall time.
 3. **Skip process scaffolding on small tasks.** Plan-first, role lines and verify loops added steps and
    wall time without changing results for the seven models that reach the ceiling. Keep guard rails
    only for the models that need them (section 3).

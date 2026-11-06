@@ -26,9 +26,10 @@ All numbers come from [`REPORT.md`](REPORT.md) and [`results/FINDINGS.md`](resul
   removed both. Spec runs were also about as fast as or faster than brief runs for the fast models (big-pickle 29 s to
   23 s, deepseek 27 s to 29 s, crouton unchanged), because the model stops guessing.
 - **The self-verify loop bought nothing.** Asking the model to write tests, run pytest and not stop until green left
-  the score identical in every paired cell except one flint run, where a retry recovered a timed-out spec run (a
-  reliability effect, not a prompt effect). Every model complied and paid +30% to +150% wall time and about +40%
-  steps. Where tests were provided (the bug-fix task), nine of ten models were perfect from a one-line prompt.
+  the score identical in 22 of 25 paired cells; the exceptions were one flint run where a retry recovered a timed-out
+  spec run (a reliability effect, not a prompt effect) and two nemotron-lightning cells that moved +1 and -1. Every
+  model complied and paid a median 30% more wall time (range -57% to +243%) and about 40% more steps. Where tests
+  were provided (the bug-fix task), nine of ten models were perfect from a one-line prompt.
 - **Models differ far more in process than in result.** Five models are one-shot (3 to 6 steps, no wasted calls),
   three look around first and edit surgically, and two thrash (15 to 33 tool calls, repeated tool errors).
   Only flint has broken tool calling; only nemotron-lightning assumed Linux paths; both nemotrons ignored an
