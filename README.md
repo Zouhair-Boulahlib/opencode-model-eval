@@ -38,8 +38,13 @@ All numbers come from [`REPORT.md`](REPORT.md) and [`results/FINDINGS.md`](resul
   explicitly stated rule (ids never reused), even after writing and running their own tests.
 - **The environment clause matters on Windows.** The two slowest models account for 17 blocked bash calls each
   (unquoted path) and 6.36 (flint) and 2.33 (nemotron-lightning) tool errors per run, against 0.00 to 0.20 for the
-  rest. A short "you are already in the project directory, use relative paths, quote paths" clause is the proposed
-  fix; testing it is part of iteration 2.
+  rest. A short "you are already in the project directory, use relative paths, quote paths" clause fixed it in
+  iteration 2: tool errors per run fell to 4.00 (flint) and 0.50 (nemotron-lightning), with no score lost.
+- **A verify loop cannot rescue a one-line prompt** (iteration 2). Nine of twelve brief-plus-verify runs scored 21 of 22,
+  and they all missed the same test per task: a rule the brief never stated. Self-written tests only check the model's
+  own assumptions.
+- **An architecture map did not help on a small repo** (iteration 3). All 18 runs scored 14 of 14 with and without the
+  graphify map; the map made 7 of 9 models slower (median +7 s).
 - **Choose by cost when correctness is tied.** With the spec, big-pickle (23 s), crouton (27 s), deepseek (29 s) and
   pulse (34 s) reach the ceiling fastest. glm (54 s) and mimo (125 s) are slower; nemotron-lightning (162 s) and
   flint (269 s) are slow and less reliable.
@@ -121,7 +126,7 @@ fraction of hidden tests passed; a run that edits a protected test file scores 0
 | `t5_refactor` | Refactor legacy process_orders under hard constraints | refactoring / constraint following / preserving behaviour | 12 |
 | `t6_repo_bugfix` | Repo-scale root-cause bug fix across modules (ledger) | codebase navigation / root-cause debugging across files | 14 |
 
-`t1` to `t5` make up iteration 1. `t6_repo_bugfix` is built for iteration 3 and has not been run yet.
+`t1` to `t5` make up iteration 1. `t6_repo_bugfix` is the iteration 3 task.
 
 ## Prompt variants
 
@@ -214,12 +219,16 @@ After producing new transcripts on your own machine, `python harness/anonymize.p
 
 - Iteration 1 is complete: 125 valid runs (10 models x 5 tasks x up to 3 prompt variants; adaptive mode skipped 25
   runs whose cheaper variant already scored 100%).
-- Iteration 2 (targeted per-model variants) is built and queued: flint tool-reliability variants, environment and
-  edge-case variants for the nemotron pair, and a verify loop on a one-line prompt for the ceiling models.
-- Iteration 3 (repo-scale bug fix, `t6_repo_bugfix`, with and without a graphify architecture map in the prompt)
-  is built and queued.
-- Both are waiting on the free-tier daily quota. Their results will be appended to `REPORT.md` and
-  `results/FINDINGS.md` when they run.
+- Iteration 2 is complete: 26 runs of targeted per-model variants (flint tool-reliability variants, environment and
+  edge-case variants for the nemotron pair, a verify loop on a one-line prompt for the ceiling models).
+- Iteration 3 is complete: 18 runs of the repo-scale bug fix (`t6_repo_bugfix`) with and without a graphify
+  architecture map.
+- `pulse-alpha-free` was retired by the provider before iterations 2 and 3, which therefore cover nine models.
+- All findings are in `results/FINDINGS.md`. Every run's time window was checked against the laptop's sleep log with
+  `harness/standby_check.py`; only two NVIDIA MiniMax runs (not part of the findings) overlap standby.
+- Every run's tool calls were checked for access outside its workspace with `harness/isolation_scan.py`. One NVIDIA
+  MiniMax run read a hidden test and is excluded; the cause (the folder becoming a git repository widened OpenCode's
+  notion of "inside the project") is fixed in the harness and the fix was verified. See `results/FINDINGS.md`, section 9.
 
 ## Caveats
 

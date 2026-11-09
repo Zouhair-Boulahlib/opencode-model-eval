@@ -1,0 +1,14 @@
+.......F..............                                                   [100%]
+================================== FAILURES ===================================
+__________________________ test_merge_invalid_raises __________________________
+
+    def test_merge_invalid_raises():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+test_hidden_scheduler.py:39: Failed
+=========================== short test summary info ===========================
+FAILED test_hidden_scheduler.py::test_merge_invalid_raises - Failed: DID NOT ...
+1 failed, 21 passed in 0.45s
+

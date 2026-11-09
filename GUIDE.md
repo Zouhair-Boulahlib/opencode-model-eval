@@ -2,8 +2,8 @@
 
 This guide turns the measurements in [REPORT.md](REPORT.md) and [results/FINDINGS.md](results/FINDINGS.md)
 into something you can apply. Everything in sections 1 to 3 is backed by the iteration-1 data
-(125 runs, 10 models, 5 tasks, 3 prompt variants). Section 4 (graph engineering) describes the setup;
-its effect is measured in iteration 3, which is queued, and the guide says so where a claim is still a hypothesis.
+(125 runs, 10 models, 5 tasks, 3 prompt variants) and refined by iteration 2 (26 runs of targeted per-model
+prompts). Section 4 (graph engineering) describes the setup and what iteration 3 (18 runs) measured.
 
 ## 1. The recipe, in order of impact
 
@@ -148,13 +148,15 @@ component (`harness/prompts.py`) injects `GRAPH_REPORT.md`, truncated to about 9
 one-line instruction to use it instead of reading everything. The variants `g0_spec_env` (no map) and
 `g1_spec_env_graph` (map) differ only in that block.
 
-### What to expect, and what is still unmeasured
+### What iteration 3 measured, and what is still unmeasured
 
-- On a small repo (the task here is 17 files, about 500 lines) a model can read everything in a dozen
-  calls, so the expected effect of the map is fewer steps, fewer tool calls and less wall time at the
-  same score, rather than a higher score. On a large repo the map is more likely to change the outcome.
-- Iteration 3 runs the repo task for all ten models with and without the map (20 runs). Until it has
-  run, treat the above as the hypothesis under test, not as a result.
+- On a small repo (17 files, about 500 lines) the map did not help. All 18 runs (nine models, with and
+  without the map) scored 14 of 14, and the map run was slower for 7 of 9 models (median +7 s; up to
+  +57 s for flint). The expected saving in steps did not appear either: steps went up for four models,
+  stayed equal for three and went down for two. The extra 9,000 characters are overhead when the model
+  can read the whole codebase in a dozen calls.
+- Recommendation: skip the map on small repositories. Keep it for codebases too large to read, where it
+  is more likely to change the outcome; that case is not measured here.
 - The graph has honesty limits of its own: the health check reported 29 dangling-endpoint edges
   (standard-library names with no node) and 27 collapsed parallel edges. It is a map, not the territory.
 

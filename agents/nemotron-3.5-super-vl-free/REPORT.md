@@ -1,6 +1,6 @@
 # opencode/nemotron-3.5-super-vl-free: behaviour and prompting report
 
-Generated 2026-11-06 16:11 from 11 runs. Best variant: `v1_spec` with mean score 97% (baseline `v0_brief`: 73%).
+Generated 2026-11-09 20:33 from 17 runs. Best variant: `v1_spec` with mean score 97% (baseline `v0_brief`: 73%).
 
 ## 1. Scores
 
@@ -13,7 +13,36 @@ Generated 2026-11-06 16:11 from 11 runs. Best variant: `v1_spec` with mean score
 | t3_todo_cli | 0/16 | 14/16 | 14/16 |
 | t4_scheduler | 20/22 | 22/22 | - |
 | t5_refactor | 11/12 | 12/12 | - |
+| t6_repo_bugfix | - | - | - |
 | **mean** | 73% | 97% | 94% |
+
+Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
+
+### Iteration 2
+
+| task | v10_spec_examples_env | v11_spec_env_edge |
+|---|---|---|
+| t1_slugify | - | - |
+| t2_bugfix | 16/16 | 16/16 |
+| t3_todo_cli | 16/16 | 16/16 |
+| t4_scheduler | - | - |
+| t5_refactor | - | - |
+| t6_repo_bugfix | - | - |
+| **mean** | 100% | 100% |
+
+Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
+
+### Iteration 3
+
+| task | g0_spec_env | g1_spec_env_graph |
+|---|---|---|
+| t1_slugify | - | - |
+| t2_bugfix | - | - |
+| t3_todo_cli | - | - |
+| t4_scheduler | - | - |
+| t5_refactor | - | - |
+| t6_repo_bugfix | 14/14 | 14/14 |
+| **mean** | 100% | 100% |
 
 Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
 
@@ -21,22 +50,22 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 
 | metric | value |
 |---|---|
-| runs | 11 |
-| mean score (all runs) | 85% |
-| perfect runs / zero runs | 5 / 1 |
-| avg wall time | 41 s |
-| avg tokens in / out / reasoning | 24684 / 1432 / 733 |
-| avg LLM steps per run | 4.5 |
-| avg tool calls per run (errors) | 5.2 (0.18) |
-| tool usage (total) | bash: 22, write: 12, edit: 12, read: 9, glob: 2 |
-| tool errors by tool (total) | bash: 1, write: 1 |
-| bash calls blocked by permission (unquoted absolute path with a space) | 1 |
-| ran pytest / wrote own tests | 45% / 18% |
+| runs | 17 |
+| mean score (all runs) | 91% |
+| perfect runs / zero runs | 11 / 1 |
+| avg wall time | 53 s |
+| avg tokens in / out / reasoning | 29966 / 1646 / 1259 |
+| avg LLM steps per run | 5.5 |
+| avg tool calls per run (errors) | 7.9 (0.24) |
+| tool usage (total) | bash: 65, read: 28, edit: 24, write: 15, glob: 2 |
+| tool errors by tool (total) | bash: 3, write: 1 |
+| bash calls blocked by permission (unquoted absolute path with a space) | 3 |
+| ran pytest / wrote own tests | 53% / 12% |
 | timeouts | 0% |
 | edited protected test files | 0 |
 | question-tool attempts / final message is a question | 0 / 0% |
 | target file missing at end | 0 |
-| avg final message length | 276 chars |
+| avg final message length | 387 chars |
 | runs with provider/tool errors | 0 |
 
 ### Behaviour by prompt variant
@@ -44,8 +73,12 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 | variant | runs | mean score | wall s | tools/run | ran pytest | own tests | timeouts | final chars |
 |---|---|---|---|---|---|---|---|---|
 | v0_brief | 5 | 73% | 40 | 4.2 | 40% | 0% | 0% | 344 |
+| v10_spec_examples_env | 2 | 100% | 84 | 8.0 | 50% | 0% | 0% | 494 |
+| v11_spec_env_edge | 2 | 100% | 78 | 18.5 | 50% | 0% | 0% | 624 |
 | v1_spec | 4 | 97% | 42 | 5.2 | 25% | 0% | 0% | 225 |
 | v2_spec_verify | 2 | 94% | 41 | 7.5 | 100% | 100% | 0% | 209 |
+| g0_spec_env | 1 | 100% | 35 | 10.0 | 100% | 0% | 0% | 651 |
+| g1_spec_env_graph | 1 | 100% | 89 | 14.0 | 100% | 0% | 0% | 650 |
 
 ## 3. Failure analysis
 
@@ -58,12 +91,16 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 
 - iter1 `v0_brief`: **PASS** 16/16 in 36.2s, 8 tool calls, ran pytest.  ([run folder](runs/iter1/t2_bugfix/v0_brief))
 - iter1 `v2_spec_verify`: **PASS** 16/16 in 37.1s, 11 tool calls, ran pytest.  ([run folder](runs/iter1/t2_bugfix/v2_spec_verify))
+- iter2 `v10_spec_examples_env`: **PASS** 16/16 in 32.0s, 8 tool calls, ran pytest.  ([run folder](runs/iter2/t2_bugfix/v10_spec_examples_env))
+- iter2 `v11_spec_env_edge`: **PASS** 16/16 in 31.0s, 4 tool calls, ran pytest.  ([run folder](runs/iter2/t2_bugfix/v11_spec_env_edge))
 
 ### t3_todo_cli
 
 - iter1 `v0_brief`: **FAIL** 0/16 in 24.0s, 2 tool calls, never ran tests. failed: test_list_empty, test_add_prints_exact_line, test_add_and_list, test_done_marks_task, test_done_twice_ok, test_remove, test_ids_never_reused_after_remove, test_ids_never_reused_after_clear ... ([run folder](runs/iter1/t3_todo_cli/v0_brief))
 - iter1 `v1_spec`: **FAIL** 14/16 in 39.1s, 8 tool calls, never ran tests. failed: test_ids_never_reused_after_remove, test_ids_never_reused_after_clear ([run folder](runs/iter1/t3_todo_cli/v1_spec))
 - iter1 `v2_spec_verify`: **FAIL** 14/16 in 44.1s, 4 tool calls, ran pytest. failed: test_ids_never_reused_after_remove, test_ids_never_reused_after_clear ([run folder](runs/iter1/t3_todo_cli/v2_spec_verify))
+- iter2 `v10_spec_examples_env`: **PASS** 16/16 in 136.2s, 8 tool calls, never ran tests.  ([run folder](runs/iter2/t3_todo_cli/v10_spec_examples_env))
+- iter2 `v11_spec_env_edge`: **PASS** 16/16 in 125.1s, 33 tool calls, never ran tests.  ([run folder](runs/iter2/t3_todo_cli/v11_spec_env_edge))
 
 ### t4_scheduler
 
@@ -74,6 +111,11 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 
 - iter1 `v0_brief`: **FAIL** 11/12 in 46.1s, 5 tool calls, ran pytest. failed: test_no_function_longer_than_20_lines ([run folder](runs/iter1/t5_refactor/v0_brief))
 - iter1 `v1_spec`: **PASS** 12/12 in 53.1s, 5 tool calls, ran pytest.  ([run folder](runs/iter1/t5_refactor/v1_spec))
+
+### t6_repo_bugfix
+
+- iter3 `g0_spec_env`: **PASS** 14/14 in 35.0s, 10 tool calls, ran pytest.  ([run folder](runs/iter3/t6_repo_bugfix/g0_spec_env))
+- iter3 `g1_spec_env_graph`: **PASS** 14/14 in 89.1s, 14 tool calls, ran pytest.  ([run folder](runs/iter3/t6_repo_bugfix/g1_spec_env_graph))
 
 ## 4. Behaviour notes (hand-written)
 
@@ -115,9 +157,15 @@ Rules:
 
 ## 6. Sample final messages
 
-**best run** (t4_scheduler / iter1 / `v1_spec`, 22/22):
+**best run** (t2_bugfix / iter2 / `v11_spec_env_edge`, 16/16):
 
-> `scheduler.py` created with all three functions; all tests pass.
+> All 8 tests pass. Fixes applied to `inventory.py`:
+> 
+> 1. **`tags=[]` mutable default** → `tags=None` with a fresh `list(tags)` copy per item, so items never share a tag list.
+> 2. **`remove` deleting zero-qty items** → item now stays in inventory with `qty == 0`.
+> 3. **`low_stock` using `<`** → changed to `<=` so items at the threshold are included.
+> 4. **`search` only matching name, case-sensitively** → case-insensitive substring match on name OR any tag.
+> 5. **`page` 0-indexed (`start = number * size`)** → 1-indexed (`start = (number - 1) * size`); slicing naturally returns `[]` past the end.
 
 **worst run** (t3_todo_cli / iter1 / `v0_brief`, 0/16):
 

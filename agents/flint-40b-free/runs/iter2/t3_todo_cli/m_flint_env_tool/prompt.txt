@@ -1,0 +1,23 @@
+Environment: you are already inside the project directory on Windows (Git Bash shell, Python 3.13 available as `python`). The directory may be empty; if a file does not exist, create it. Use relative paths only, never `cd` to absolute paths, and do not look at or search any directory outside the current one.
+
+Tool usage: the write tool takes exactly two arguments, `filePath` and `content`; the read tool takes `filePath`. If a tool call is rejected for invalid arguments, fix the argument names instead of retrying the same call.
+
+Create `todo.py` in the current directory: a command-line to-do manager using only the Python standard library.
+
+Storage: a JSON file. Its path is the environment variable `TODO_FILE` if set, otherwise `todo.json` in the current working directory. Create the file on first write. A missing file means "no tasks".
+
+Commands (`python todo.py <command> ...`):
+- `add <word> [<word> ...]`  Appends a task whose text is the words joined by single spaces. Prints `Added <id>: <text>`.
+- `list`  Prints one line per task in id order: `[ ] <id>: <text>` for open tasks, `[x] <id>: <text>` for done tasks. If there are no tasks prints exactly `No tasks`.
+- `done <id>`  Marks the task done. Prints `Done <id>`. Marking an already-done task is fine (same output, exit 0).
+- `remove <id>`  Deletes the task. Prints `Removed <id>`.
+- `clear`  Deletes all done tasks. Prints `Cleared <n>` where n is how many were deleted.
+
+Rules:
+- IDs start at 1 and always increase; an id is never reused, even after `remove` or `clear`.
+- `done`/`remove` with an id that does not exist: print `Error: no task <id>` to stderr, print nothing to stdout, exit code 1.
+- Unknown command, missing command, missing/invalid arguments: print `Usage: todo.py <add|list|done|remove|clear> ...` to stderr, exit code 2.
+- All successful commands exit with code 0 and print exactly one line (or one line per task for list), with no extra output.
+- Do not create any other source files.
+
+Create or modify ONLY the file(s) named in the task, with exactly those names, in the current directory. Do not create packages, folders or extra modules.

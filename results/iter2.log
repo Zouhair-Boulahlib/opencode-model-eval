@@ -1,0 +1,81 @@
+=== ITER2 start sam.  7 nov. 2026 00:55:47 ===
+[00:55:47] 6 jobs, 2 workers, timeout 480s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[00:55:47] START flint-40b-free                 t3_todo_cli    m_flint_env_tool
+[00:55:47] START flint-40b-free                 t4_scheduler   m_flint_env_tool
+[00:58:11] DONE  flint-40b-free                 t3_todo_cli    m_flint_env_tool             16/16 wall= 135.1s tools=10  out_tok=7757   
+[00:58:11] START flint-40b-free                 t5_refactor    m_flint_env_tool
+[00:58:38] DONE  flint-40b-free                 t4_scheduler   m_flint_env_tool             22/22 wall= 168.1s tools=9   out_tok=10155  
+[00:58:38] START flint-40b-free                 t3_todo_cli    m_flint_env_tool_verify
+[01:01:31] DONE  flint-40b-free                 t5_refactor    m_flint_env_tool             12/12 wall= 196.2s tools=8   out_tok=12798  
+[01:01:31] START flint-40b-free                 t4_scheduler   m_flint_env_tool_verify
+[01:03:45] DONE  flint-40b-free                 t4_scheduler   m_flint_env_tool_verify      22/22 wall= 131.2s tools=11  out_tok=6589   
+[01:03:45] START flint-40b-free                 t5_refactor    m_flint_env_tool_verify
+[01:03:46] DONE  flint-40b-free                 t3_todo_cli    m_flint_env_tool_verify      16/16 wall= 297.3s tools=18  out_tok=15597  
+[01:09:26] DONE  flint-40b-free                 t5_refactor    m_flint_env_tool_verify      12/12 wall= 337.3s tools=13  out_tok=21135  
+[01:09:26] finished 6/6 runs in 13.6 min
+[01:09:26] 8 jobs, 2 workers, timeout 480s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[01:09:26] START nemotron-3.5-lightning-free    t3_todo_cli    v10_spec_examples_env
+[01:09:26] START nemotron-3.5-lightning-free    t2_bugfix      v10_spec_examples_env
+[01:10:56] DONE  nemotron-3.5-lightning-free    t2_bugfix      v10_spec_examples_env        16/16 wall=  87.1s tools=10  out_tok=1650   
+[01:10:56] START nemotron-3.5-lightning-free    t2_bugfix      v11_spec_env_edge
+[01:11:33] DONE  nemotron-3.5-lightning-free    t3_todo_cli    v10_spec_examples_env        16/16 wall= 118.1s tools=26  out_tok=3727   
+[01:11:33] START nemotron-3.5-lightning-free    t3_todo_cli    v11_spec_env_edge
+[01:12:25] DONE  nemotron-3.5-lightning-free    t2_bugfix      v11_spec_env_edge            16/16 wall=  86.1s tools=9   out_tok=1266   
+[01:12:25] START nemotron-3.5-super-vl-free     t2_bugfix      v10_spec_examples_env
+[01:13:00] DONE  nemotron-3.5-super-vl-free     t2_bugfix      v10_spec_examples_env        16/16 wall=  32.0s tools=8   out_tok=809    
+[01:13:00] START nemotron-3.5-super-vl-free     t3_todo_cli    v10_spec_examples_env
+[01:15:26] DONE  nemotron-3.5-super-vl-free     t3_todo_cli    v10_spec_examples_env        16/16 wall= 136.2s tools=8   out_tok=3419   
+[01:15:26] START nemotron-3.5-super-vl-free     t2_bugfix      v11_spec_env_edge
+[01:15:52] DONE  nemotron-3.5-lightning-free    t3_todo_cli    v11_spec_env_edge            16/16 wall= 249.2s tools=47  out_tok=5245   
+[01:15:52] START nemotron-3.5-super-vl-free     t3_todo_cli    v11_spec_env_edge
+[01:16:00] DONE  nemotron-3.5-super-vl-free     t2_bugfix      v11_spec_env_edge            16/16 wall=  31.0s tools=4   out_tok=1375   
+[01:18:06] DONE  nemotron-3.5-super-vl-free     t3_todo_cli    v11_spec_env_edge            16/16 wall= 125.1s tools=33  out_tok=4197   
+[01:18:06] finished 8/8 runs in 8.7 min
+[01:18:07] 12 jobs, 2 workers, timeout 420s, order=model, opencode=C:\Users\USER\AppData\Roaming\npm\node_modules\opencode-ai\bin\opencode.exe
+[01:18:07] START beam-free                      t4_scheduler   v6_brief_verify
+[01:18:07] START beam-free                      t1_slugify     v6_brief_verify
+[01:24:32] DONE  beam-free                      t4_scheduler   v6_brief_verify              22/22 wall= 382.4s tools=17  out_tok=2271   
+[01:24:32] START big-pickle                     t1_slugify     v6_brief_verify
+[01:25:11] DONE  beam-free                      t1_slugify     v6_brief_verify               0/22 wall= 420.9s tools=6   out_tok=222    TIMEOUT
+[01:25:11] START big-pickle                     t4_scheduler   v6_brief_verify
+[01:25:42] DONE  big-pickle                     t1_slugify     v6_brief_verify              21/22 wall=  66.1s tools=9   out_tok=1124   
+[01:25:42] START crouton-alpha-free             t1_slugify     v6_brief_verify
+[01:26:44] DONE  big-pickle                     t4_scheduler   v6_brief_verify              21/22 wall=  88.1s tools=8   out_tok=1673   
+[01:26:44] START crouton-alpha-free             t4_scheduler   v6_brief_verify
+[01:27:36] DONE  crouton-alpha-free             t1_slugify     v6_brief_verify              21/22 wall= 110.2s tools=8   out_tok=1248   
+[01:27:36] START deepseek-v4.1-flash-free       t1_slugify     v6_brief_verify
+[01:28:30] DONE  crouton-alpha-free             t4_scheduler   v6_brief_verify              21/22 wall= 102.1s tools=5   out_tok=1387   
+[01:28:30] START deepseek-v4.1-flash-free       t4_scheduler   v6_brief_verify
+[01:28:47] DONE  deepseek-v4.1-flash-free       t1_slugify     v6_brief_verify              21/22 wall=  67.1s tools=9   out_tok=1119   
+[01:28:47] START glm-5.3-flash-free             t1_slugify     v6_brief_verify
+[01:29:16] DONE  glm-5.3-flash-free             t1_slugify     v6_brief_verify              21/22 wall=  26.0s tools=4   out_tok=615    
+[01:29:16] START glm-5.3-flash-free             t4_scheduler   v6_brief_verify
+[01:29:32] DONE  deepseek-v4.1-flash-free       t4_scheduler   v6_brief_verify              21/22 wall=  59.1s tools=5   out_tok=1665   
+[01:29:32] START mimo-v2.6-flash-free           t1_slugify     v6_brief_verify
+[01:30:09] DONE  glm-5.3-flash-free             t4_scheduler   v6_brief_verify              21/22 wall=  49.0s tools=6   out_tok=1964   
+[01:30:09] START mimo-v2.6-flash-free           t4_scheduler   v6_brief_verify
+[01:31:33] RETRY mimo-v2.6-flash-free t1_slugify v6_brief_verify (events=0, rc=-9, wall=120.7s) errors=[]
+[01:31:33] QUOTA PAUSE (mimo-v2.6-flash-free t1_slugify v6_brief_verify produced no events); all workers wait until a probe succeeds
+[01:32:09] RETRY mimo-v2.6-flash-free t4_scheduler v6_brief_verify (events=0, rc=-9, wall=120.4s) errors=[]
+[01:32:49] QUOTA still exhausted, next probe in 300s
+[09:58:58] QUOTA still exhausted, next probe in 300s
+[10:05:14] QUOTA still exhausted, next probe in 300s
+[10:11:30] QUOTA still exhausted, next probe in 300s
+[10:17:46] QUOTA still exhausted, next probe in 300s
+[10:24:01] QUOTA still exhausted, next probe in 300s
+[10:30:17] QUOTA still exhausted, next probe in 300s
+[10:36:33] QUOTA still exhausted, next probe in 300s
+[10:42:48] QUOTA still exhausted, next probe in 300s
+[10:49:04] QUOTA still exhausted, next probe in 300s
+[10:55:20] QUOTA still exhausted, next probe in 300s
+[11:01:35] QUOTA still exhausted, next probe in 300s
+[11:07:51] QUOTA still exhausted, next probe in 300s
+[11:14:07] QUOTA still exhausted, next probe in 300s
+[11:20:23] QUOTA still exhausted, next probe in 300s
+[11:26:30] QUOTA OK: free tier answering again, resuming runs
+[11:29:25] DONE  mimo-v2.6-flash-free           t1_slugify     v6_brief_verify              22/22 wall= 171.2s tools=10  out_tok=1642   
+[11:31:26] DONE  mimo-v2.6-flash-free           t4_scheduler   v6_brief_verify              21/22 wall= 292.3s tools=5   out_tok=2513   
+[11:31:26] finished 12/12 runs in 613.3 min
+ITER2 EXIT 0
+reports written for 180 runs: REPORT.md, results/summary.csv, agents/*/REPORT.md
+QUEUE DONE sam.  7 nov. 2026 11:31:32

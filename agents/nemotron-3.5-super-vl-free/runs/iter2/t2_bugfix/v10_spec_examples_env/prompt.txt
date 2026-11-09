@@ -1,0 +1,16 @@
+Environment: you are already inside the project directory on Windows (Git Bash shell, Python 3.13 available as `python`). The directory may be empty; if a file does not exist, create it. Use relative paths only, never `cd` to absolute paths, and do not look at or search any directory outside the current one.
+
+The current directory contains `inventory.py` (a small in-memory inventory manager) and `test_inventory.py`. Several tests fail because `inventory.py` has bugs. Fix `inventory.py` so that every test passes. Do NOT edit `test_inventory.py` and do not create new source files.
+
+Intended behaviour of `Inventory` (the docstrings in the file describe it too):
+- `add(sku, name, qty, price, tags=None)`: adds stock. If the SKU already exists only `qty` is increased. Each item must own its own independent `tags` list (two items created without tags must never share the same list object). `qty <= 0` raises ValueError.
+- `remove(sku, qty)`: decreases stock. Unknown SKU raises KeyError; removing more than available raises ValueError. When the quantity reaches 0 the item stays in the inventory with qty 0 (it can be restocked later).
+- `get(sku)`: returns the Item or None.
+- `low_stock()`: sorted list of SKUs whose qty is less than OR EQUAL TO `low_stock_threshold`.
+- `total_value()`: sum of qty * price over all items, rounded to 2 decimals.
+- `search(term)`: case-insensitive substring match against the item name OR any of its tags; returns items sorted by sku.
+- `page(number, size)`: 1-indexed pagination over items sorted by sku; page 1 is the first `size` items; a page past the end returns [].
+
+Use only the Python standard library.
+
+Match the specified types and names exactly: return tuples where tuples are specified (not lists), use the exact file names, function names, parameter names and output strings given.

@@ -1,6 +1,6 @@
 # opencode/beam-free: behaviour and prompting report
 
-Generated 2026-11-06 16:11 from 15 runs. Best variant: `v1_spec` with mean score 100% (baseline `v0_brief`: 76%).
+Generated 2026-11-09 20:33 from 19 runs. Best variant: `v1_spec` with mean score 100% (baseline `v0_brief`: 76%).
 
 ## 1. Scores
 
@@ -13,7 +13,36 @@ Generated 2026-11-06 16:11 from 15 runs. Best variant: `v1_spec` with mean score
 | t3_todo_cli | 0/16 | 16/16 | 16/16 |
 | t4_scheduler | 20/22 | 22/22 | 22/22 |
 | t5_refactor | 11/12 | 12/12 | 12/12 |
+| t6_repo_bugfix | - | - | - |
 | **mean** | 76% | 100% | 100% |
+
+Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
+
+### Iteration 2
+
+| task | v6_brief_verify |
+|---|---|
+| t1_slugify | 0/22 T |
+| t2_bugfix | - |
+| t3_todo_cli | - |
+| t4_scheduler | 22/22 |
+| t5_refactor | - |
+| t6_repo_bugfix | - |
+| **mean** | 50% |
+
+Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
+
+### Iteration 3
+
+| task | g0_spec_env | g1_spec_env_graph |
+|---|---|---|
+| t1_slugify | - | - |
+| t2_bugfix | - | - |
+| t3_todo_cli | - | - |
+| t4_scheduler | - | - |
+| t5_refactor | - | - |
+| t6_repo_bugfix | 14/14 | 14/14 |
+| **mean** | 100% | 100% |
 
 Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).
 
@@ -21,22 +50,22 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 
 | metric | value |
 |---|---|
-| runs | 15 |
-| mean score (all runs) | 92% |
-| perfect runs / zero runs | 11 / 1 |
-| avg wall time | 65 s |
-| avg tokens in / out / reasoning | 37856 / 1402 / 2293 |
-| avg LLM steps per run | 8.7 |
-| avg tool calls per run (errors) | 8.8 (0.13) |
-| tool usage (total) | bash: 64, edit: 30, write: 18, read: 15, glob: 5 |
-| tool errors by tool (total) | bash: 2 |
+| runs | 19 |
+| mean score (all runs) | 88% |
+| perfect runs / zero runs | 14 / 2 |
+| avg wall time | 98 s |
+| avg tokens in / out / reasoning | 36385 / 1328 / 2032 |
+| avg LLM steps per run | 9.2 |
+| avg tool calls per run (errors) | 9.3 (0.32) |
+| tool usage (total) | bash: 98, edit: 34, read: 21, write: 18, glob: 6 |
+| tool errors by tool (total) | bash: 6 |
 | bash calls blocked by permission (unquoted absolute path with a space) | 1 |
-| ran pytest / wrote own tests | 60% / 33% |
-| timeouts | 0% |
+| ran pytest / wrote own tests | 63% / 32% |
+| timeouts | 5% |
 | edited protected test files | 0 |
 | question-tool attempts / final message is a question | 0 / 0% |
-| target file missing at end | 0 |
-| avg final message length | 20 chars |
+| target file missing at end | 1 |
+| avg final message length | 35 chars |
 | runs with provider/tool errors | 0 |
 
 ### Behaviour by prompt variant
@@ -46,6 +75,9 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 | v0_brief | 5 | 76% | 65 | 8.0 | 40% | 0% | 0% | 20 |
 | v1_spec | 5 | 100% | 52 | 7.8 | 40% | 0% | 0% | 22 |
 | v2_spec_verify | 5 | 100% | 78 | 10.6 | 100% | 100% | 0% | 18 |
+| v6_brief_verify | 2 | 50% | 402 | 11.5 | 50% | 50% | 50% | 9 |
+| g0_spec_env | 1 | 100% | 41 | 9.0 | 100% | 0% | 0% | 166 |
+| g1_spec_env_graph | 1 | 100% | 48 | 13.0 | 100% | 0% | 0% | 187 |
 
 ## 3. Failure analysis
 
@@ -54,6 +86,7 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 - iter1 `v0_brief`: **FAIL** 21/22 in 19.1s, 4 tool calls, never ran tests. failed: test_basic[Stra\xdfe \u65e5\u672c-stra-e] ([run folder](runs/iter1/t1_slugify/v0_brief))
 - iter1 `v1_spec`: **PASS** 22/22 in 31.1s, 4 tool calls, never ran tests.  ([run folder](runs/iter1/t1_slugify/v1_spec))
 - iter1 `v2_spec_verify`: **PASS** 22/22 in 48.1s, 10 tool calls, ran pytest.  ([run folder](runs/iter1/t1_slugify/v2_spec_verify))
+- iter2 `v6_brief_verify`: **TIMEOUT** 0/22 in 420.9s, 6 tool calls, never ran tests. target file never created ([run folder](runs/iter2/t1_slugify/v6_brief_verify))
 
 ### t2_bugfix
 
@@ -72,12 +105,18 @@ Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (sc
 - iter1 `v0_brief`: **FAIL** 20/22 in 30.1s, 3 tool calls, never ran tests. failed: test_merge_invalid_raises, test_free_empty_busy ([run folder](runs/iter1/t4_scheduler/v0_brief))
 - iter1 `v1_spec`: **PASS** 22/22 in 12.0s, 2 tool calls, never ran tests.  ([run folder](runs/iter1/t4_scheduler/v1_spec))
 - iter1 `v2_spec_verify`: **PASS** 22/22 in 41.1s, 8 tool calls, ran pytest.  ([run folder](runs/iter1/t4_scheduler/v2_spec_verify))
+- iter2 `v6_brief_verify`: **PASS** 22/22 in 382.4s, 17 tool calls, ran pytest.  ([run folder](runs/iter2/t4_scheduler/v6_brief_verify))
 
 ### t5_refactor
 
 - iter1 `v0_brief`: **FAIL** 11/12 in 63.1s, 11 tool calls, ran pytest. failed: test_no_function_longer_than_20_lines ([run folder](runs/iter1/t5_refactor/v0_brief))
 - iter1 `v1_spec`: **PASS** 12/12 in 79.2s, 11 tool calls, ran pytest.  ([run folder](runs/iter1/t5_refactor/v1_spec))
 - iter1 `v2_spec_verify`: **PASS** 12/12 in 63.1s, 9 tool calls, ran pytest.  ([run folder](runs/iter1/t5_refactor/v2_spec_verify))
+
+### t6_repo_bugfix
+
+- iter3 `g0_spec_env`: **PASS** 14/14 in 41.1s, 9 tool calls, ran pytest.  ([run folder](runs/iter3/t6_repo_bugfix/g0_spec_env))
+- iter3 `g1_spec_env_graph`: **PASS** 14/14 in 48.1s, 13 tool calls, ran pytest.  ([run folder](runs/iter3/t6_repo_bugfix/g1_spec_env_graph))
 
 ## 4. Behaviour notes (hand-written)
 

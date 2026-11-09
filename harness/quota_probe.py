@@ -22,7 +22,7 @@ import urllib.request
 from datetime import datetime, timedelta
 
 ENDPOINT = "https://opencode.ai/inference/openai/v1/chat/completions"
-MODEL = "pulse-alpha-free"
+MODEL = "big-pickle"  # pulse-alpha-free was retired on 2026-11-07
 
 
 def probe(timeout: int = 40) -> dict:

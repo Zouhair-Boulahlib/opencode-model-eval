@@ -10,3 +10,6 @@ results/_selftest/
 .env.local
 .env.*
 secrets/
+
+# crash dumps from Git Bash
+*.stackdump

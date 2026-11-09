@@ -1,0 +1,66 @@
+{
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "slug": "deepseek-v4.1-flash-free",
+  "task": "t4_scheduler",
+  "variant": "v6_brief_verify",
+  "rep": 0,
+  "iteration": 2,
+  "run_dir": "agents/deepseek-v4.1-flash-free/runs/iter2/t4_scheduler/v6_brief_verify",
+  "finished": "2026-11-07T01:29:32",
+  "wall_s": 59.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 21,
+  "total": 22,
+  "score": 0.9545,
+  "score_adj": 0.9545,
+  "failed_tests": [
+    "test_merge_invalid_raises"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py",
+    "test_own.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "glob": 1,
+    "bash": 2,
+    "write": 2
+  },
+  "tool_total": 5,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 5,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 11791,
+    "output": 1665,
+    "reasoning": 271,
+    "cache_read": 47360,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 16,
+  "session_id": "ses_e4c60de5affe1VaQ3twPqiz2TO",
+  "final_text": "Implemented `scheduler.py` with `merge_intervals`, `find_free_slots`, and `max_concurrent` (half-open intervals), plus `test_own.py`.\n\n`13 passed in 0.04s`",
+  "final_text_len": 155,
+  "final_text_asks_question": false,
+  "prompt_chars": 467
+}

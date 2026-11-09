@@ -55,6 +55,8 @@ MODELS = [
     "opencode/nemotron-3.5-super-vl-free",
     "opencode/pulse-alpha-free",
 ]
+# Models the free tier no longer serves: kept in MODELS for the reports, skipped by "--models all".
+RETIRED = {"opencode/pulse-alpha-free"}  # retired 2026-11-07
 # Extra providers/models (e.g. NVIDIA NIM "nvidia/z-ai/glm-5.3-flash") can be listed in
 # harness/models_extra.json as a JSON array of "provider/model" ids. They need credentials
 # configured in opencode (`opencode providers login` or the provider's env var).
@@ -91,7 +93,7 @@ def log(msg: str) -> None:
 # `opencode run` hangs without emitting a single event. A run that produces zero
 # events closes the gate; a background prober sends a tiny request every
 # PROBE_INTERVAL seconds and reopens the gate once a real answer comes back.
-PROBE_MODEL = "opencode/pulse-alpha-free"
+PROBE_MODEL = "opencode/big-pickle"  # pulse-alpha-free was retired on 2026-11-07
 PROBE_INTERVAL = 300
 _gate = threading.Event()
 _gate.set()
@@ -128,7 +130,11 @@ def _prober() -> None:
     while True:
         if quota_probe is not None:
             r = quota_probe.probe()
-            if not r["ok"] and r.get("retry_after_s"):
+            # Since 2026-11-07 the HTTP endpoint answers every non-OpenCode client with 429
+            # FreeUsageLimitError ("Free models work in OpenCode"), so its Retry-After is not a quota
+            # signal any more; only trust it when the message does not say that.
+            if (not r["ok"] and r.get("retry_after_s")
+                    and "work in OpenCode" not in (r.get("message") or "")):
                 wait = min(int(r["retry_after_s"]) + 30, 6 * 3600)
                 log(f"QUOTA exhausted; server says Retry-After {r['retry_after_s']}s "
                     f"(reset about {r.get('reset_at_local')}), sleeping {wait}s")
@@ -205,9 +211,23 @@ def sha(path: Path) -> str:
 def snapshot(ws: Path) -> dict[str, str]:
     out = {}
     for p in ws.rglob("*"):
-        if p.is_file() and "__pycache__" not in p.parts and ".pytest_cache" not in p.parts:
+        if (p.is_file() and "__pycache__" not in p.parts and ".pytest_cache" not in p.parts
+                and ".git" not in p.parts and p.name != "opencode.json"):
             out[str(p.relative_to(ws)).replace("\\", "/")] = sha(p)
     return out
+
+
+def isolate_workspace(ws: Path, agent_dir: Path) -> None:
+    """Make ws/ its own project so OpenCode's `external_directory: deny` starts at ws/.
+
+    OpenCode treats the enclosing git worktree as the project. Once this evaluation folder became a git
+    repository (2026-11-06), every run could read anything inside it, hidden tests included (one NVIDIA
+    MiniMax run did; see harness/isolation_scan.py). A git repository inside ws/ moves the boundary back to
+    ws/, and a copy of the agent's opencode.json keeps the pinned model and permissions, since config
+    discovery stops at the worktree root. Both are excluded from the file snapshot.
+    """
+    subprocess.run(["git", "init", "-q", str(ws)], check=True, capture_output=True)
+    shutil.copy2(agent_dir / "opencode.json", ws / "opencode.json")
 
 
 def kill_tree(pid: int) -> None:
@@ -228,8 +248,12 @@ def _last_line(path: Path) -> str:
         return ""
 
 
+STARTUP_TIMEOUT = 120
+
+
 def run_opencode(model: str, prompt: str, ws: Path, title: str, timeout: int, run_dir: Path,
-                 idle_after_stop: int = 20, startup_timeout: int = 120):
+                 idle_after_stop: int = 20, startup_timeout: int | None = None):
+    startup_timeout = startup_timeout or STARTUP_TIMEOUT
     """Run `opencode run` with cwd=ws. Returns (rc, timed_out, forced_exit, wall_s).
 
     opencode derives the session directory from the PWD environment variable, so PWD is
@@ -491,6 +515,7 @@ def do_run(model: str, tid: str, variant: str, iteration: int, rep: int, timeout
     starter = TASKS_DIR / tid / "starter"
     if starter.exists():
         shutil.copytree(starter, ws, dirs_exist_ok=True)
+    isolate_workspace(ws, AGENTS / s)
     before = snapshot(ws)
     prompt = build_prompt(tid, variant, s)
     (run_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
@@ -621,16 +646,20 @@ def main() -> None:
     ap.add_argument("--order", choices=["variant", "model"], default="variant",
                     help="variant: all models per variant first; model: finish each model's full matrix first")
     ap.add_argument("--probe-first", action="store_true", help="check the free-tier quota before starting")
+    ap.add_argument("--startup-timeout", type=int, default=120,
+                    help="seconds to wait for the first event before treating the run as hung (slow providers: 600+)")
     ap.add_argument("--adaptive", action="store_true",
                     help="skip a variant on a (model, task) whose preceding variant in --variants already scored 100%%")
     a = ap.parse_args()
+    global STARTUP_TIMEOUT
+    STARTUP_TIMEOUT = a.startup_timeout
     if a.selftest:
         selftest()
         return
     if a.probe_first and not probe_quota():
         quota_pause("startup probe failed")
     tasks = all_tasks() if a.tasks == ["all"] else a.tasks
-    models = MODELS if a.models == ["all"] else [model_from_slug(m) for m in a.models]
+    models = [m for m in MODELS if m not in RETIRED] if a.models == ["all"] else [model_from_slug(m) for m in a.models]
     jobs = []
     for rep in range(a.reps):
         for variant in a.variants:

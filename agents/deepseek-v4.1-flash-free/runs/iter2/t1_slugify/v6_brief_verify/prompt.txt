@@ -1,0 +1,3 @@
+Write a slugify(text, max_length=None) function in slugify.py that turns a string into a URL slug.
+
+After implementing, verify your work: write a quick test file named test_own.py covering the rules above (or use the tests already provided), run `python -m pytest -q`, and fix anything that fails. Do not finish until the tests pass. Include the final pytest summary line in your last message.

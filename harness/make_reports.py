@@ -49,12 +49,17 @@ def enrich(r: dict) -> dict:
 
 
 def load_results() -> list[dict]:
+    """All runs except those marked invalid (result.json "invalid_reason", e.g. a hidden-test read found by
+    harness/isolation_scan.py). Invalid runs stay on disk for transparency but never enter a report."""
     out = []
     for p in AGENTS.glob("*/runs/iter*/*/*/result.json"):
         try:
-            out.append(enrich(json.loads(p.read_text(encoding="utf-8"))))
+            r = json.loads(p.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
-            pass
+            continue
+        if r.get("invalid_reason"):
+            continue
+        out.append(enrich(r))
     return out
 
 

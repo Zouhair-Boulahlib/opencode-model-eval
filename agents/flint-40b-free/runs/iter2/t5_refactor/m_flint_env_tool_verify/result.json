@@ -1,0 +1,71 @@
+{
+  "model": "opencode/flint-40b-free",
+  "slug": "flint-40b-free",
+  "task": "t5_refactor",
+  "variant": "m_flint_env_tool_verify",
+  "rep": 0,
+  "iteration": 2,
+  "run_dir": "agents/flint-40b-free/runs/iter2/t5_refactor/m_flint_env_tool_verify",
+  "finished": "2026-11-07T01:09:26",
+  "wall_s": 337.3,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 1,
+  "infra_error": false,
+  "passed": 12,
+  "total": 12,
+  "score": 1.0,
+  "score_adj": 1.0,
+  "failed_tests": [],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "test_own.py"
+  ],
+  "files_modified": [
+    "orders.py"
+  ],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 8,
+    "read": 3,
+    "write": 2
+  },
+  "tool_total": 13,
+  "tool_errors": 5,
+  "question_attempts": 0,
+  "steps": 11,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 13397,
+    "output": 21135,
+    "reasoning": 0,
+    "cache_read": 248704,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 44,
+  "session_id": "ses_e4c778607ffeX7Rse1EMOExBqR",
+  "final_text": "Refactor complete. Summary:\n\n- **`orders.py`**: split the legacy `process_orders` into small helpers — `_copy_inventory`, `_evaluate_order`, `_check_items`, `_apply_stock` — keeping `process_orders(orders, inventory, discounts)` with identical behavior and return value, full type hints, and only the standard library (`typing`).\n- **Function sizes** (def line → last line): `process_orders` = 19, `_copy_inventory` = 3, `_evaluate_order` = 10, `_check_items` = 17, `_apply_stock` = 4 — all ≤ 20.\n- **`test_orders.py`**: untouched and still passing.\n- **`test_own.py`**: created with checks for behavior, signature/return type, 20-line limit, type hints, and stdlib-only imports.\n\nFinal verification: `python -m pytest -q` → **10 passed in 0.04s** (5 original + 5 new tests, all green).",
+  "final_text_len": 786,
+  "final_text_asks_question": false,
+  "prompt_chars": 1869
+}

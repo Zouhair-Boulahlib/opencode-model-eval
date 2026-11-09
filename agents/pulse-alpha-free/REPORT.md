@@ -1,6 +1,6 @@
 # opencode/pulse-alpha-free: behaviour and prompting report
 
-Generated 2026-11-06 16:11 from 10 runs. Best variant: `v2_spec_verify` with mean score 100% (baseline `v0_brief`: 79%).
+Generated 2026-11-09 20:33 from 10 runs. Best variant: `v2_spec_verify` with mean score 100% (baseline `v0_brief`: 79%).
 
 ## 1. Scores
 
@@ -13,6 +13,7 @@ Generated 2026-11-06 16:11 from 10 runs. Best variant: `v2_spec_verify` with mea
 | t3_todo_cli | 0/16 | 16/16 | - |
 | t4_scheduler | 21/22 | 22/22 | - |
 | t5_refactor | 12/12 | - | 12/12 |
+| t6_repo_bugfix | - | - | - |
 | **mean** | 79% | 100% | 100% |
 
 Legend: `passed/total`; `T` = timed out; `P!` = edited a protected test file (scored 0).

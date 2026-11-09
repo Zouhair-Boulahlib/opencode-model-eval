@@ -1,0 +1,65 @@
+{
+  "model": "opencode/mimo-v2.6-flash-free",
+  "slug": "mimo-v2.6-flash-free",
+  "task": "t4_scheduler",
+  "variant": "v6_brief_verify",
+  "rep": 0,
+  "iteration": 2,
+  "run_dir": "agents/mimo-v2.6-flash-free/runs/iter2/t4_scheduler/v6_brief_verify",
+  "finished": "2026-11-07T11:31:26",
+  "wall_s": 292.3,
+  "exit_code": 0,
+  "timed_out": false,
+  "forced_exit_after_stop": false,
+  "attempts": 2,
+  "infra_error": false,
+  "passed": 21,
+  "total": 22,
+  "score": 0.9545,
+  "score_adj": 0.9545,
+  "failed_tests": [
+    "test_merge_invalid_raises"
+  ],
+  "collection_error": false,
+  "protected_ok": true,
+  "expected_files_present": true,
+  "files_created": [
+    "scheduler.py",
+    "test_own.py"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "wrote_own_tests": true,
+  "ran_pytest": true,
+  "ran_python": true,
+  "tool_calls": {
+    "bash": 2,
+    "glob": 1,
+    "write": 2
+  },
+  "tool_total": 5,
+  "tool_errors": 0,
+  "question_attempts": 0,
+  "steps": 4,
+  "finish_reasons": [
+    "tool-calls",
+    "tool-calls",
+    "tool-calls",
+    "stop"
+  ],
+  "tokens": {
+    "input": 21896,
+    "output": 2513,
+    "reasoning": 8547,
+    "cache_read": 43328,
+    "cache_write": 0
+  },
+  "cost": 0.0,
+  "errors": [],
+  "n_events": 15,
+  "session_id": "ses_e4a3d6254ffe5tl4qAjP5nVoFV",
+  "final_text": "`scheduler.py` implements the three functions with half-open `[start, end)` integer-minute semantics; `test_own.py` covers merging (overlap/touching/nested/empty/invalid), free-slot finding (gaps, min length, day bounds, bad args), and concurrency (peak counting, touching vs overlapping).\n\n```text\n30 passed in 0.20s\n```",
+  "final_text_len": 321,
+  "final_text_asks_question": false,
+  "prompt_chars": 467
+}
